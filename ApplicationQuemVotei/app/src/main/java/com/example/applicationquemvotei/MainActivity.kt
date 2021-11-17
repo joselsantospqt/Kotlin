@@ -10,11 +10,12 @@ import android.widget.Toast
 const val PROIBIDO = -1
 const val FACULTATIVO = 0
 const val OBRIGATORIO = 1
+const val NOME_EXTRA = "nome"
+const val CIDADE_EXTRA = "cidade"
 const val IDADE_EXTRA = "idade"
 
 class MainActivity : AppCompatActivity() {
     val TAG = "QUEM VOTEI"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 val signupIntent = Intent(this,
                     SignUpActivity::class.java)
 
-                signupIntent.putExtra("idade", idade)
+                signupIntent.putExtra(IDADE_EXTRA, idade)
 
                 startActivity(signupIntent)
             }

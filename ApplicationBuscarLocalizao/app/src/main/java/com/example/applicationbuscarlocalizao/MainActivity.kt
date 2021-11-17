@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(){
                 val latitude = it.latitude
                 val longitude = it.longitude
                 txtView.text = "Latitude: $latitude, Longitude: $longitude"
-                val mapIntent : Intent = Uri.parse("geo: $latitude , $longitude ?z=zoom").let { location ->
+                val mapIntent : Intent = Uri.parse("geo: $latitude,$longitude  ?z=zoom").let { location ->
                     Intent(Intent.ACTION_VIEW, location)
                 }
                 startActivity(mapIntent)
