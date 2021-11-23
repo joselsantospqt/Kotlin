@@ -17,11 +17,14 @@ const val IDADE_EXTRA = "idade"
 class MainActivity : AppCompatActivity() {
     val TAG = "QUEM VOTEI"
 
+    private lateinit var idade_edittext: TextView
+    private lateinit var avancar_button: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val idade_edittext = findViewById<TextView>(R.id.idade_edittext)
-        val avancar_button = findViewById<Button>(R.id.avancar_button)
+        idade_edittext = findViewById<TextView>(R.id.idade_edittext)
+        avancar_button = findViewById<Button>(R.id.avancar_button)
         avancar_button.setOnClickListener {
             val idade = idade_edittext.text.toString()
             val status = deveVotar(idade.toInt())
@@ -42,14 +45,6 @@ class MainActivity : AppCompatActivity() {
             }
             // muda o texto escrito no botão
             avancar_button.text = "Apertou"
-        }
-    }
-
-    fun deveVotar(idade: Int): Int {
-        when (idade) {
-            in 18..69 -> return OBRIGATORIO
-            in 0..15 -> return PROIBIDO
-            else -> return FACULTATIVO
         }
     }
 }
