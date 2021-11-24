@@ -13,7 +13,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
         val txtIdade = findViewById<TextView>(R.id.txtIdade)
         val btn_cadastrar = findViewById<Button>(R.id.btnCadastrar)
-        var idade = intent.getStringExtra(IDADE_EXTRA)
+        val idade = intent.getStringExtra(IDADE_EXTRA)
         txtIdade.text = idade
         btn_cadastrar.setOnClickListener {
             criarSessao()

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragment_tela1">
+
+    <fragment
+        android:id="@+id/fragment_tela1"
+        android:name="com.example.applicationfragment.fragment_tela1"
+        android:label="fragment_tela1"
+        tools:layout="@layout/fragment_tela1" >
+        <action
+            android:id="@+id/action_fragment_tela1_to_fragment_tela2"
+            app:destination="@id/fragment_tela2" />
+        <action
+            android:id="@+id/action_fragment_tela1_to_fragment_tela3"
+            app:destination="@id/fragment_tela3" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_tela2"
+        android:name="com.example.applicationfragment.fragment_tela2"
+        android:label="fragment_tela2"
+        tools:layout="@layout/fragment_tela2" />
+    <fragment
+        android:id="@+id/fragment_tela3"
+        android:name="com.example.applicationfragment.fragment_tela3"
+        android:label="fragment_tela3"
+        tools:layout="@layout/fragment_tela3" />
+</navigation>

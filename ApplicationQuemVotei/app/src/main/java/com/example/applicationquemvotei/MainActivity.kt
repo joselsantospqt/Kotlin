@@ -6,45 +6,29 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-
-const val PROIBIDO = -1
-const val FACULTATIVO = 0
-const val OBRIGATORIO = 1
-const val NOME_EXTRA = "nome"
-const val CIDADE_EXTRA = "cidade"
-const val IDADE_EXTRA = "idade"
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
-    val TAG = "QUEM VOTEI"
-
-    private lateinit var idade_edittext: TextView
-    private lateinit var avancar_button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        idade_edittext = findViewById<TextView>(R.id.idade_edittext)
-        avancar_button = findViewById<Button>(R.id.avancar_button)
-        avancar_button.setOnClickListener {
-            val idade = idade_edittext.text.toString()
-            val status = deveVotar(idade.toInt())
-            if (status == PROIBIDO){
-                Toast.makeText(this,
-                    "Você NÃO PODE usar este APP ainda!",
-                    Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(this,
-                    "Vamos prosseguir com o seu perfil!",
-                    Toast.LENGTH_LONG).show()
-                val signupIntent = Intent(this,
-                    SignUpActivity::class.java)
 
-                signupIntent.putExtra(IDADE_EXTRA, idade)
-
-                startActivity(signupIntent)
-            }
-            // muda o texto escrito no botão
-            avancar_button.text = "Apertou"
+        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPageTela)
+        viewPager.adapter = TabAdapter(this)
+        TabLayoutMediator(tabLayout, viewPager){
+            tab, position ->
+                viewPager.setCurrentItem(tab.position, true)
+            if (position == 2)
+                tab.setText("Perfil")
+            if (position == 1)
+                tab.setText("Dados")
+            if (position == 0)
+                tab.setText("Home")
         }
+
     }
 }

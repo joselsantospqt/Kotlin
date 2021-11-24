@@ -1,28 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dd74953-8059-4402-a3a0-df4f3d4d5e7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="715efa7e-ff82-445f-a703-196aef0e362d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Duvida.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/EleicoesFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/FaqFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/PerfilFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/HomeActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Mocky.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_eleicoes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_faq.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_perfil.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/menu/bottom_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/navigation/host_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Kotlin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/ProfileActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/SignUpActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/SignUpActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jose.pereira.SENIORSOLUTION\.android\avd\Pixel_2_API_28.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="navigationResourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="20iU3Qiwvwgg9HyiONEA0B2laoa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="21MBb8g37ri0tSLHaIFXxFYsU8v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,41 +99,80 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ApplicationQuemVotei" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ApplicationFragment" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="ApplicationFragment.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1dd74953-8059-4402-a3a0-df4f3d4d5e7b" name="Default Changelist" comment="" />
-      <created>1636526701630</created>
+      <changelist id="715efa7e-ff82-445f-a703-196aef0e362d" name="Default Changelist" comment="" />
+      <created>1637741145136</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636526701630</updated>
+      <updated>1637741145136</updated>
     </task>
-    <task id="LOCAL-00001" summary="Nova organização dos projetos">
-      <created>1636526752991</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1636526752991</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Nova organização dos projetos">
-      <created>1636527403370</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1636527403370</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Inclusão do Projeto Flag Quiz">
-      <created>1636527528249</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1636527528249</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,10 +186,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Nova organização dos projetos" />
-    <MESSAGE value="Inclusão do Projeto Flag Quiz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inclusão do Projeto Flag Quiz" />
   </component>
 </project>

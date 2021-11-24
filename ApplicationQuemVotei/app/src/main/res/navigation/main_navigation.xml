@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/etapa1">
+
+    <fragment
+        android:id="@+id/etapa1"
+        android:name="com.example.applicationquemvotei.Etapa1"
+        android:label="fragment_etapa1"
+        tools:layout="@layout/fragment_etapa1" >
+        <action
+            android:id="@+id/action_etapa1_to_etapa2"
+            app:destination="@id/etapa2" />
+    </fragment>
+    <fragment
+        android:id="@+id/etapa2"
+        android:name="com.example.applicationquemvotei.Etapa2"
+        android:label="fragment_etapa2"
+        tools:layout="@layout/fragment_etapa2" >
+        <action
+            android:id="@+id/action_etapa2_to_etapa3"
+            app:destination="@id/etapa3" />
+    </fragment>
+    <fragment
+        android:id="@+id/etapa3"
+        android:name="com.example.applicationquemvotei.Etapa3"
+        android:label="fragment_etapa3"
+        tools:layout="@layout/fragment_etapa3" />
+</navigation>
