@@ -12,12 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationQuemVotei">
         <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity2"
-            android:exported="false" />
-        <activity
             android:name=".ProfileActivity"
             android:exported="true" />
         <activity

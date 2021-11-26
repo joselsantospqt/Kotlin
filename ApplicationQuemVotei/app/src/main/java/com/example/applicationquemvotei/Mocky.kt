@@ -9,7 +9,6 @@ const val NOME_EXTRA = "nome"
 const val CIDADE_EXTRA = "cidade"
 const val IDADE_EXTRA = "idade"
 
-
 val duvidas = listOf(
     Duvida("O voto é obrigatório a partir de que idade?",
         "Além de ser um direito, o voto é obrigatório no Brasil para os cidadãos brasileiros alfabetizados maiores de 18 e menores de 70 anos. É facultativo para quem tem entre 16 e 18 anos, para os maiores de 70 anos e para pessoas analfabetas.",

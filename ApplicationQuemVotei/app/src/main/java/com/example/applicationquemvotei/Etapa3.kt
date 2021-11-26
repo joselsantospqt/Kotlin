@@ -10,9 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-private lateinit var txtInfo: TextView
-
 class Etapa3 : Fragment() {
+
+    private lateinit var txtInfo: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,21 +30,43 @@ class Etapa3 : Fragment() {
             startActivity(callIntent)
         }
 
-        val nome = "" //getActivity().getIntent().getExtras().getString(NOME_EXTRA)
-        val cidade = "" //getActivity().getIntent().getExtras().getString(CIDADE_EXTRA)
-        val idade = " " //getActivity().getIntent().getExtras().getString(IDADE_EXTRA)
+        val nome = arguments?.get(NOME_EXTRA).toString()
+        val cidade = arguments?.get(CIDADE_EXTRA).toString()
+//        val idade = arguments?.get(IDADE_EXTRA).toString()
+        val idade = "11"
 
         view.findViewById<TextView>(R.id.txtNomeFinal).text = nome
         view.findViewById<TextView>(R.id.txtLocalidade).text = cidade
         view.findViewById<TextView>(R.id.txtAnos).text = idade
 
 
-        view.findViewById<TextView>(R.id.txtInfo).text = when(deveVotar(idade.toString().toInt())){
+        view.findViewById<TextView>(R.id.txtInfo).text = when(deveVotar(idade.toInt())){
             FACULTATIVO -> "Seu voto será FACULTATIVO na próxima eleição"
             OBRIGATORIO -> "Seu voto será OBRIGATÓRIO na próxima eleição"
             else -> "Menor de 16? Como veio parar aqui?"
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Lista de TextViews que exibirão o texto das perguntas
+//        val perguntasTextViews = listOf(p1_textview,
+//            p2_textview,
+//            p3_textview,
+//            p4_textview,
+//            p5_textview)
+//        // Lista de TextViews que exibirão o texto das respostas
+//        val respostasTextViews = listOf(r1_textview,
+//            r2_textview,
+//            r3_textview,
+//            r4_textview,
+//            r5_textview)
+//        // Configura cada texto iterativamente
+//        for (i in duvidas.indices){
+//            perguntasTextViews[i].text = duvidas[i].pergunta
+//            respostasTextViews[i].text = duvidas[i].resposta
+//        }
     }
 }

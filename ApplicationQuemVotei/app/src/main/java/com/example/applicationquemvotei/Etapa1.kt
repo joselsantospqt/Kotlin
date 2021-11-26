@@ -25,7 +25,8 @@ class Etapa1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_etapa1, container, false)
-//        val navController = findNavController()
+        val bundle = Bundle()
+        val navController = findNavController()
 
         idade_edittext = view.findViewById<TextView>(R.id.idade_edittext)
         avancar_button = view.findViewById<Button>(R.id.avancar_button)
@@ -40,19 +41,12 @@ class Etapa1 : Fragment() {
                 Toast.makeText(view.context,
                     "Vamos prosseguir com o seu perfil!",
                     Toast.LENGTH_LONG).show()
-            //    navController.navigate(R.id.action_etapa1_to_etapa2)
-
-            //    val signupIntent = Intent(view.context,
-            //        Etapa2::class.java)
-            //    signupIntent.putExtra(IDADE_EXTRA, idade)
-            //startActivity(signupIntent)
-
-
+                bundle.putString("teste", idade)
+                navController.navigate(R.id.action_etapa1_to_etapa2)
             }
             // muda o texto escrito no botão
             avancar_button.text = "Apertou"
         }
-
         return view
     }
 }
