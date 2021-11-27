@@ -41,8 +41,8 @@ class Etapa1 : Fragment() {
                 Toast.makeText(view.context,
                     "Vamos prosseguir com o seu perfil!",
                     Toast.LENGTH_LONG).show()
-                bundle.putString("teste", idade)
-                navController.navigate(R.id.action_etapa1_to_etapa2)
+                bundle.putString("idade", idade)
+                navController.navigate(R.id.action_etapa1_to_etapa2, bundle)
             }
             // muda o texto escrito no botão
             avancar_button.text = "Apertou"

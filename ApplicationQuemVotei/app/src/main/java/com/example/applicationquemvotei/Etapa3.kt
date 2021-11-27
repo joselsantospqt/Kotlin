@@ -30,10 +30,10 @@ class Etapa3 : Fragment() {
             startActivity(callIntent)
         }
 
-        val nome = arguments?.get(NOME_EXTRA).toString()
-        val cidade = arguments?.get(CIDADE_EXTRA).toString()
-//        val idade = arguments?.get(IDADE_EXTRA).toString()
-        val idade = "11"
+        val nome = arguments?.get("nome").toString()
+        val cidade = arguments?.get("cidade").toString()
+        val idade = arguments?.get("idade").toString()
+
 
         view.findViewById<TextView>(R.id.txtNomeFinal).text = nome
         view.findViewById<TextView>(R.id.txtLocalidade).text = cidade

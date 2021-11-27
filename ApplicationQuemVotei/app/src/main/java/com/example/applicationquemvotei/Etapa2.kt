@@ -22,7 +22,7 @@ class Etapa2 : Fragment() {
         val navController = findNavController()
         val txtIdade = view.findViewById<TextView>(R.id.txtIdade)
         val btn_cadastrar = view.findViewById<Button>(R.id.btnCadastrar)
-        val idade = arguments?.get("teste").toString()
+        val idade = arguments?.get("idade").toString()
         txtIdade.text = "$idade anos"
         btn_cadastrar.setOnClickListener {
             val txtNome = view.findViewById<TextView>(R.id.txtNomeFinal)
@@ -30,9 +30,10 @@ class Etapa2 : Fragment() {
             val nome = txtNome.text.toString()
             val cidade = txtCidade.text.toString()
             val bundle = Bundle()
-            bundle.putString(NOME_EXTRA, nome)
-            bundle.putString(CIDADE_EXTRA, cidade)
-            navController.navigate(R.id.action_etapa2_to_etapa3)
+            bundle.putString("nome", nome)
+            bundle.putString("cidade", cidade)
+            bundle.putString("idade", idade)
+            navController.navigate(R.id.action_etapa2_to_etapa3, bundle)
         }
         return view
     }
