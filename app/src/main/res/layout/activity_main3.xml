@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity3">
+
+    <EditText
+        android:id="@+id/txtRemententetela3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="De" />
+
+    <EditText
+        android:id="@+id/txtEmailtela3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Para"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtMensagemtela3"
+        android:layout_width="match_parent"
+        android:layout_height="287dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Mensagem"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Enviar" />
+
+
+</LinearLayout>

@@ -9,29 +9,28 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715efa7e-ff82-445f-a703-196aef0e362d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Duvida.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/EleicoesFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/FaqFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Fragment/PerfilFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/HomeActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/Mocky.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_eleicoes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_faq.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/fragment_perfil.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/menu/bottom_menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/navigation/host_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Kotlin.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/SignUpActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/java/com/example/applicationquemvotei/SignUpActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationQuemVotei/app/src/main/res/values/strings.xml" afterDir="false" />
+    <list default="true" id="050af68a-6b02-49b7-8910-95482b2c67ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tp3_desenvolvimento_interface/MainActivity2.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tp3_desenvolvimento_interface/MainActivity3.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/wpp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App_Navegacao/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App_Navegacao/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationFrameLayout/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationFrameLayout/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationLayouts/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApplicationLayouts/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +51,16 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+                <item name="TP3_Desenvolvimento_Interface" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+                <item name="TP3_Desenvolvimento_Interface" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ApplicationFragment" type="f1a62948:ProjectNode" />
+                <item name="TP3_Desenvolvimento_Interface" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
@@ -71,13 +70,6 @@
         </projects_view>
       </state>
     </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="navigationResourceFile" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,23 +82,38 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProjectId" id="21MBb8g37ri0tSLHaIFXxFYsU8v" />
+  <component name="ProjectId" id="21a93BJt43Htsbo3Uc15Wi9mOTp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ApplicationFragment" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\VM\GitHub\Kotlin\app\src\main\res\drawable" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\VM\GitHub\Kotlin\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.905645700">
+      <recent name="com.example.tp3_desenvolvimento_interface" />
+    </key>
+    <key name="android.template.-1415285757">
+      <recent name="com.example.tp3_desenvolvimento_interface" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="ApplicationFragment.app" />
+      <module name="TP3_Desenvolvimento_Interface.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -167,11 +174,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="715efa7e-ff82-445f-a703-196aef0e362d" name="Default Changelist" comment="" />
-      <created>1637741145136</created>
+      <changelist id="050af68a-6b02-49b7-8910-95482b2c67ce" name="Default Changelist" comment="" />
+      <created>1638168130682</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1637741145136</updated>
+      <updated>1638168130682</updated>
     </task>
     <servers />
   </component>
