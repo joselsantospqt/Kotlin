@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/page1">
+    app:startDestination="@id/page0">
 
+    <fragment
+        android:id="@+id/page0"
+        android:name="com.example.applicationperfilinvestidor.Page0"
+        android:label="fragment_page0"
+        tools:layout="@layout/fragment_page0" >
+        <action
+            android:id="@+id/action_page0_to_page1"
+            app:destination="@id/page1" />
+    </fragment>
     <fragment
         android:id="@+id/page1"
         android:name="com.example.applicationperfilinvestidor.Page1"
@@ -14,54 +23,82 @@
             android:id="@+id/action_page1_to_page2"
             app:destination="@id/page2" />
     </fragment>
+
     <fragment
-        android:id="@+id/page2"
-        android:name="com.example.applicationperfilinvestidor.Page2"
-        android:label="fragment_page2"
-        tools:layout="@layout/fragment_page2" >
+    android:id="@+id/page2"
+    android:name="com.example.applicationperfilinvestidor.Page2"
+    android:label="fragment_page2"
+    tools:layout="@layout/fragment_page2" >
         <action
-            android:id="@+id/action_page2_to_page3"
-            app:destination="@id/page3" />
+        android:id="@+id/action_page2_to_page3"
+        app:destination="@id/page3" />
     </fragment>
     <fragment
-        android:id="@+id/page3"
-        android:name="com.example.applicationperfilinvestidor.Page3"
-        android:label="fragment_page3"
-        tools:layout="@layout/fragment_page3" >
+    android:id="@+id/page3"
+    android:name="com.example.applicationperfilinvestidor.Page3"
+    android:label="fragment_page3"
+    tools:layout="@layout/fragment_page3" >
         <action
-            android:id="@+id/action_page3_to_page4"
-            app:destination="@id/page4" />
+        android:id="@+id/action_page3_to_page4"
+        app:destination="@id/page4" />
     </fragment>
     <fragment
-        android:id="@+id/page4"
-        android:name="com.example.applicationperfilinvestidor.Page4"
-        android:label="fragment_page4"
-        tools:layout="@layout/fragment_page4" >
+    android:id="@+id/page4"
+    android:name="com.example.applicationperfilinvestidor.Page4"
+    android:label="fragment_page4"
+    tools:layout="@layout/fragment_page4" >
         <action
-            android:id="@+id/action_page4_to_page5"
-            app:destination="@id/page5" />
+        android:id="@+id/action_page4_to_page5"
+        app:destination="@id/page5" />
     </fragment>
     <fragment
-        android:id="@+id/page5"
-        android:name="com.example.applicationperfilinvestidor.Page5"
-        android:label="fragment_page5"
-        tools:layout="@layout/fragment_page5" >
+    android:id="@+id/page5"
+    android:name="com.example.applicationperfilinvestidor.Page5"
+    android:label="fragment_page5"
+    tools:layout="@layout/fragment_page5" >
         <action
-            android:id="@+id/action_page5_to_page6"
-            app:destination="@id/page6" />
+        android:id="@+id/action_page5_to_page6"
+        app:destination="@id/page6" />
     </fragment>
     <fragment
-        android:id="@+id/page6"
-        android:name="com.example.applicationperfilinvestidor.Page6"
-        android:label="fragment_page6"
-        tools:layout="@layout/fragment_page6" >
+    android:id="@+id/page6"
+    android:name="com.example.applicationperfilinvestidor.Page6"
+    android:label="fragment_page6"
+    tools:layout="@layout/fragment_page6" >
         <action
-            android:id="@+id/action_page6_to_page7"
-            app:destination="@id/page7" />
+        android:id="@+id/action_page6_to_page7"
+        app:destination="@id/page7" />
     </fragment>
     <fragment
-        android:id="@+id/page7"
-        android:name="com.example.applicationperfilinvestidor.Page7"
-        android:label="fragment_page7"
-        tools:layout="@layout/fragment_page7" />
+    android:id="@+id/page7"
+    android:name="com.example.applicationperfilinvestidor.Page7"
+    android:label="fragment_page7"
+    tools:layout="@layout/fragment_page7" >
+        <action
+        android:id="@+id/action_page7_to_page8"
+        app:destination="@id/page8" />
+    </fragment>
+    <fragment
+    android:id="@+id/page8"
+    android:name="com.example.applicationperfilinvestidor.Page8"
+    android:label="fragment_page8"
+    tools:layout="@layout/fragment_page8" >
+        <action
+        android:id="@+id/action_page8_to_page9"
+        app:destination="@id/page9" />
+    </fragment>
+    <fragment
+    android:id="@+id/page9"
+    android:name="com.example.applicationperfilinvestidor.Page9"
+    android:label="fragment_page9"
+    tools:layout="@layout/fragment_page9" >
+        <action
+        android:id="@+id/action_page9_to_pageFinally"
+        app:destination="@id/pageFinally" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageFinally"
+        android:name="com.example.applicationperfilinvestidor.PageFinally"
+        android:label="fragment_page_finally"
+        tools:layout="@layout/fragment_page_finally" />
 </navigation>

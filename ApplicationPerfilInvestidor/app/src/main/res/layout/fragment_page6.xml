@@ -7,38 +7,65 @@
     android:layout_height="match_parent"
     tools:context=".Page6">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="264dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="6. Como está distribuído o seu patrimônio? "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup6"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <RadioButton
+            android:id="@+id/radioButton19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meu patrimônio não está aplicado ou está todo aplicado em renda taxa e/ou
+imóveis " />
+
+        <RadioButton
+            android:id="@+id/radioButton20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menos de 25% em renda variável e o restante em renda taxa e/ou imóveis " />
 
         <RadioButton
             android:id="@+id/radioButton21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Entre 25,01 e 50% aplicado em renda variável e o restante em renda taxa
+e/ou imóveis" />
 
         <RadioButton
             android:id="@+id/radioButton22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/radioButton23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/radioButton24"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text=" Acima de 50% em renda variável " />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnAvancarTela6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Avançar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,26 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout7"
+    android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Page7">
+    tools:context=".Page8" >
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView8"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="7. Em relação as aplicações e rendimentos, em qual dessas situações você
- se enquadra? "
+        android:text="8. Qual sua faixa de renda mensal média?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup7"
+        android:id="@+id/radioGroup8"
         android:layout_width="0dp"
         android:layout_height="192dp"
         android:layout_marginStart="16dp"
@@ -29,40 +28,35 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <RadioButton
-            android:id="@+id/radioButton23"
+            android:id="@+id/radioButton27"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Conto com o rendimento dessas aplicações para complementar minha
-renda mensal " />
+            android:text=" Até R$ 1.000 " />
 
         <RadioButton
-            android:id="@+id/radioButton24"
+            android:id="@+id/radioButton28"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Eventualmente posso resgatar parte das aplicações para fazer frente aos
-meus gastos. Contudo, não tenho intenção de resgatar no curto prazo e
-pretendo fazer aplicações regulares" />
+            android:text="De R$ 1.001 até R$ 5.000 " />
 
         <RadioButton
-            android:id="@+id/radioButton25"
+            android:id="@+id/radioButton29"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ão tenho intenção de resgatar no curto prazo, mas não pretendo realizar
-novas aplicações" />
+            android:text="De R$ 1.001 até R$ 5.000 " />
 
         <RadioButton
-            android:id="@+id/radioButton26"
+            android:id="@+id/radioButton30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Não tenho intenção de resgatar no curto prazo e ainda pretendo fazer
-aplicações regulares" />
+            android:text=" Acima de R$ 10.000" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnAvancarTela7"
+        android:id="@+id/btnAvancarTela8"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -71,5 +65,5 @@ aplicações regulares" />
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup7" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,27 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private var valorPage = 0
+private lateinit var avancar_button: Button
+private lateinit var botoes_radios: Array<RadioButton>
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Page4.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Page4 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -34,26 +28,47 @@ class Page4 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page4, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_page4, container, false)
+        val bundle = Bundle()
+        val navController = findNavController()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Page4.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Page4().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        botoes_radios = arrayOf(
+            view.findViewById<RadioButton>(R.id.radioButton13),
+            view.findViewById<RadioButton>(R.id.radioButton14),
+            view.findViewById<RadioButton>(R.id.radioButton15)
+        )
+        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela4)
+        avancar_button.setOnClickListener {
+            if(botoes_radios[0].isChecked ||
+                botoes_radios[1].isChecked ||
+                botoes_radios[2].isChecked)
+                navController.navigate(R.id.action_page4_to_page5)
+            else
+                Toast.makeText(view.context,
+                    "Você precisa selecionar uma opção !!",
+                    Toast.LENGTH_LONG).show()
+
+        }
+        for(i in 0..2){
+            botoes_radios[i].setOnClickListener{
+
+                if(i == 0){
+                    valorPage = 0
                 }
+                else if(i == 1){
+                    valorPage = 0
+                    valorPage = 2
+                }
+                else{
+                    valorPage = 0
+                    valorPage = 4
+                }
+
+                Toast.makeText(view.context,
+                    "Você clicou na alternativa:  ${botoes_radios[i].text}, Valor Total: $valorPage",
+                    Toast.LENGTH_LONG).show()
             }
+        }
+        return view
     }
 }

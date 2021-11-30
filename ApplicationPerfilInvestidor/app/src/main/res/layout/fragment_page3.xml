@@ -7,38 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".Page3">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="264dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="3.  Qual das alternativas melhor classifica sua formação e experiência com
+ o mercado financeiro?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup3"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
             android:id="@+id/radioButton9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Não possuo formação acadêmica ou conhecimento do mercado Financeiro" />
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Possuo formação acadêmica na área Financeira, mas não tenho experiência
+com o mercado Financeiro" />
 
         <RadioButton
             android:id="@+id/radioButton11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Possuo formação acadêmica em outra área, mas possuo conhecimento do
+mercado Financeiro " />
 
         <RadioButton
             android:id="@+id/radioButton12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Possuo formação acadêmica na área Financeira ou pleno conhecimento do
+mercado Financeiro" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnAvancarTela3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Avançar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
