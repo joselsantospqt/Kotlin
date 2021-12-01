@@ -22,8 +22,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup7"
-        android:layout_width="0dp"
-        android:layout_height="192dp"
+        android:layout_width="381dp"
+        android:layout_height="232dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
@@ -50,8 +50,7 @@ pretendo fazer aplicações regulares" />
             android:id="@+id/radioButton25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ão tenho intenção de resgatar no curto prazo, mas não pretendo realizar
-novas aplicações" />
+            android:text="Não tenho intenção de resgatar no curto prazo, mas não pretendo realizar novas aplicações" />
 
         <RadioButton
             android:id="@+id/radioButton26"

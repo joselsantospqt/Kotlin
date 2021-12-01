@@ -38,10 +38,6 @@ class Page2 : Fragment() {
         val navController = findNavController()
         bundle = Bundle()
 
-        Toast.makeText(view.context,
-            "$param1 $param2",
-            Toast.LENGTH_LONG).show()
-
         botoes_radios = arrayOf(
             view.findViewById<RadioButton>(R.id.radioButton5),
             view.findViewById<RadioButton>(R.id.radioButton6),
@@ -82,19 +78,18 @@ class Page2 : Fragment() {
                 var valorRecuperado = param1.toString().toInt() + valorPage
                 newInstance(valorRecuperado.toString(), param2.toString())
                 Toast.makeText(view.context,
-                    "Você clicou na alternativa:  ${botoes_radios[i].text}, Valor Total: $valorPage",
+                    "Você clicou na alternativa:  ${botoes_radios[i].text}",
                     Toast.LENGTH_LONG).show()
             }
         }
         return view
 
     }
-
     companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page2().apply {
+            Page1().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)

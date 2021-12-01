@@ -37,8 +37,8 @@ class Page3 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_page3, container, false)
-        bundle = Bundle()
         val navController = findNavController()
+        bundle = Bundle()
 
         botoes_radios = arrayOf(
             view.findViewById<RadioButton>(R.id.radioButton9),
@@ -52,7 +52,7 @@ class Page3 : Fragment() {
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
                 botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_page3_to_page4)
+                navController.navigate(R.id.action_page3_to_page4, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
@@ -78,25 +78,23 @@ class Page3 : Fragment() {
                 }
 
                 var valorRecuperado = param1.toString().toInt() + valorPage
-                Page2.newInstance(valorRecuperado.toString(), param2.toString())
+                newInstance(valorRecuperado.toString(), param2.toString())
                 Toast.makeText(view.context,
-                    "Você clicou na alternativa:  ${botoes_radios[i].text}, Valor Total: $valorPage",
+                    "Você clicou na alternativa:  ${botoes_radios[i].text}",
                     Toast.LENGTH_LONG).show()
             }
         }
         return view
     }
-
     companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page2().apply {
+            Page1().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
-
 }
