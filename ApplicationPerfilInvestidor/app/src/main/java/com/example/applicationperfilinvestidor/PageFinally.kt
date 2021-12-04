@@ -1,12 +1,16 @@
 package com.example.applicationperfilinvestidor
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_page_finally.*
 
+private lateinit var avancar_emprestimo: Button
 private const val ARG_PARAM1 = "valor"
 private const val ARG_PARAM2 = "nome"
 private var param1: Int? = null
@@ -42,6 +46,13 @@ class PageFinally : Fragment() {
             txtpontuacao.text = "Perfil : Moderado"
         }else if(param1.toString().toInt() >= 30){
             txtpontuacao.text = "Perfil : Arrojado"
+        }
+
+        avancar_emprestimo = view.findViewById<Button>(R.id.btnEmprestimo)
+        avancar_emprestimo.setOnClickListener {
+            val intent = Intent(view.context, ActivityEmprestimo::class.java)
+            intent.putExtra("nome", txtNome.text.toString())
+            startActivity(intent)
         }
 
 
