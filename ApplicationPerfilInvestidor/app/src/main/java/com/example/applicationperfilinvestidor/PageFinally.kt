@@ -37,11 +37,11 @@ class PageFinally : Fragment() {
         val txtpontuacao = view.findViewById<TextView>(R.id.txtPontuacao)
 
         if(param1.toString().toInt() <= 12){
-            txtpontuacao.text = "Pefil : Conservador"
-        }else if(param1.toString().toInt() >= 12 && param1.toString().toInt() <= 29){
-            txtpontuacao.text = "Pefil : Moderado"
+            txtpontuacao.text = "Perfil : Conservador"
+        }else if(param1.toString().toInt() >= 13 && param1.toString().toInt() <= 29){
+            txtpontuacao.text = "Perfil : Moderado"
         }else if(param1.toString().toInt() >= 30){
-            txtpontuacao.text = "Pefil : Arrojado"
+            txtpontuacao.text = "Perfil : Arrojado"
         }
 
 

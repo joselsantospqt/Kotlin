@@ -35,13 +35,15 @@
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Qual o objetivo desse investimento?" />
+            android:text="Preservação do capital para não perder valor ao longo do tempo,
+assumindo baixos riscos de perdas" />
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Qual o objetivo desse investimento?" />
+            android:text="Aumento gradual do capital ao longo do tempo, assumindo riscos
+moderados" />
 
         <RadioButton
             android:id="@+id/radioButton7"
