@@ -6,7 +6,7 @@ import applicationcadastroconta.domain.Conta
 @Dao
 interface ContaDAO {
     @Query("SELECT * FROM contas ORDER BY nome")
-    suspend fun listar(): List<Conta>
+    suspend fun Listar(): List<Conta>
 
     @Query("SELECT * FROM contas WHERE nome LIKE :nome LIMIT 1")
     suspend fun  ObterPorNome(nome: String): Conta
@@ -15,12 +15,12 @@ interface ContaDAO {
     suspend fun  ObterPorId(id: Int): Conta
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun  inserir(vararg conta: Conta)
+    suspend fun  Inserir(vararg conta: Conta)
 
     @Update
-    suspend fun atualizar(conta: Conta)
+    suspend fun Atualizar(conta: Conta)
 
     @Delete
-    suspend fun excluir(conta: Conta)
+    suspend fun Excluir(conta: Conta)
 
 }

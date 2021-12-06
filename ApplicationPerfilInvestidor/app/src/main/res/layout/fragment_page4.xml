@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="4. Considerando seus rendimentos regulares, qual a porcentagem você
- pretende reservar para aplicações Financeiras?"
+        android:text="@string/texto_pergunta04"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,19 +34,22 @@
             android:id="@+id/radioButton13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" No máximo 25% " />
+            android:contentDescription="@string/pergunta13"
+            android:text="@string/pergunta13" />
 
         <RadioButton
             android:id="@+id/radioButton14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Entre 25,01 e 50% " />
+            android:contentDescription="@string/pergunta14"
+            android:text="@string/pergunta14" />
 
         <RadioButton
             android:id="@+id/radioButton15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Acima de 50% " />
+            android:contentDescription="@string/pergunta15"
+            android:text="@string/pergunta15" />
     </RadioGroup>
 
     <Button
@@ -56,7 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Avançar"
+        android:contentDescription="@string/btn_avancar"
+        android:text="@string/btn_avancar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

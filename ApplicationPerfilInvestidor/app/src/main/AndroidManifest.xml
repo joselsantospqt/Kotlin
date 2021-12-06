@@ -16,11 +16,6 @@
             android:name=".ActivitySimulador"
             android:exported="false" />
         <activity
-            android:name=".Page6"
-            android:exported="false"
-            android:label="@string/title_activity_page6"
-            android:theme="@style/Theme.ApplicationPerfilInvestidor.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

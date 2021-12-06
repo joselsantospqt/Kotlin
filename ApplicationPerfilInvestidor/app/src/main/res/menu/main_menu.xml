@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuItemEmprestimo"
+        android:title="Emprestimo" />
+    <item
+        android:id="@+id/menuItemSimulador"
+        android:title="Simulador" />
+    <item
+        android:id="@+id/menuItemSair"
+        android:title="Sair" />
+</menu>

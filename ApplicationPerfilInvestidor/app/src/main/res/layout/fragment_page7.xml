@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="7. Em relação as aplicações e rendimentos, em qual dessas situações você
- se enquadra? "
+        android:contentDescription="@string/texto_pergunta07"
+        android:text="@string/texto_pergunta07"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup7"
-        android:layout_width="381dp"
-        android:layout_height="232dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
@@ -35,29 +35,29 @@
             android:id="@+id/radioButton23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Conto com o rendimento dessas aplicações para complementar minha
-renda mensal " />
+            android:contentDescription="@string/pergunta23"
+            android:text="@string/pergunta23" />
 
         <RadioButton
             android:id="@+id/radioButton24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Eventualmente posso resgatar parte das aplicações para fazer frente aos
-meus gastos. Contudo, não tenho intenção de resgatar no curto prazo e
-pretendo fazer aplicações regulares" />
+            android:contentDescription="@string/pergunta24"
+            android:text="@string/pergunta24" />
 
         <RadioButton
             android:id="@+id/radioButton25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Não tenho intenção de resgatar no curto prazo, mas não pretendo realizar novas aplicações" />
+            android:contentDescription="@string/pergunta25"
+            android:text="@string/pergunta25" />
 
         <RadioButton
             android:id="@+id/radioButton26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Não tenho intenção de resgatar no curto prazo e ainda pretendo fazer
-aplicações regulares" />
+            android:contentDescription="@string/pergunta26"
+            android:text="@string/pergunta26" />
     </RadioGroup>
 
     <Button
@@ -66,7 +66,8 @@ aplicações regulares" />
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Avançar"
+        android:contentDescription="@string/btn_avancar"
+        android:text="@string/btn_avancar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

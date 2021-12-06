@@ -1,14 +1,81 @@
 <resources>
     <string name="app_name">ApplicationPerfilInvestidor</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_page6">Page6</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="btn_avancar">Avançar</string>
+    <string name="bem_vindo">Bem Vindo Ao Nosso Banco</string>
+    <string name="texto_simulador">Simulador de Perfil de Investimento</string>
+    <string name="texto_inicio_simulador">Simulador de Perfil de Investimento</string>
+
+    <string name="texto_pergunta01">1. Por quanto tempo você pretende deixar seu dinheiro investido?</string>
+    <string name="pergunta01">Menos de 6 meses</string>
+    <string name="pergunta02">Entre 6 meses e 1 ano</string>
+    <string name="pergunta03">Entre 1 ano e 3 anos</string>
+    <string name="pergunta04">Acima de 3 anos</string>
+
+    <string name="texto_pergunta02">2. Qual o objetivo desse investimento?</string>
+    <string name="pergunta05">Preservação do capital para não perder valor ao longo do tempo,
+assumindo baixos riscos de perdas</string>
+    <string name="pergunta06">Aumento gradual do capital ao longo do tempo, assumindo riscos
+moderados</string>
+    <string name="pergunta07">Aumento do capital acima da taxa de retorno média do mercado, mesmo
+que isso implique assumir riscos de perdas elevadas</string>
+    <string name="pergunta08">Obter no curto prazo retornos elevados e significativamente acima da taxa
+de retorno média do mercado, assumindo riscos elevados</string>
+
+    <string name="texto_pergunta03">3. Qual das alternativas melhor classifica sua formação e experiência com
+ o mercado financeiro?</string>
+    <string name="pergunta09">Não possuo formação acadêmica ou conhecimento do mercado financeiro</string>
+    <string name="pergunta10">Possuo formação acadêmica na área financeira, mas não tenho experiência
+com o mercado financeiro</string>
+    <string name="pergunta11">Possuo formação acadêmica em outra área, mas possuo conhecimento do
+mercado financeiro</string>
+    <string name="pergunta12">Possuo formação acadêmica na área financeira ou pleno conhecimento do
+mercado financeiro</string>
+
+    <string name="texto_pergunta04">4. Considerando seus rendimentos regulares, qual a porcentagem você
+ pretende reservar para aplicações financeiras?</string>
+    <string name="pergunta13">No máximo 25% </string>
+    <string name="pergunta14">Entre 25,01 e 50%</string>
+    <string name="pergunta15">Acima de 50%</string>
+
+    <string name="texto_pergunta05">5. Caso as suas aplicações sofressem uma queda superior a 30%,
+ o que você faria? </string>
+    <string name="pergunta16">Resgataria toda a aplicação e aplicaria na poupança </string>
+    <string name="pergunta17">Manteria aplicação aguardando uma melhora do mercado</string>
+    <string name="pergunta18">Aumentaria a aplicação para aproveitar as oportunidades do mercado</string>
+
+    <string name="texto_pergunta06">6. Como está distribuído o seu patrimônio? </string>
+    <string name="pergunta19">Meu patrimônio não está aplicado ou está todo aplicado em renda fixa e/ou
+imóveis </string>
+    <string name="pergunta20">Menos de 25% em renda variável e o restante em renda fixa e/ou imóveis </string>
+    <string name="pergunta21">Entre 25,01 e 50% aplicado em renda variável e o restante em renda fixa
+e/ou imóveis</string>
+    <string name="pergunta22">Acima de 50% em renda variável </string>
+
+    <string name="texto_pergunta07">7. Em relação as aplicações e rendimentos, em qual dessas situações você
+ se enquadra? </string>
+    <string name="pergunta23">Conto com o rendimento dessas aplicações para complementar minha
+renda mensal </string>
+    <string name="pergunta24">Eventualmente posso resgatar parte das aplicações para fazer frente aos
+meus gastos. Contudo, não tenho intenção de resgatar no curto prazo e
+pretendo fazer aplicações regulares</string>
+    <string name="pergunta25">Não tenho intenção de resgatar no curto prazo, mas não pretendo realizar
+novas aplicações</string>
+    <string name="pergunta26">Não tenho intenção de resgatar no curto prazo e ainda pretendo fazer
+aplicações regulares</string>
+
+    <string name="texto_pergunta08">10. Qual sua faixa de renda mensal média?</string>
+   <string name="pergunta27">Até R$ 1.000</string>
+    <string name="pergunta28">De R$ 1.001 até R$ 5.000 </string>
+    <string name="pergunta29">De R$ 5.001 até R$ 10.000 </string>
+    <string name="pergunta30">Acima de R$ 10.000</string>
+
+    <string name="texto_pergunta09">11. Qual o valor aproximado do seu patrimônio?</string>
+    <string name="pergunta31">Até R$ 10.000</string>
+    <string name="pergunta32">De R$ 10.001 até R$ 100.000</string>
+    <string name="pergunta33">De R$ 100.001 até R$ 500.000</string>
+    <string name="pergunta34">De R$ 500.001 até R$ 1.000.000</string>
+    <string name="pergunta35">Acima de R$ 1.000.001</string>
+
 </resources>

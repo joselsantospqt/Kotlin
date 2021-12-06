@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="9. Qual o valor aproximado do seu patrimônio?"
+        android:contentDescription="@string/texto_pergunta09"
+        android:text="@string/texto_pergunta09"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +23,7 @@
     <RadioGroup
         android:id="@+id/radioGroup9"
         android:layout_width="0dp"
-        android:layout_height="192dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
@@ -34,31 +35,36 @@
             android:id="@+id/radioButton31"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Até R$ 10.000 " />
+            android:contentDescription="@string/pergunta31"
+            android:text="@string/pergunta31" />
 
         <RadioButton
             android:id="@+id/radioButton32"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" De R$ 10.001 até R$ 100.000" />
+            android:contentDescription="@string/pergunta32"
+            android:text="@string/pergunta32" />
 
         <RadioButton
             android:id="@+id/radioButton33"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="De R$ 100.001 até R$ 500.000" />
+            android:contentDescription="@string/pergunta33"
+            android:text="@string/pergunta33" />
 
         <RadioButton
             android:id="@+id/radioButton34"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="De R$ 100.001 até R$ 500.000" />
+            android:contentDescription="@string/pergunta34"
+            android:text="@string/pergunta34" />
 
         <RadioButton
             android:id="@+id/radioButton35"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Acima de R$ 1.000.001 " />
+            android:contentDescription="@string/pergunta35"
+            android:text="@string/pergunta35" />
     </RadioGroup>
 
     <Button
@@ -67,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Finalizar"
+        android:contentDescription="@string/btn_avancar"
+        android:text="@string/btn_avancar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

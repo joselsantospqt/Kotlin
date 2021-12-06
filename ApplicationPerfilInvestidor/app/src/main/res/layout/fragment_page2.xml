@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="2. Qual o objetivo desse investimento?"
+        android:contentDescription="@string/texto_pergunta02"
+        android:text="@string/texto_pergunta02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +23,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup2"
-        android:layout_width="376dp"
-        android:layout_height="217dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
@@ -35,29 +36,29 @@
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Preservação do capital para não perder valor ao longo do tempo,
-assumindo baixos riscos de perdas" />
+            android:contentDescription="@string/pergunta05"
+            android:text="@string/pergunta05" />
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aumento gradual do capital ao longo do tempo, assumindo riscos
-moderados" />
+            android:contentDescription="@string/pergunta06"
+            android:text="@string/pergunta06" />
 
         <RadioButton
             android:id="@+id/radioButton7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aumento do capital acima da taxa de retorno média do mercado, mesmo
-que isso implique assumir riscos de perdas elevadas" />
+            android:contentDescription="@string/pergunta07"
+            android:text="@string/pergunta07" />
 
         <RadioButton
             android:id="@+id/radioButton8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Obter no curto prazo retornos elevados e significativamente acima da taxa
-de retorno média do mercado, assumindo riscos elevados" />
+            android:contentDescription="@string/pergunta08"
+            android:text="@string/pergunta08" />
     </RadioGroup>
 
     <Button
@@ -66,7 +67,8 @@ de retorno média do mercado, assumindo riscos elevados" />
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Avançar"
+        android:contentDescription="@string/btn_avancar"
+        android:text="@string/btn_avancar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

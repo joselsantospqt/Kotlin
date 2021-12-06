@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FDDE45"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:padding="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,56 +20,55 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="Bem Vindo Ao Nosso Banco "
+            android:contentDescription="@string/bem_vindo"
+            android:text="@string/bem_vindo"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="34sp" />
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:layout_marginTop="30dp"
+            android:contentDescription="Logo Empresa"
+            app:srcCompat="@drawable/img_1" />
+
+        <TextView
+            android:id="@+id/lblUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp">
+            android:layout_weight="1"
+            android:contentDescription="Label Usuario"
+            android:text="Usuario:"
+            android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/lblUsuario"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Usuario:"
-                android:textSize="24sp" />
-
-            <EditText
-                android:id="@+id/txtEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Escreva aqui seu usuario"
+            android:inputType="textEmailAddress" />
 
-            <TextView
-                android:id="@+id/lblSenha"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Password"
-                android:textSize="24sp" />
+        <TextView
+            android:id="@+id/lblSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Label Passowrd"
+            android:text="Password"
+            android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/txtSenha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPassword" />
-
-        </LinearLayout>
+        <EditText
+            android:id="@+id/txtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Escreva aqui seu password"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -79,15 +76,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:contentDescription="Botão Logar"
             android:gravity="center"
             android:text="Logar" />
 
-        <Button
+        <TextView
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:contentDescription="Botão Criar Conta"
             android:text="Criar Conta" />
 
     </LinearLayout>

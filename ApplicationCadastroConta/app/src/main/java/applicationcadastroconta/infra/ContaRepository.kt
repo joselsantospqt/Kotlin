@@ -21,16 +21,16 @@ class ContaRepository(aplicationContext: Application) {
 
     fun listarContasLiveData(): List<Conta> {
         return runBlocking {
-            return@runBlocking dao.listar()
+            return@runBlocking dao.Listar()
         }
     }
 
     fun salvarConta(conta: Conta) {
         return runBlocking {
             if (conta.id == 0)
-                return@runBlocking dao.inserir(conta)
+                return@runBlocking dao.Inserir(conta)
             else
-                return@runBlocking dao.atualizar(conta)
+                return@runBlocking dao.Atualizar(conta)
         }
     }
 }
