@@ -2,12 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuItemEmprestimo"
-        android:title="Emprestimo" />
-    <item
-        android:id="@+id/menuItemSimulador"
-        android:title="Simulador" />
+        android:id="@+id/menuItemConfiguracao"
+        android:contentDescription="Configuração"
+        android:title="Configuração" />
     <item
         android:id="@+id/menuItemSair"
+        android:contentDescription="Sair"
         android:title="Sair" />
 </menu>
