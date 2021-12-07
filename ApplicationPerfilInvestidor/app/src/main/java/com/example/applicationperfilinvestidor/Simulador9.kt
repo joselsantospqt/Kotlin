@@ -20,8 +20,8 @@ private var param1: Int? = null
 private var param2: String? = null
 
 
-class Page3 : Fragment() {
 
+class Simulador9 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,29 +36,32 @@ class Page3 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_page3, container, false)
+        val view = inflater.inflate(R.layout.fragment_simulador9, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
         botoes_radios = arrayOf(
-            view.findViewById<RadioButton>(R.id.radioButton9),
-            view.findViewById<RadioButton>(R.id.radioButton10),
-            view.findViewById<RadioButton>(R.id.radioButton11),
-            view.findViewById<RadioButton>(R.id.radioButton12)
+            view.findViewById<RadioButton>(R.id.radioButton31),
+            view.findViewById<RadioButton>(R.id.radioButton32),
+            view.findViewById<RadioButton>(R.id.radioButton33),
+            view.findViewById<RadioButton>(R.id.radioButton34),
+            view.findViewById<RadioButton>(R.id.radioButton35)
         )
-        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela3)
+        avancar_button = view.findViewById<Button>(R.id.btnFinalizar)
         avancar_button.setOnClickListener {
+//            avançar para página final
             if(botoes_radios[0].isChecked ||
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
-                botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_page3_to_page4, bundle)
+                botoes_radios[3].isChecked ||
+                botoes_radios[4].isChecked)
+                navController.navigate(R.id.action_simulador9_to_simuladorFinally, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
                     Toast.LENGTH_LONG).show()
         }
-        for(i in 0..3){
+        for(i in 0..4){
             botoes_radios[i].setOnClickListener{
 
                 if(i == 0){
@@ -72,9 +75,13 @@ class Page3 : Fragment() {
                     valorPage = 0
                     valorPage = 2
                 }
-                else{
+                else if(i == 3){
                     valorPage = 0
                     valorPage = 4
+                }
+                else{
+                    valorPage = 0
+                    valorPage = 5
                 }
 
                 var valorRecuperado = param1.toString().toInt() + valorPage
@@ -90,7 +97,7 @@ class Page3 : Fragment() {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page1().apply {
+            Simulador9().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)

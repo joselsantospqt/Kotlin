@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_emprestimo"
+    app:startDestination="@id/emprestimo0">
+
+    <fragment
+        android:id="@+id/emprestimo0"
+        android:name="com.example.applicationperfilinvestidor.Emprestimo0"
+        android:label="fragment_emprestimo0"
+        tools:layout="@layout/fragment_emprestimo0" >
+        <action
+            android:id="@+id/action_emprestimo0_to_emprestimo1"
+            app:destination="@id/emprestimo1" />
+    </fragment>
+    <fragment
+        android:id="@+id/emprestimo1"
+        android:name="com.example.applicationperfilinvestidor.Emprestimo1"
+        android:label="fragment_emprestimo1"
+        tools:layout="@layout/fragment_emprestimo1" />
+</navigation>

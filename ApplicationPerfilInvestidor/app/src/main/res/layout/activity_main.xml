@@ -87,7 +87,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:contentDescription="Botão Criar Conta"
-            android:text="Criar Conta" />
+            android:text="Criar Conta"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

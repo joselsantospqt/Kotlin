@@ -20,7 +20,7 @@ private var param1: Int? = null
 private var param2: String? = null
 
 
-class Page1 : Fragment() {
+class Simulador1 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class Page1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_page1, container, false)
+        val view = inflater.inflate(R.layout.fragment_simulador1, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
@@ -51,7 +51,7 @@ class Page1 : Fragment() {
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
                 botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_page1_to_page2, bundle)
+                navController.navigate(R.id.action_simulador1_to_simulador2, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
@@ -89,7 +89,7 @@ class Page1 : Fragment() {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page1().apply {
+            Simulador1().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)

@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_page_finally.*
+import kotlinx.android.synthetic.main.fragment_simulador_finally.*
 
-private lateinit var avancar_emprestimo: Button
+private lateinit var avancar_simulador: Button
 private const val ARG_PARAM1 = "valor"
 private const val ARG_PARAM2 = "nome"
 private var param1: Int? = null
@@ -21,7 +21,7 @@ private var param2: String? = null
  * Use the [PageFinally.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PageFinally : Fragment() {
+class SimuladorFinally : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class PageFinally : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_page_finally, container, false)
+        var view = inflater.inflate(R.layout.fragment_simulador_finally, container, false)
         val txtNome = view.findViewById<TextView>(R.id.txtNomeFinal)
         val txtpontuacao = view.findViewById<TextView>(R.id.txtPontuacao)
 
@@ -48,17 +48,16 @@ class PageFinally : Fragment() {
             txtpontuacao.text = "Perfil : Arrojado"
         }
 
-        avancar_emprestimo = view.findViewById<Button>(R.id.btnEmprestimo)
-        avancar_emprestimo.setOnClickListener {
-            val intent = Intent(view.context, ActivityEmprestimo::class.java)
-            intent.putExtra("nome", txtNome.text.toString())
-            startActivity(intent)
-        }
-
-
         txtNome.text = param2.toString()
 
+        avancar_simulador = view.findViewById<Button>(R.id.btnEmprestimo)
+        avancar_simulador.setOnClickListener {
+            val intent = Intent(view.context, ActivityEmprestimo::class.java)
+            intent.putExtra("nome", txtNome.text.toString())
+            intent.putExtra("pontos", param1.toString())
 
+            startActivity(intent)
+        }
         return view
     }
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/simulador0">
+
+    <fragment
+        android:id="@+id/simulador0"
+        android:name="com.example.applicationperfilinvestidor.Simulador0"
+        android:label="fragment_page0"
+        tools:layout="@layout/fragment_simulador0" >
+        <action
+            android:id="@+id/action_simulador0_to_simulador1"
+            app:destination="@id/simulador1" />
+    </fragment>
+    <fragment
+        android:id="@+id/simulador1"
+        android:name="com.example.applicationperfilinvestidor.Simulador1"
+        android:label="fragment_simulador1"
+        tools:layout="@layout/fragment_simulador1" >
+        <action
+            android:id="@+id/action_simulador1_to_simulador2"
+            app:destination="@id/simulador2" />
+    </fragment>
+
+    <fragment
+    android:id="@+id/simulador2"
+    android:name="com.example.applicationperfilinvestidor.Simulador2"
+    android:label="fragment_simulador2"
+    tools:layout="@layout/fragment_simulador2" >
+        <action
+        android:id="@+id/action_simulador2_to_simulador3"
+        app:destination="@id/simulador3" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador3"
+    android:name="com.example.applicationperfilinvestidor.Simulador3"
+    android:label="fragment_simulador3"
+    tools:layout="@layout/fragment_simulador3" >
+        <action
+        android:id="@+id/action_simulador3_to_simulador4"
+        app:destination="@id/simulador4" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador4"
+    android:name="com.example.applicationperfilinvestidor.Simulador4"
+    android:label="fragment_simulador4"
+    tools:layout="@layout/fragment_simulador4" >
+        <action
+        android:id="@+id/action_simulador4_to_simulador5"
+        app:destination="@id/simulador5" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador5"
+    android:name="com.example.applicationperfilinvestidor.Simulador5"
+    android:label="fragment_simulador5"
+    tools:layout="@layout/fragment_simulador5" >
+        <action
+        android:id="@+id/action_simulador5_to_simulador6"
+        app:destination="@id/simulador6" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador6"
+    android:name="com.example.applicationperfilinvestidor.Simulador6"
+    android:label="fragment_simulador6"
+    tools:layout="@layout/fragment_simulador6" >
+        <action
+        android:id="@+id/action_simulador6_to_simulador7"
+        app:destination="@id/simulador7" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador7"
+    android:name="com.example.applicationperfilinvestidor.Simulador7"
+    android:label="fragment_simulador7"
+    tools:layout="@layout/fragment_simulador7" >
+        <action
+        android:id="@+id/action_simulador7_to_simulador8"
+        app:destination="@id/simulador8" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador8"
+    android:name="com.example.applicationperfilinvestidor.Simulador8"
+    android:label="fragment_simulador8"
+    tools:layout="@layout/fragment_simulador8" >
+        <action
+        android:id="@+id/action_simulador8_to_simulador9"
+        app:destination="@id/simulador9" />
+    </fragment>
+    <fragment
+    android:id="@+id/simulador9"
+    android:name="com.example.applicationperfilinvestidor.Simulador9"
+    android:label="fragment_simulador9"
+    tools:layout="@layout/fragment_simulador9" >
+        <action
+        android:id="@+id/action_simulador9_to_simuladorFinally"
+        app:destination="@id/simuladorFinally" />
+    </fragment>
+    <fragment
+        android:id="@+id/simuladorFinally"
+        android:name="com.example.applicationperfilinvestidor.SimuladorFinally"
+        android:label="fragment_simulador_finally"
+        tools:layout="@layout/fragment_simulador_finally" />
+</navigation>

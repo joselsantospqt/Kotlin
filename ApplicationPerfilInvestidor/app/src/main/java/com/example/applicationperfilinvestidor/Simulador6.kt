@@ -21,8 +21,7 @@ private var param2: String? = null
 
 
 
-class Page8 : Fragment() {
-
+class Simulador6 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,27 +36,28 @@ class Page8 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_page8, container, false)
+        var view =  inflater.inflate(R.layout.fragment_simulador6, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
         botoes_radios = arrayOf(
-            view.findViewById<RadioButton>(R.id.radioButton27),
-            view.findViewById<RadioButton>(R.id.radioButton28),
-            view.findViewById<RadioButton>(R.id.radioButton29),
-            view.findViewById<RadioButton>(R.id.radioButton30)
+            view.findViewById<RadioButton>(R.id.radioButton19),
+            view.findViewById<RadioButton>(R.id.radioButton20),
+            view.findViewById<RadioButton>(R.id.radioButton21),
+            view.findViewById<RadioButton>(R.id.radioButton22)
         )
-        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela8)
+        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela6)
         avancar_button.setOnClickListener {
             if(botoes_radios[0].isChecked ||
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
                 botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_page8_to_page9, bundle)
+                navController.navigate(R.id.action_simulador6_to_simulador7, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
                     Toast.LENGTH_LONG).show()
+
         }
         for(i in 0..3){
             botoes_radios[i].setOnClickListener{
@@ -67,11 +67,11 @@ class Page8 : Fragment() {
                 }
                 else if(i == 1){
                     valorPage = 0
-                    valorPage = 1
+                    valorPage = 2
                 }
                 else if(i == 2){
                     valorPage = 0
-                    valorPage = 2
+                    valorPage = 3
                 }
                 else{
                     valorPage = 0
@@ -91,12 +91,11 @@ class Page8 : Fragment() {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page1().apply {
+            Simulador6().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
-
 }

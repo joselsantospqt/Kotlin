@@ -20,8 +20,7 @@ private var param1: Int? = null
 private var param2: String? = null
 
 
-class Page5 : Fragment() {
-
+class Simulador4 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,21 +35,21 @@ class Page5 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_page5, container, false)
+        val view = inflater.inflate(R.layout.fragment_simulador4, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
         botoes_radios = arrayOf(
-            view.findViewById<RadioButton>(R.id.radioButton16),
-            view.findViewById<RadioButton>(R.id.radioButton17),
-            view.findViewById<RadioButton>(R.id.radioButton18)
+            view.findViewById<RadioButton>(R.id.radioButton13),
+            view.findViewById<RadioButton>(R.id.radioButton14),
+            view.findViewById<RadioButton>(R.id.radioButton15)
         )
-        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela5)
+        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela4)
         avancar_button.setOnClickListener {
             if(botoes_radios[0].isChecked ||
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked)
-                navController.navigate(R.id.action_page5_to_page6, bundle)
+                navController.navigate(R.id.action_simulador4_to_simulador5, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
@@ -85,7 +84,7 @@ class Page5 : Fragment() {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page1().apply {
+            Simulador4().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)

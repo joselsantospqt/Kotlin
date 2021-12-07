@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout10"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Page0">
+    tools:context=".Simulador0">
 
     <TextView
         android:id="@+id/textView10"
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:contentDescription="@string/texto_inicio_simulador"
-        android:text="@string/texto_inicio_simulador"
+        android:contentDescription="@string/texto_simulador_inicio"
+        android:text="@string/texto_simulador_inicio"
         android:textAlignment="center"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,8 @@
         android:id="@+id/btnIniciar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:contentDescription="Botão Iniciar"
-        android:text="Iniciar"
+        android:contentDescription="@string/btn_inicio"
+        android:text="@string/btn_inicio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

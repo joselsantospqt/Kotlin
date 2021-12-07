@@ -12,11 +12,23 @@
         <entry key="..\:/VM/GitHub/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page5.xml" value="0.19739583333333333" />
         <entry key="..\:/VM/GitHub/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page6.xml" value="0.19739583333333333" />
         <entry key="..\:/VM/GitHub/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page7.xml" value="0.19739583333333333" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_attach_file_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.2911458333333333" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_emoji_emotions_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_grading_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_baseline_place_24.xml" value="0.12222222222222222" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12222222222222222" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_emprestimo.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_main_start.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_simulador.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/drawer_header.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_emprestimo0.xml" value="0.264" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_emprestimo1.xml" value="0.2751433038040646" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page0.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page1.xml" value="0.25462962962962965" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page10.xml" value="0.275" />
@@ -29,6 +41,15 @@
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page8.xml" value="0.4" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page9.xml" value="0.2609375" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_page_finally.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador0.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador1.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador2.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador4.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador6.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador7.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador8.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador9.xml" value="0.275" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador_finally.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/menu/drawer.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/menu/main_menu.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/menu/menu_left.xml" value="0.2657407407407407" />

@@ -17,7 +17,7 @@ private const val ARG_PARAM2 = "nome"
 private var param2: String? = null
 
 
-class Page0 : Fragment() {
+class Simulador0 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class Page0 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_page0, container, false)
+        val view = inflater.inflate(R.layout.fragment_simulador0, container, false)
         val navController = findNavController()
         val txtNome = view.findViewById<EditText>(R.id.txtNome)
         bundle = Bundle()
@@ -45,7 +45,7 @@ class Page0 : Fragment() {
             else
             {
                 newInstance(txtNome.text.toString())
-                navController.navigate(R.id.action_page0_to_page1, bundle)
+                navController.navigate(R.id.action_simulador0_to_simulador1, bundle)
             }
         }
         return view
@@ -55,7 +55,7 @@ class Page0 : Fragment() {
 
         @JvmStatic
         fun newInstance(param2: String) =
-            Page0().apply {
+            Simulador0().apply {
                 arguments = bundle.apply {
                     putString(ARG_PARAM2, param2)
                 }

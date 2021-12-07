@@ -2,27 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navigation_item_attachment"
+            android:id="@+id/navigation_item_simulador"
             android:checked="true"
-            android:icon="@drawable/ic_baseline_attach_file_24"
-            android:title="@string/nav_item_attachment" />
+            android:contentDescription="@string/texto_simulador"
+            android:icon="@drawable/ic_baseline_grading_24"
+            android:title="@string/navigation_item_simulador" />
         <item
-            android:id="@+id/navigation_item_images"
-            android:icon="@drawable/ic_baseline_image_24"
-            android:title="@string/nav_item_images" />
-        <item
-            android:id="@+id/navigation_item_location"
-            android:icon="@drawable/ic_baseline_place_24"
-            android:title="@string/nav_item_location" />
+            android:id="@+id/navigation_item_emprestimo"
+            android:contentDescription="@string/texto_emprestimo"
+            android:icon="@drawable/ic_baseline_monetization_on_24"
+            android:title="@string/navigation_item_emprestimo" />
     </group>
-    <item android:title="@string/nav_sub_menu">
-        <menu>
-            <item
-                android:icon="@drawable/ic_baseline_emoji_emotions_24"
-                android:title="@string/nav_sub_menu_item01" />
-            <item
-                android:icon="@drawable/ic_baseline_emoji_emotions_24"
-                android:title="@string/nav_sub_menu_item02" />
-        </menu>
-    </item>
+<!--    <item android:title="@string/nav_sub_menu">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:icon="@drawable/ic_baseline_emoji_emotions_24"-->
+<!--                android:title="@string/nav_sub_menu_item01" />-->
+<!--            <item-->
+<!--                android:icon="@drawable/ic_baseline_emoji_emotions_24"-->
+<!--                android:title="@string/nav_sub_menu_item02" />-->
+<!--        </menu>-->
+<!--    </item>-->
 </menu>

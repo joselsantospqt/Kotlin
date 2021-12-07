@@ -20,7 +20,8 @@ private var param1: Int? = null
 private var param2: String? = null
 
 
-class Page2 : Fragment() {
+class Simulador3 : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,28 +30,29 @@ class Page2 : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_page2, container, false)
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_simulador3, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
         botoes_radios = arrayOf(
-            view.findViewById<RadioButton>(R.id.radioButton5),
-            view.findViewById<RadioButton>(R.id.radioButton6),
-            view.findViewById<RadioButton>(R.id.radioButton7),
-            view.findViewById<RadioButton>(R.id.radioButton8)
+            view.findViewById<RadioButton>(R.id.radioButton9),
+            view.findViewById<RadioButton>(R.id.radioButton10),
+            view.findViewById<RadioButton>(R.id.radioButton11),
+            view.findViewById<RadioButton>(R.id.radioButton12)
         )
-        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela2)
+        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela3)
         avancar_button.setOnClickListener {
             if(botoes_radios[0].isChecked ||
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
                 botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_page2_to_page3, bundle)
+                navController.navigate(R.id.action_simulador3_to_simulador4, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
@@ -64,15 +66,15 @@ class Page2 : Fragment() {
                 }
                 else if(i == 1){
                     valorPage = 0
-                    valorPage = 2
+                    valorPage = 1
                 }
                 else if(i == 2){
                     valorPage = 0
-                    valorPage = 4
+                    valorPage = 2
                 }
                 else{
                     valorPage = 0
-                    valorPage = 5
+                    valorPage = 4
                 }
 
                 var valorRecuperado = param1.toString().toInt() + valorPage
@@ -83,13 +85,12 @@ class Page2 : Fragment() {
             }
         }
         return view
-
     }
     companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Page1().apply {
+            Simulador3().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)
