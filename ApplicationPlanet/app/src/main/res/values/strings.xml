@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">planets</string>
+
+    <string name="planet1_name">Mercúrio</string>
+    <string name="planet2_name">Vênus</string>
+    <string name="planet3_name">Terra</string>
+    <string name="planet4_name">Marte</string>
+    <string name="planet5_name">Júpiter</string>
+    <string name="planet6_name">Saturno</string>
+    <string name="planet7_name">Urano</string>
+    <string name="planet8_name">Netuno</string>
+
+    <string name="planet1_description">Planeta mais próximo ao Sol</string>
+    <string name="planet2_description">2o. planeta mais próximo ao Sol</string>
+    <string name="planet3_description">Planeta água</string>
+    <string name="planet4_description">Planeta vermelho</string>
+    <string name="planet5_description">Maior dos planetas do sistema solar</string>
+    <string name="planet6_description">Conhecido por seus aneis</string>
+    <string name="planet7_description">Ninguém sabe que também possui aneis</string>
+    <string name="planet8_description">Planeta mais distante do Sol</string>
+
+</resources>

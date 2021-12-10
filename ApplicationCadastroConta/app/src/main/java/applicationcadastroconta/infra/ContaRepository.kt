@@ -3,7 +3,8 @@ package applicationcadastroconta.infra
 import android.app.Application
 import androidx.room.Room
 import applicationcadastroconta.domain.Conta
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.Flow
+ import kotlinx.coroutines.runBlocking
 
 class ContaRepository(aplicationContext: Application) {
 
@@ -19,9 +20,9 @@ class ContaRepository(aplicationContext: Application) {
         return runBlocking { return@runBlocking dao.ObterPorId(id) }
     }
 
-    fun listarContasLiveData(): List<Conta> {
+    fun listarContasLiveData(): Flow<List<Conta>> {
         return runBlocking {
-            return@runBlocking dao.Listar()
+            return@runBlocking dao.ListarLiveData()
         }
     }
 
@@ -31,6 +32,12 @@ class ContaRepository(aplicationContext: Application) {
                 return@runBlocking dao.Inserir(conta)
             else
                 return@runBlocking dao.Atualizar(conta)
+        }
+    }
+
+    fun excluirConta(conta: Conta){
+        return runBlocking {
+            return@runBlocking dao.Excluir(conta)
         }
     }
 }

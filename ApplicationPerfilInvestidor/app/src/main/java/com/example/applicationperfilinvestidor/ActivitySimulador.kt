@@ -78,6 +78,11 @@ class ActivitySimulador : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 startActivity(intent)
                 retorno = true
             }
+            R.id.navigation_item_calculadora -> {
+                val intent = intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
+                startActivity(intent)
+                retorno = true
+            }
         }
 
         return retorno

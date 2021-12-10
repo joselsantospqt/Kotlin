@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import applicationcadastroconta.domain.Conta
 import applicationcadastroconta.ui.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RecycleViewItemListerner{
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewmodel: MainActivityViewModel
@@ -24,12 +24,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.lstConta.layoutManager = LinearLayoutManager(this)
         val adapter = ListaContaAdapter()
-        adapter.setRecycleViewItemListener(this)
         binding.lstConta.adapter = adapter
         if(viewmodel.contas.value != null){
             adapter.listaContas = viewmodel.contas.value!!
         }
-        viewmodel.contas.observe(this, Observer{it.let{adapter.listaContas = it}})
+        viewmodel.contas.observe(this, Observer{
+            it.let{adapter.listaContas = it}
+        })
 
         binding.btnSalvar.setOnClickListener {
             var conta = Conta(
@@ -44,9 +45,13 @@ class MainActivity : AppCompatActivity() {
             binding.txtEmail.setText("")
             binding.txtFone.setText("")
         }
+
+        binding.btnExcluir.setOnClickListener {
+            viewmodel.excluirConta()
+        }
     }
 
-    override  fun recyclerViewItemClicked(view: View, id: Int){
+    override fun recyclerViewItemClicked(view: View, id: Int){
         viewmodel.conta.value = viewmodel.obterPorId(id)
 
     }

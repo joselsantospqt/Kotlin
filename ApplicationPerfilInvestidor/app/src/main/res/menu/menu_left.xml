@@ -4,21 +4,29 @@
         <item
             android:id="@+id/navigation_item_simulador"
             android:checked="true"
-            android:contentDescription="@string/texto_simulador"
+            android:contentDescription="botão simulador"
             android:icon="@drawable/ic_baseline_grading_24"
             android:title="@string/navigation_item_simulador" />
         <item
             android:id="@+id/navigation_item_emprestimo"
-            android:contentDescription="@string/texto_emprestimo"
+            android:contentDescription="botão emprestimo"
             android:icon="@drawable/ic_baseline_monetization_on_24"
             android:title="@string/navigation_item_emprestimo" />
+        <item
+            android:id="@+id/navigation_item_calculadora"
+            android:contentDescription="botão calculadora"
+            android:icon="@drawable/ic_baseline_calculate_24"
+            android:title="@string/navigation_item_calculadora" />
+
     </group>
 <!--    <item android:title="@string/nav_sub_menu">-->
 <!--        <menu>-->
 <!--            <item-->
-<!--                android:icon="@drawable/ic_baseline_emoji_emotions_24"-->
-<!--                android:title="@string/nav_sub_menu_item01" />-->
-<!--            <item-->
+<!--                android:id="@+id/navigation_item_calculadora"-->
+<!--                android:contentDescription="botão calculadora"-->
+<!--                android:icon="@drawable/ic_baseline_calculate_24"-->
+<!--                android:title="@string/navigation_item_calculadora" />-->
+<!--           <item-->
 <!--                android:icon="@drawable/ic_baseline_emoji_emotions_24"-->
 <!--                android:title="@string/nav_sub_menu_item02" />-->
 <!--        </menu>-->

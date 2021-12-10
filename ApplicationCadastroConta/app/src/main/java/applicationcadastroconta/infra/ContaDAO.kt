@@ -1,26 +1,31 @@
 package applicationcadastroconta.infra
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import applicationcadastroconta.domain.Conta
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ContaDAO {
     @Query("SELECT * FROM contas ORDER BY nome")
-    suspend fun Listar(): List<Conta>
-
-    @Query("SELECT * FROM contas WHERE nome LIKE :nome LIMIT 1")
-    suspend fun  ObterPorNome(nome: String): Conta
+    fun Listar(): LiveData<List<Conta>>
 
     @Query("SELECT * FROM contas WHERE id = :id")
-    suspend fun  ObterPorId(id: Int): Conta
+    fun ObterPorId(id: Int): Conta
+
+    @Query("SELECT * FROM contas")
+    fun ListarLiveData(): Flow<List<Conta>>
+
+    @Query("SELECT * FROM contas WHERE nome LIKE :nome LIMIT 1")
+    fun ObterPorNome(nome: String): Conta
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun  Inserir(vararg conta: Conta)
+    fun Inserir(vararg conta: Conta)
 
     @Update
-    suspend fun Atualizar(conta: Conta)
+    fun Atualizar(conta: Conta)
 
     @Delete
-    suspend fun Excluir(conta: Conta)
+    fun Excluir(conta: Conta)
 
 }

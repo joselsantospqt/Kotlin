@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import applicationcadastroconta.domain.Conta
 
 class ListaContaAdapter (): RecyclerView.Adapter<ListaContaAdapter.ViewHolder>(){
+
     var listaContas = listOf<Conta>()
     set(value){
         field = value
@@ -16,9 +17,9 @@ class ListaContaAdapter (): RecyclerView.Adapter<ListaContaAdapter.ViewHolder>()
 
     }
 
-    lateinit var itemListerner : RecycleViewItemListener
+    lateinit var itemListerner : RecycleViewItemListerner
 
-    fun setRecycleViewItemListener(listener : RecycleViewItemListener){
+    fun setRecycleViewItemListener(listener : RecycleViewItemListerner){
         itemListerner = listener
     }
 
@@ -41,13 +42,13 @@ class ListaContaAdapter (): RecyclerView.Adapter<ListaContaAdapter.ViewHolder>()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bindItem(conta: Conta, itemListener : RecycleViewItemListener, position : Int){
+        fun bindItem(conta: Conta, itemListener : RecycleViewItemListerner, position : Int){
             val rowNome = itemView.findViewById<TextView>(R.id.rowNome)
             rowNome.setText(conta.nome)
             val rowEmail = itemView.findViewById<TextView>(R.id.rowEmail)
-            rowNome.setText(conta.email)
+            rowEmail.setText(conta.email)
             val rowFone = itemView.findViewById<TextView>(R.id.rowFone)
-            rowNome.setText(conta.fone)
+            rowFone.setText(conta.fone)
 
             itemView.setOnClickListener{
                 itemListener.recyclerViewItemClicked(it, conta.id)

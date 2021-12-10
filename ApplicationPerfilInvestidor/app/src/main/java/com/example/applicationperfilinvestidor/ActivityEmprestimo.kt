@@ -1,8 +1,10 @@
 package com.example.applicationperfilinvestidor
 
+import android.app.SearchManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -14,6 +16,8 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_emprestimo.*
 import kotlinx.android.synthetic.main.activity_emprestimo.toolbar
 import kotlinx.android.synthetic.main.fragment_emprestimo0.*
+
+private val artist = "alok"
 
 class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,8 +89,13 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startActivity(intent)
                 retorno = true
             }
+            R.id.navigation_item_calculadora -> {
+                val intent = intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent)
+                retorno = true
+            }
         }
 
-        return  retorno
+        return retorno
     }
 }

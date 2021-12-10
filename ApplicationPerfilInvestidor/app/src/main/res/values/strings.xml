@@ -84,6 +84,7 @@
 
     <string name="navigation_item_simulador">Simulador</string>
     <string name="navigation_item_emprestimo">Emprestimo</string>
+    <string name="navigation_item_calculadora">Calculadora</string>
     <string name="nav_item_location">My Location</string>
     <string name="nav_sub_menu">Sub Menu</string>
     <string name="nav_sub_menu_item01">Sub Menu Item 1</string>

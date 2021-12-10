@@ -18,6 +18,7 @@ private const val ARG_PARAM2 = "param2"
 private var param1: String? = null
 private var param2: String? = null
 private lateinit var concluir_emprestimo: Button
+
 /**
  * A simple [Fragment] subclass.
  * Use the [Emprestimo0.newInstance] factory method to
@@ -38,18 +39,22 @@ class Emprestimo0 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_emprestimo0, container, false)
         val navController = findNavController()
-
-//        var nome =  arguments?.getString("nome")
-//        textView12.text = nome
         concluir_emprestimo = view.findViewById<Button>(R.id.btnSolicitaEmprestimo)
         concluir_emprestimo.setOnClickListener {
             navController.navigate(R.id.action_emprestimo0_to_emprestimo1)
         }
 
         return view
+    }
+
+    override fun onResume() {
+        var nome = arguments?.getString("nome")
+        var a = param1.toString()
+        var b = param2.toString()
+        textView12.text = nome
+        super.onResume()
     }
 
     companion object {

@@ -2,7 +2,6 @@ package applicationcadastroconta.ui
 
 import android.view.View
 
-interface RecycleViewItemListener {
+public interface RecycleViewItemListener {
 
-    fun recyclerViewItemClicked(view: View, id : Int)
 }
