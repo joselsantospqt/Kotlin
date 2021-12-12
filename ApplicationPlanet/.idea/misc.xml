@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Donwload_Navegador/Kotlin-main/ApplicationPlanet/app/src/main/res/layout/activity_main.xml" value="0.2564814814814815" />
+        <entry key="..\:/Donwload_Navegador/Kotlin-main/ApplicationPlanet/app/src/main/res/layout/activity_planet_detail.xml" value="0.2564814814814815" />
+        <entry key="..\:/Donwload_Navegador/Kotlin-main/ApplicationPlanet/app/src/main/res/layout/activity_planet_list.xml" value="0.2564814814814815" />
+        <entry key="..\:/Donwload_Navegador/Kotlin-main/ApplicationPlanet/app/src/main/res/layout/add_planet_layout.xml" value="0.2564814814814815" />
+        <entry key="..\:/Donwload_Navegador/Kotlin-main/ApplicationPlanet/app/src/main/res/layout/header_item.xml" value="0.2564814814814815" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.11481481481481481" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.11481481481481481" />
+        <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/layout/activity_main.xml" value="0.24351851851851852" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/layout/activity_planet_detail.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/layout/activity_planet_list.xml" value="0.275" />
         <entry key="..\:/VM/GitHub/Kotlin/ApplicationPlanet/app/src/main/res/layout/add_planet_layout.xml" value="0.275" />
