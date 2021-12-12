@@ -1,4 +1,4 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_simulador
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.applicationperfilinvestidor.ui_emprestimo.ActivityEmprestimo
 import kotlinx.android.synthetic.main.fragment_simulador_finally.*
+import com.example.applicationperfilinvestidor.R
+
 
 private lateinit var avancar_simulador: Button
 private const val ARG_PARAM1 = "valor"

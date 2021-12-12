@@ -1,4 +1,4 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_emprestimo
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -11,10 +11,11 @@ import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.applicationperfilinvestidor.R
 import com.example.applicationperfilinvestidor.dados.Emprestimo
 import com.example.applicationperfilinvestidor.dados.SolicitacoesDB
 import com.example.applicationperfilinvestidor.listas.EmprestimoAdapter
-import com.example.applicationperfilinvestidor.listas.EmprestimoHolder
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/simulador0"
-        android:name="com.example.applicationperfilinvestidor.Simulador0"
+        android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador0"
         android:label="fragment_page0"
         tools:layout="@layout/fragment_simulador0" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/simulador1"
-        android:name="com.example.applicationperfilinvestidor.Simulador1"
+        android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador1"
         android:label="fragment_simulador1"
         tools:layout="@layout/fragment_simulador1" >
         <action
@@ -26,7 +26,7 @@
 
     <fragment
     android:id="@+id/simulador2"
-    android:name="com.example.applicationperfilinvestidor.Simulador2"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador2"
     android:label="fragment_simulador2"
     tools:layout="@layout/fragment_simulador2" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador3"
-    android:name="com.example.applicationperfilinvestidor.Simulador3"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador3"
     android:label="fragment_simulador3"
     tools:layout="@layout/fragment_simulador3" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador4"
-    android:name="com.example.applicationperfilinvestidor.Simulador4"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador4"
     android:label="fragment_simulador4"
     tools:layout="@layout/fragment_simulador4" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador5"
-    android:name="com.example.applicationperfilinvestidor.Simulador5"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador5"
     android:label="fragment_simulador5"
     tools:layout="@layout/fragment_simulador5" >
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador6"
-    android:name="com.example.applicationperfilinvestidor.Simulador6"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador6"
     android:label="fragment_simulador6"
     tools:layout="@layout/fragment_simulador6" >
         <action
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador7"
-    android:name="com.example.applicationperfilinvestidor.Simulador7"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador7"
     android:label="fragment_simulador7"
     tools:layout="@layout/fragment_simulador7" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador8"
-    android:name="com.example.applicationperfilinvestidor.Simulador8"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador8"
     android:label="fragment_simulador8"
     tools:layout="@layout/fragment_simulador8" >
         <action
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
     android:id="@+id/simulador9"
-    android:name="com.example.applicationperfilinvestidor.Simulador9"
+    android:name="com.example.applicationperfilinvestidor.ui_simulador.Simulador9"
     android:label="fragment_simulador9"
     tools:layout="@layout/fragment_simulador9" >
         <action
@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/simuladorFinally"
-        android:name="com.example.applicationperfilinvestidor.SimuladorFinally"
+        android:name="com.example.applicationperfilinvestidor.ui_simulador.SimuladorFinally"
         android:label="fragment_simulador_finally"
         tools:layout="@layout/fragment_simulador_finally" />
 </navigation>

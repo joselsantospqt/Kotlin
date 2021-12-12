@@ -1,4 +1,4 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_emprestimo
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

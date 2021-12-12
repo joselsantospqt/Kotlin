@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationPerfilInvestidor">
         <activity
-            android:name=".ActivityEmprestimo"
+            android:name=".ui_emprestimo.ActivityEmprestimo"
             android:exported="false" />
         <activity
-            android:name=".ActivitySimulador"
+            android:name=".ui_simulador.ActivitySimulador"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

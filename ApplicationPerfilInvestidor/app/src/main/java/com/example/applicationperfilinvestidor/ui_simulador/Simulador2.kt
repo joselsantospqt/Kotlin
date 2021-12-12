@@ -1,4 +1,4 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_simulador
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.applicationperfilinvestidor.R
+
 
 private var valorPage = 0
 private lateinit var avancar_button: Button
@@ -20,7 +22,7 @@ private var param1: Int? = null
 private var param2: String? = null
 
 
-class Simulador1 : Fragment() {
+class Simulador2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,35 +31,33 @@ class Simulador1 : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_simulador1, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_simulador2, container, false)
         val navController = findNavController()
         bundle = Bundle()
 
         botoes_radios = arrayOf(
-            view.findViewById<RadioButton>(R.id.radioButton),
-            view.findViewById<RadioButton>(R.id.radioButton2),
-            view.findViewById<RadioButton>(R.id.radioButton3),
-            view.findViewById<RadioButton>(R.id.radioButton4)
+            view.findViewById<RadioButton>(R.id.radioButton5),
+            view.findViewById<RadioButton>(R.id.radioButton6),
+            view.findViewById<RadioButton>(R.id.radioButton7),
+            view.findViewById<RadioButton>(R.id.radioButton8)
         )
-
-        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela1)
+        avancar_button = view.findViewById<Button>(R.id.btnAvancarTela2)
         avancar_button.setOnClickListener {
             if(botoes_radios[0].isChecked ||
                 botoes_radios[1].isChecked ||
                 botoes_radios[2].isChecked ||
                 botoes_radios[3].isChecked)
-                navController.navigate(R.id.action_simulador1_to_simulador2, bundle)
+                navController.navigate(R.id.action_simulador2_to_simulador3, bundle)
             else
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
                     Toast.LENGTH_LONG).show()
         }
-
         for(i in 0..3){
             botoes_radios[i].setOnClickListener{
 
@@ -70,26 +70,28 @@ class Simulador1 : Fragment() {
                 }
                 else if(i == 2){
                     valorPage = 0
-                    valorPage = 3
+                    valorPage = 4
                 }
                 else{
                     valorPage = 0
-                    valorPage = 4
+                    valorPage = 5
                 }
 
-                newInstance(valorPage.toString(), param2.toString())
+                var valorRecuperado = param1.toString().toInt() + valorPage
+                newInstance(valorRecuperado.toString(), param2.toString())
                 Toast.makeText(view.context,
                     "Você clicou na alternativa:  ${botoes_radios[i].text}",
                     Toast.LENGTH_LONG).show()
             }
         }
         return view
+
     }
     companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Simulador1().apply {
+            Simulador2().apply {
                 arguments = bundle.apply {
                     putInt(ARG_PARAM1, param1.toInt())
                     putString(ARG_PARAM2, param2)

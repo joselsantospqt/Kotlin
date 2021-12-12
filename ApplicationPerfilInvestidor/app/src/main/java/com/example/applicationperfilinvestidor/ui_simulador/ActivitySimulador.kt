@@ -1,10 +1,8 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_simulador
 
-import android.app.SearchManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -12,31 +10,24 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
+import androidx.drawerlayout.widget.DrawerLayout
+import com.example.applicationperfilinvestidor.ui_emprestimo.ActivityEmprestimo
+import com.example.applicationperfilinvestidor.MainActivity
+import com.example.applicationperfilinvestidor.R
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_emprestimo.*
-import kotlinx.android.synthetic.main.activity_emprestimo.toolbar
-import kotlinx.android.synthetic.main.fragment_emprestimo0.*
+import kotlinx.android.synthetic.main.activity_simulador.*
 
-class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+lateinit var mDrawerLayout: DrawerLayout
+
+class ActivitySimulador : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_emprestimo)
-
-        val nome = intent.getStringExtra("nome")
-        val pontos = intent.getStringExtra("pontos")
-        ListaEmprestimos.newInstance(nome.toString(), pontos.toString())
-
+        setContentView(R.layout.activity_simulador)
         onCreateFloatingMenu()
-        findViewById<ViewPager2>(R.id.pagina_base).adapter = ScreenSlidePagerAdapter(this)
     }
 
-
     private fun onCreateFloatingMenu() {
-        mDrawerLayout = drawer_layout_emprestimo
+        mDrawerLayout = drawer_layout
         val toolbar = toolbar as Toolbar;
         setSupportActionBar(toolbar)
         val actionBar: ActionBar? = supportActionBar
@@ -44,10 +35,7 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
-        //AQUI ESTOU DEIXANDO MARCADO E CRAVADO EM QUAL ITEM DO MENU ESTOU NAVEGANDO.
-        navigation_view_emprestimo.getMenu().getItem(1).setChecked(true)
-        //AQUI EU ESTOU PASSANDO PARA A FUNÇÃO onNavigationItemSelected O NAVIGATION VIEW
-        findViewById<NavigationView>(R.id.navigation_view_emprestimo)?.setNavigationItemSelectedListener(
+        findViewById<NavigationView>(R.id.navigation_view_simulador)?.setNavigationItemSelectedListener(
             this
         )
     }
@@ -94,9 +82,7 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                 retorno = true
             }
             R.id.navigation_item_calculadora -> {
-                val intent =
-                    intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                val intent = intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
                 startActivity(intent)
                 retorno = true
             }
@@ -105,8 +91,5 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
         return retorno
     }
 
-    class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 1
-        override fun createFragment(position: Int): Fragment = ListaEmprestimos()
-    }
 }
+

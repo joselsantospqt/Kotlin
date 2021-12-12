@@ -1,11 +1,10 @@
-package com.example.applicationperfilinvestidor
+package com.example.applicationperfilinvestidor.ui_emprestimo
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.applicationperfilinvestidor.dados.EmprestimoDao
 import java.lang.IllegalArgumentException
-import javax.sql.DataSource
 
 class ListaEmprestimosViewModelFactory(
     private val dataSource: EmprestimoDao,

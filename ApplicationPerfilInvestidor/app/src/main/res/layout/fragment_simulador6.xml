@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Simulador6">
+    tools:context=".ui_simulador.Simulador6">
 
     <TextView
         android:id="@+id/textView6"
