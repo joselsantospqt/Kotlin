@@ -19,4 +19,13 @@
     <string name="planet7_description">Ninguém sabe que também possui aneis</string>
     <string name="planet8_description">Planeta mais distante do Sol</string>
 
+    <string name="add_planet">Add Planet</string>
+    <string name="planet_string">Planets</string>
+    <string name="planet_finder">Planet finder</string>
+    <string name="planet_description_edit_text">Planet Description</string>
+    <string name="planet_name_edit_text">Planet Name</string>
+    <string name="done_button_text">Done</string>
+    <string name="fab_content_description">fab</string>
+    <string name="planet_image_content_description">Image of planet</string>
+    <string name="remove_this_planet">Remove this planet</string>
 </resources>

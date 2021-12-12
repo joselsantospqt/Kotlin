@@ -12,24 +12,28 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_emprestimo.*
 import kotlinx.android.synthetic.main.activity_emprestimo.toolbar
 import kotlinx.android.synthetic.main.fragment_emprestimo0.*
 
-private val artist = "alok"
-
 class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emprestimo)
-        onCreateFloatingMenu()
 
         val nome = intent.getStringExtra("nome")
         val pontos = intent.getStringExtra("pontos")
-        Emprestimo0.newInstance(nome.toString(), pontos.toString())
+        ListaEmprestimos.newInstance(nome.toString(), pontos.toString())
 
+        onCreateFloatingMenu()
+        findViewById<ViewPager2>(R.id.pagina_base).adapter = ScreenSlidePagerAdapter(this)
     }
+
 
     private fun onCreateFloatingMenu() {
         mDrawerLayout = drawer_layout_emprestimo
@@ -90,12 +94,19 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                 retorno = true
             }
             R.id.navigation_item_calculadora -> {
-                val intent = intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                val intent =
+                    intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent)
                 retorno = true
             }
         }
 
         return retorno
+    }
+
+    class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int = 1
+        override fun createFragment(position: Int): Fragment = ListaEmprestimos()
     }
 }
