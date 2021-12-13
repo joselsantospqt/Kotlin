@@ -1,6 +1,7 @@
 package com.example.applicationperfilinvestidor.ui_simulador
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -81,8 +82,19 @@ class ActivitySimulador : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 startActivity(intent)
                 retorno = true
             }
+            R.id.navigation_item_Telefonar -> {
+                val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
+                    Intent(Intent.ACTION_CALL, number)
+                }
+                startActivity(intent)
+                retorno = true
+            }
             R.id.navigation_item_calculadora -> {
-                val intent = intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
+                val intent =
+                    intent.setClassName(
+                        "com.android.calculator2",
+                        "com.android.calculator2.Calculator"
+                    )
                 startActivity(intent)
                 retorno = true
             }

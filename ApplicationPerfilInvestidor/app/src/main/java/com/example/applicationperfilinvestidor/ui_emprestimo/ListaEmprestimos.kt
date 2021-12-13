@@ -57,12 +57,14 @@ class ListaEmprestimos : Fragment() {
             }
         })
 
+
         val edtNome = root.findViewById<EditText>(R.id.edtNome)
+        val edtTelefone = root.findViewById<EditText>(R.id.edtTelefone)
+        val edtEmail = root.findViewById<EditText>(R.id.edtEmail)
         val btnIncluir = root.findViewById<Button>(R.id.btnIncluir)
 
         btnIncluir.setOnClickListener {
-            val nome = edtNome.text.toString()
-            val contato = Emprestimo(0L, nome, "111111", "$nome@Gmail.com")
+            val contato = Emprestimo(0L, edtNome.toString(), edtTelefone.toString(), edtEmail.toString())
             viewModel.incluir(contato)
         }
 

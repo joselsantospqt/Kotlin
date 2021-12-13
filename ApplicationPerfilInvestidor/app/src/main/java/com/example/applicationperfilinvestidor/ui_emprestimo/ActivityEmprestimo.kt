@@ -1,6 +1,7 @@
 package com.example.applicationperfilinvestidor.ui_emprestimo
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -95,10 +96,19 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startActivity(intent)
                 retorno = true
             }
+            R.id.navigation_item_Telefonar -> {
+                val intent: Intent = Uri.parse("tel:00000000}").let { number ->
+                    Intent(Intent.ACTION_CALL, number)
+                }
+                startActivity(intent)
+                retorno = true
+            }
             R.id.navigation_item_calculadora -> {
                 val intent =
-                    intent.setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALCULATOR)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setClassName(
+                        "com.android.calculator2",
+                        "com.android.calculator2.Calculator"
+                    )
                 startActivity(intent)
                 retorno = true
             }

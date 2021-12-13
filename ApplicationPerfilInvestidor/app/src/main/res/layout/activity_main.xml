@@ -34,43 +34,48 @@
             android:contentDescription="Logo Empresa"
             app:srcCompat="@drawable/img_1" />
 
-        <TextView
-            android:id="@+id/lblUsuario"
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="Label Usuario"
-            android:text="Usuario:"
-            android:textSize="24sp" />
+            android:layout_gravity="center"
+            android:hint="Email"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
-        <EditText
-            android:id="@+id/txtEmail"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Escreva aqui seu usuario"
-            android:inputType="textEmailAddress" />
+            android:layout_gravity="center"
+            android:hint="Password"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textSize="24sp"
+            >
 
-        <TextView
-            android:id="@+id/lblSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="Label Passowrd"
-            android:text="Password"
-            android:textSize="24sp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lblSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/txtSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Escreva aqui seu password"
-            android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
