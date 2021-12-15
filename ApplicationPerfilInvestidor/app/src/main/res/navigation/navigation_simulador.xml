@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_simulador1_to_simulador2"
             app:destination="@id/simulador2" />
+        <action
+            android:id="@+id/action_simulador1_to_simulador0"
+            app:destination="@id/simulador0" />
     </fragment>
 
     <fragment
@@ -32,6 +35,9 @@
         <action
         android:id="@+id/action_simulador2_to_simulador3"
         app:destination="@id/simulador3" />
+        <action
+            android:id="@+id/action_simulador2_to_simulador1"
+            app:destination="@id/simulador1" />
     </fragment>
     <fragment
     android:id="@+id/simulador3"
@@ -41,6 +47,9 @@
         <action
         android:id="@+id/action_simulador3_to_simulador4"
         app:destination="@id/simulador4" />
+        <action
+            android:id="@+id/action_simulador3_to_simulador2"
+            app:destination="@id/simulador2" />
     </fragment>
     <fragment
     android:id="@+id/simulador4"
@@ -50,6 +59,9 @@
         <action
         android:id="@+id/action_simulador4_to_simulador5"
         app:destination="@id/simulador5" />
+        <action
+            android:id="@+id/action_simulador4_to_simulador3"
+            app:destination="@id/simulador3" />
     </fragment>
     <fragment
     android:id="@+id/simulador5"
@@ -59,6 +71,9 @@
         <action
         android:id="@+id/action_simulador5_to_simulador6"
         app:destination="@id/simulador6" />
+        <action
+            android:id="@+id/action_simulador5_to_simulador4"
+            app:destination="@id/simulador4" />
     </fragment>
     <fragment
     android:id="@+id/simulador6"
@@ -68,6 +83,9 @@
         <action
         android:id="@+id/action_simulador6_to_simulador7"
         app:destination="@id/simulador7" />
+        <action
+            android:id="@+id/action_simulador6_to_simulador5"
+            app:destination="@id/simulador5" />
     </fragment>
     <fragment
     android:id="@+id/simulador7"
@@ -77,6 +95,9 @@
         <action
         android:id="@+id/action_simulador7_to_simulador8"
         app:destination="@id/simulador8" />
+        <action
+            android:id="@+id/action_simulador7_to_simulador6"
+            app:destination="@id/simulador6" />
     </fragment>
     <fragment
     android:id="@+id/simulador8"
@@ -86,6 +107,9 @@
         <action
         android:id="@+id/action_simulador8_to_simulador9"
         app:destination="@id/simulador9" />
+        <action
+            android:id="@+id/action_simulador8_to_simulador7"
+            app:destination="@id/simulador7" />
     </fragment>
     <fragment
     android:id="@+id/simulador9"
@@ -95,6 +119,9 @@
         <action
         android:id="@+id/action_simulador9_to_simuladorFinally"
         app:destination="@id/simuladorFinally" />
+        <action
+            android:id="@+id/action_simulador9_to_simulador8"
+            app:destination="@id/simulador8" />
     </fragment>
     <fragment
         android:id="@+id/simuladorFinally"

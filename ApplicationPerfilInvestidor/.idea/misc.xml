@@ -4,12 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout-land/activity_main.xml" value="0.5" />
-        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout-land/fragment_simulador_finally.xml" value="0.5401041666666667" />
-        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_emprestimo.xml" value="0.5" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout-land/fragment_simulador_finally.xml" value="0.501432664756447" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_emprestimo.xml" value="0.33" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/activity_simulador.xml" value="0.1" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_emprestimo0.xml" value="0.3875" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_emprestimo1.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador0.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador1.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador2.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador3.xml" value="0.33" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador4.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador5.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador6.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador7.xml" value="0.3875" />
+        <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador8.xml" value="0.3875" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador9.xml" value="0.3875" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/fragment_simulador_finally.xml" value="0.33" />
         <entry key="..\:/Git/Kotlin/ApplicationPerfilInvestidor/app/src/main/res/layout/linha_emprestimo.xml" value="0.67" />
@@ -76,5 +85,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

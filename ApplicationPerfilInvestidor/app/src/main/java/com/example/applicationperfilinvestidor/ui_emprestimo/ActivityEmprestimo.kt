@@ -9,6 +9,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -26,18 +27,19 @@ import kotlinx.android.synthetic.main.activity_emprestimo.toolbar
 import kotlinx.android.synthetic.main.fragment_emprestimo0.*
 
 class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private val fragmentViewModel: FragmentViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emprestimo)
-
-        val nome = intent.getStringExtra("nome")
-        val pontos = intent.getStringExtra("pontos")
-        ListaEmprestimos.newInstance(nome.toString(), pontos.toString())
-
         onCreateFloatingMenu()
+        val itensIntent = ArrayList<String>()
+        if (!intent.getStringExtra("nome").isNullOrEmpty()) {
+            itensIntent.add(intent.getStringExtra("nome").toString())
+            itensIntent.add(intent.getStringExtra("pontuacao").toString())
+        }
+        fragmentViewModel.setData(itensIntent)
         findViewById<ViewPager2>(R.id.pagina_base).adapter = ScreenSlidePagerAdapter(this)
-        findViewById<EditText>(R.id.edtNome).setText(nome.toString())
-
     }
 
 
@@ -100,11 +102,14 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                 retorno = true
             }
             R.id.navigation_item_Telefonar -> {
-                val intent: Intent = Uri.parse("tel:00000000}").let { number ->
+                val intent: Intent = Uri.parse("tel:00000000").let { number ->
                     Intent(Intent.ACTION_CALL, number)
                 }
-                startActivity(intent)
-                retorno = true
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                    retorno = true
+                } else
+                    retorno = false
             }
             R.id.navigation_item_calculadora -> {
                 val intent =
@@ -112,8 +117,11 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
                         "com.android.calculator2",
                         "com.android.calculator2.Calculator"
                     )
-                startActivity(intent)
-                retorno = true
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                    retorno = true
+                } else
+                    retorno = false
             }
         }
 

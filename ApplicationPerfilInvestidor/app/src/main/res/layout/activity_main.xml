@@ -26,7 +26,7 @@
             app:srcCompat="@drawable/img_1" />
 
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/bem_vindo"
@@ -36,6 +36,7 @@
             android:textSize="34sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Shrine.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -44,10 +45,12 @@
             android:paddingBottom="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:contentDescription="Campo Email"
                 android:ems="10"
                 android:inputType="textEmailAddress" />
 
@@ -55,20 +58,21 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Shrine.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Password"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:textSize="24sp"
-            >
+            android:textSize="24sp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lblSenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:contentDescription="Campo Password"
                 android:ems="10"
                 android:inputType="textPassword" />
 

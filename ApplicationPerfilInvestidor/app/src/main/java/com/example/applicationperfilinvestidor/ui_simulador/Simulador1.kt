@@ -13,6 +13,7 @@ import com.example.applicationperfilinvestidor.R
 
 private var valorPage = 0
 private lateinit var avancar_button: Button
+private lateinit var voltar_button: Button
 private lateinit var botoes_radios: Array<RadioButton>
 private lateinit var bundle: Bundle
 private const val ARG_PARAM1 = "valor"
@@ -57,6 +58,11 @@ class Simulador1 : Fragment() {
                 Toast.makeText(view.context,
                     "Você precisa selecionar uma opção !!",
                     Toast.LENGTH_LONG).show()
+        }
+
+        voltar_button = view.findViewById<Button>(R.id.btnVoltarTela1)
+        voltar_button.setOnClickListener {
+            navController.navigate(R.id.action_simulador1_to_simulador0)
         }
 
         for(i in 0..3){

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="119dp"
                 android:layout_height="63dp"
@@ -33,7 +33,7 @@
                 android:contentDescription="Logo Empresa"
                 app:srcCompat="@drawable/img_1" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/bem_vindo"

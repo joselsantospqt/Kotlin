@@ -23,9 +23,9 @@
         <menu>
             <item
                 android:id="@+id/navigation_item_Telefonar"
-                android:contentDescription="botão calculadora"
+                android:contentDescription="botão Telefonar"
                 android:icon="@drawable/ic_baseline_phone_in_talk_24"
-                android:title="Falar com support" />
+                android:title="Falar com suporte" />
 <!--           <item-->
 <!--                android:icon="@drawable/ic_baseline_emoji_emotions_24"-->
 <!--                android:title="@string/nav_sub_menu_item02" />-->

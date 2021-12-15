@@ -5,6 +5,7 @@
     <string name="toolbar">toolbar</string>
     <string name="menu_latereal">Menu Lateral</string>
     <string name="btn_avancar">Avançar</string>
+    <string name="btn_Voltar">Voltar</string>
     <string name="bem_vindo">Bem Vindo Ao Nosso Banco</string>
     <string name="texto_simulador">Simulador de Perfil de Investimento</string>
     <string name="texto_simulador_inicio">Escreva seu nome para iniciar</string>

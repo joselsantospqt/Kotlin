@@ -15,6 +15,8 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/texto_pergunta05"
         android:text="@string/texto_pergunta05"
+        android:textColor="#000000"
+        android:textSize="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +56,7 @@
 
     </RadioGroup>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAvancarTela5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,4 +68,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVoltarTela5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/btn_Voltar"
+        android:text="@string/btn_Voltar"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAvancarTela5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

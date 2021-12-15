@@ -57,7 +57,7 @@ class SimuladorFinally : Fragment() {
         avancar_simulador.setOnClickListener {
             val intent = Intent(view.context, ActivityEmprestimo::class.java)
             intent.putExtra("nome", txtNome.text.toString())
-            intent.putExtra("pontos", param1.toString())
+            intent.putExtra("pontuacao", txtpontuacao.text)
 
             startActivity(intent)
         }

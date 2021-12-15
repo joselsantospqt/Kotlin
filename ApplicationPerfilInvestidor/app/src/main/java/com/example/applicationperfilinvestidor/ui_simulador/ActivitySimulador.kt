@@ -58,6 +58,7 @@ class ActivitySimulador : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 retorno = true
             }
             R.id.menuItemSair -> {
+
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 mensagem = "Você Saiu !"
@@ -86,8 +87,12 @@ class ActivitySimulador : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
                     Intent(Intent.ACTION_CALL, number)
                 }
-                startActivity(intent)
+                if(intent.resolveActivity(packageManager) != null){
+                    startActivity(intent)
                 retorno = true
+                }
+                else
+                    retorno = false
             }
             R.id.navigation_item_calculadora -> {
                 val intent =

@@ -12,8 +12,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val intent = Intent(this, ActivitySimulador::class.java)
+
         btnLogin.setOnClickListener {
             startActivity(intent)
         }
+
     }
 }
