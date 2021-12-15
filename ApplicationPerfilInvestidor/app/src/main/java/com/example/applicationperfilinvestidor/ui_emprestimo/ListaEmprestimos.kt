@@ -32,10 +32,6 @@ class ListaEmprestimos : Fragment() {
         }
     }
 
-    override fun onResume() {
-        var a = arguments?.getString(ARG_PARAM1)
-        super.onResume()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,12 +55,12 @@ class ListaEmprestimos : Fragment() {
 
 
         val edtNome = root.findViewById<EditText>(R.id.edtNome)
-        val edtTelefone = root.findViewById<EditText>(R.id.edtTelefone)
-        val edtEmail = root.findViewById<EditText>(R.id.edtEmail)
+        val edtValor = root.findViewById<EditText>(R.id.edtValor)
+        val edtStatus = root.findViewById<EditText>(R.id.edtStatus)
         val btnIncluir = root.findViewById<Button>(R.id.btnIncluir)
 
         btnIncluir.setOnClickListener {
-            val contato = Emprestimo(0L, edtNome.toString(), edtTelefone.toString(), edtEmail.toString())
+            val contato = Emprestimo(0L, edtNome.text.toString(), "R$ ${edtValor.text.toString()}", edtStatus.text.toString())
             viewModel.incluir(contato)
         }
 

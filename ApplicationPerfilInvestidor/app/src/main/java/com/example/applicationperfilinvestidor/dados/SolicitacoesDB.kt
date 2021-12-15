@@ -19,7 +19,7 @@ abstract class SolicitacoesDB: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         SolicitacoesDB::class.java,
-                        "solicitacoes_database"
+                        "solicitacoes_database3"
                     ).fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }

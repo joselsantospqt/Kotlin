@@ -24,31 +24,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/edtNome"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:ems="10"-->
-        <!--            android:hint="Nome"-->
-        <!--            android:inputType="textPersonName" />-->
-
-        <!--        <EditText-->
-        <!--            android:id="@+id/edtTelefone"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:ems="10"-->
-        <!--            android:hint="Telefone"-->
-        <!--            android:inputType="textPersonName" />-->
-
-        <!--        <EditText-->
-        <!--            android:id="@+id/edtEmail"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:ems="10"-->
-        <!--            android:hint="Email"-->
-        <!--            android:inputType="textPersonName" />-->
-
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,13 +46,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Telefone"
+            android:hint="Valor"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textSize="24sp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtTelefone"
+                android:id="@+id/edtValor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -90,13 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="E-mail"
+            android:hint="Status"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textSize="24sp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtEmail"
+                android:id="@+id/edtStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

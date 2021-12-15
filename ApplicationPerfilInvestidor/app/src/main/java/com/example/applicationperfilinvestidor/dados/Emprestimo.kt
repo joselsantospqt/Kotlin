@@ -10,8 +10,8 @@ data class Emprestimo(
     var idEmprestimo: Long = 0L,
     @ColumnInfo(name="nome_pessoa")
     var nome: String,
-    @ColumnInfo(name="telefone")
-    var telefone: String,
-    @ColumnInfo(name="email")
-    var email: String
+    @ColumnInfo(name="valor")
+    var valor: String,
+    @ColumnInfo(name="status")
+    var status: String
 )

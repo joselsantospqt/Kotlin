@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
@@ -35,6 +36,8 @@ class ActivityEmprestimo : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         onCreateFloatingMenu()
         findViewById<ViewPager2>(R.id.pagina_base).adapter = ScreenSlidePagerAdapter(this)
+        findViewById<EditText>(R.id.edtNome).setText(nome.toString())
+
     }
 
 
