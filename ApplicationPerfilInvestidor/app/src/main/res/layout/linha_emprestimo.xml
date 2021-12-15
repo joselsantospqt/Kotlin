@@ -16,6 +16,7 @@
             android:layout_height="32dp"
             android:paddingRight="10dp"
             android:text="TextView"
+            android:contentDescription="texto Nome"
             android:textColor="#000000"
             android:textSize="18dp" />
 
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:text="TextView"
+            android:contentDescription="texto Status"
             android:textColor="#000000"
             android:textSize="18dp" />
 
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:inputType="numberDecimal"
+        android:contentDescription="texto Valor"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="18dp" />

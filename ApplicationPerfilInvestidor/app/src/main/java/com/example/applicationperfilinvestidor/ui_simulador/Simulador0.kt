@@ -37,7 +37,7 @@ class Simulador0 : Fragment() {
         bundle = Bundle()
         avancar_button = view.findViewById<Button>(R.id.btnIniciar)
         avancar_button.setOnClickListener {
-            if (txtNome.text.toString().length <= 4)
+            if (txtNome.text.toString().length <= 3 && txtNome.text.isBlank())
                 Toast.makeText(
                     view.context,
                     "Escreva um nome valido para continuar !!",

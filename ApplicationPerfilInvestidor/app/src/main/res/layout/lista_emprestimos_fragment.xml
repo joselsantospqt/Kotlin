@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Nome"
+            android:hint="Campo Nome"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textSize="24sp">
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Valor"
+            android:hint="Campo Valor"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textSize="24sp">
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Status"
+            android:hint="Campo Status"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textSize="24sp">
