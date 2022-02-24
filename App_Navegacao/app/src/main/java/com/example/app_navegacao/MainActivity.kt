@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
         val btnTela2 = findViewById<Button>(R.id.btnTela2)
         btnTela2.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
-            val txtnome = findViewById<EditText>(R.id.txtNome)
-            intent.putExtra("nome", txtnome.text.toString())
+            val txtIdade = findViewById<EditText>(R.id.txtIdade)
+            intent.putExtra("idade", txtIdade.text.toString())
 
             startActivity(intent)
 

@@ -12,9 +12,9 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        val nome = intent.getStringExtra("nome")
-        var lblNomeInformado = findViewById<TextView>(R.id.lblNomeInformado)
-        lblNomeInformado.setText(nome)
+        val nome = intent.getStringExtra("idade")
+        var lblIdadeInformado = findViewById<TextView>(R.id.lblIdadeInformado)
+        lblIdadeInformado.setText(nome)
 
     }
 }
