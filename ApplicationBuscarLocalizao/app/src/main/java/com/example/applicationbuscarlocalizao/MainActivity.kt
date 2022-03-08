@@ -12,13 +12,19 @@ import android.widget.TextView
 import org.w3c.dom.Text
 import android.location.LocationManager
 import android.net.Uri
+import android.os.Environment
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.*
+import java.io.File
+import java.io.FileOutputStream
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var btnCarregarDados: Button
@@ -27,52 +33,70 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        txtView = findViewById<TextView>(R.id.txtgeolocalizacao)
         btnCarregarDados = findViewById<Button>(R.id.btnCarregarDados)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         btnCarregarDados.setOnClickListener {
-                checkPermissions()
-            }
+            checkPermissions()
+
+            val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+            val file = File(
+                this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS),
+                "${LocalDateTime.now().format(formatter).toString()}.crd"
+            )
+            val fos = FileOutputStream(file)
+            fos.write(txtView.text.toString().toByteArray())
+            fos.close()
+            Toast.makeText(this, "Arquivo Salvo com sucesso !", Toast.LENGTH_SHORT).show()
+
         }
+    }
 
     private fun checkPermissions() {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 1)
-        }else{
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                128
+            )
+        } else {
             getLocations()
         }
     }
+
     @SuppressLint("MissingPermission")
     private fun getLocations() {
         fusedLocationProviderClient.lastLocation?.addOnSuccessListener {
-            txtView = findViewById<TextView>(R.id.txtgeolocalizacao)
-            if(it == null){
+            if (it == null) {
                 txtView.text = "Localização não encontrada"
-            }else it.apply {
+            } else it.apply {
                 val latitude = it.latitude
                 val longitude = it.longitude
-                txtView.text = "Latitude: $latitude, Longitude: $longitude"
-                val mapIntent : Intent = Uri.parse("geo: $latitude,$longitude  ?z=zoom").let { location ->
-                    Intent(Intent.ACTION_VIEW, location)
-                }
-                startActivity(mapIntent)
+                txtView.text = "Latitude: $latitude,\n Longitude: $longitude"
             }
         }
     }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == 1){
-            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
-                getLocations()
-            }else{
-                Toast.makeText(this,"Permission Danied", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
 }
+
+
+//METODO PARA TRATAR REQUEST PERMISSIONS EM PARTICULAR
+//  override fun onRequestPermissionsResult(
+//      requestCode: Int,
+//      permissions: Array<out String>,
+//     grantResults: IntArray
+// ) {
+//     super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//     if(requestCode == 1){
+//         if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+//             Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
+//             getLocations()
+//         }else{
+//             Toast.makeText(this,"Permission Danied", Toast.LENGTH_SHORT).show()
+//         }
+//      }
+//  }
+//}

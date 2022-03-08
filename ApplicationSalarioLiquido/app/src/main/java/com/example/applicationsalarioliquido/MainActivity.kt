@@ -6,9 +6,13 @@ import android.icu.util.Currency
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         planoSaude = findViewById<EditText>(R.id.txtPlanoSaude)
         outrosDescontos = findViewById<EditText>(R.id.txtDescontos)
         botao_calcular = findViewById<Button>(R.id.btnCalcular)
+
         botao_calcular.setOnClickListener {
 
 
