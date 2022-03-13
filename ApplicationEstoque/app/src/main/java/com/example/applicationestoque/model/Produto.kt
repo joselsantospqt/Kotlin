@@ -5,6 +5,6 @@ data class Produto (
     val quantidade: Int? = null,
     val preco: Double? = null,
     val descricao: String? = null,
-    val uriFoto: String? = null
+    //val uriFoto: String? = null
 
 )
