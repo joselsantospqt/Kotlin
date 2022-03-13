@@ -75,7 +75,6 @@ class CadastroFragment : Fragment() {
                 quantidade = binding.inputQuantidade.text.toString().toInt(),
                 preco = binding.inputPreco.text.toString().toDouble(),
                 descricao = binding.inputDescricao.text.toString(),
-                //uriFoto = ""
             )
 
             val db = Firebase.firestore
@@ -122,7 +121,7 @@ class CadastroFragment : Fragment() {
 
         val storage = FirebaseStorage.getInstance()
         var storageRef = storage.reference
-        val fotoRef = storageRef.child("Estoque/${caminho}/${idUpload}.jpg")
+        val fotoRef = storageRef.child("${caminho}/${idUpload}.jpg")
         val baos = ByteArrayOutputStream()
         bmp?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val uploadTask = fotoRef.putBytes(baos.toByteArray())
