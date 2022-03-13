@@ -29,6 +29,7 @@ class CadastroFragment : Fragment() {
     private var fotoTirada = false
     private val REQUEST_CODE_PHOTO = 1
     lateinit var bmp: Bitmap
+    private val nomeCollection = "produtos"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,8 +80,13 @@ class CadastroFragment : Fragment() {
 
             val db = Firebase.firestore
 
-            db.collection("produtos")
-                .add(novoProduto)
+            db.collection(nomeCollection)
+                .add(novoProduto).addOnSuccessListener { documentReference ->
+                    uploadFoto(documentReference.id, nomeCollection)
+                }
+                .addOnFailureListener { e ->
+                    Log.i(TAG, "Error incluir documento", e)
+                }
         }
     }
 
@@ -88,7 +94,7 @@ class CadastroFragment : Fragment() {
         if (
             binding.inputNome.length() < 3 ||
             binding.inputDescricao.length() < 3 ||
-            binding.inputPreco.length() < 4 ||
+            binding.inputPreco.length() < 2 ||
             binding.inputQuantidade.length() < 1 ||
             !fotoTirada
         ) {
@@ -112,15 +118,21 @@ class CadastroFragment : Fragment() {
         startActivityForResult(i, REQUEST_CODE_PHOTO)
     }
 
-    fun uploadFoto(caminho: String) {
+    fun uploadFoto(idUpload: String, caminho: String) {
 
-        val storage =  FirebaseStorage.getInstance()
+        val storage = FirebaseStorage.getInstance()
         var storageRef = storage.reference
-        val fotoRef = storageRef.child("estoque/${caminho}.jpg")
+        val fotoRef = storageRef.child("Estoque/${caminho}/${idUpload}.jpg")
         val baos = ByteArrayOutputStream()
         bmp?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val uploadTask = storageRef.putBytes(baos.toByteArray())
-        uploadTask.addOnCanceledListener {  }
+        val uploadTask = fotoRef.putBytes(baos.toByteArray())
+        uploadTask.addOnSuccessListener {
+            Log.i(TAG, "DocumentSnapshot and Register added with ID: ${idUpload}")
+            limparCampos()
+        }
+            .addOnFailureListener { e ->
+                Log.i(TAG, "Falha ao carregar a imagem", e)
+            }
 
     }
 
