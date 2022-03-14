@@ -101,10 +101,12 @@ class ListFragment : Fragment() {
                                 )
                                 listaProduto.add(entrada)
                             }
-                            DocumentChange.Type.MODIFIED -> Log.d(
+                            DocumentChange.Type.MODIFIED -> {Log.d(
                                 "Download",
                                 "Produto Alterado ${document.document.data.get("nome")}"
                             )
+//                                https://firebase.google.com/docs/firestore/query-data/listen?hl=pt&authuser=0
+                            }
                             DocumentChange.Type.REMOVED -> Log.d(
                                 "Download",
                                 "Produto Removido ${document.document.data.get("nome")}"
