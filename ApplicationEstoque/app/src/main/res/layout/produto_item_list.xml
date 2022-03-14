@@ -62,9 +62,10 @@
             android:layout_width="409dp"
             android:layout_height="2dp"
             android:background="?android:attr/listDivider"
+            android:backgroundTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewFoto" />
+            app:layout_constraintTop_toBottomOf="@+id/dados_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

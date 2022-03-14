@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.applicationestoque.ProdutoAdapter
 import com.example.applicationestoque.R
 import com.example.applicationestoque.databinding.FragmentListBinding
@@ -17,15 +20,27 @@ import com.example.applicationestoque.model.ProdutoComFoto
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class ListFragment : Fragment() {
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
-    lateinit var adapter: ProdutoAdapter
     private val nomeCollection = "produtos"
+    lateinit var adapter: ProdutoAdapter
+    lateinit var listaFora: List<Produto>
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        lifecycleScope.launch() {
+            delay(2000)
+            adapter.submitList(listaFora)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +56,7 @@ class ListFragment : Fragment() {
 
     fun setup(view: View) {
         setupListerner(view)
-        setupRecyclerView(view)
+        setupRecyclerView()
     }
 
     fun setupListerner(view: View) {
@@ -50,31 +65,43 @@ class ListFragment : Fragment() {
         }
     }
 
-    fun setupRecyclerView(view: View) {
+    fun setupRecyclerView() {
         val db = Firebase.firestore
         val storage = FirebaseStorage.getInstance()
         var storageRef = storage.reference
-        var listaProduto: MutableList<ProdutoComFoto> = mutableListOf<ProdutoComFoto>()
-        val listaRecebida = db.collection(nomeCollection).get().addOnSuccessListener { it ->
-            for (document in it) {
-                val fotoRef = storageRef.child("${nomeCollection}/${document.id}.jpg")
-                fotoRef.getBytes(1024 * 1024).addOnSuccessListener {
-                    val bmp = BitmapFactory.decodeByteArray(it, 0, it.size)
-                    var entrada = ProdutoComFoto(
+        var listaProduto: MutableList<Produto> = mutableListOf<Produto>()
+        val listaRecebida = db
+            .collection(nomeCollection)
+            .orderBy("nome")
+//            .whereGreaterThan("preco", "0")
+            .get()
+            .addOnSuccessListener { it ->
+                for (document in it) {
+                    var entrada = Produto(
                         nome = document.get("nome").toString(),
                         quantidade = document.get("quantidade").toString().toInt(),
-                        preco = document.get("preço").toString().toDouble(),
-                        descricao = document.get("descricao").toString(),
-                        foto = bmp
+                        preco = document.get("preco").toString().toDouble(),
+                        descricao = document.get("descricao").toString()
                     )
                     listaProduto.add(entrada)
-                    Log.i("Download", "Tamanho da lista: ${listaProduto.size}")
                 }
+                listaFora = listaProduto
+                Log.i("Download", "listaFora tem tamanho: ${listaFora.size}")
+                Log.i("Download", "lista de Produto tem tamanho: ${listaProduto.size}")
+
+                adapter = ProdutoAdapter {
+                    Toast.makeText(context, "Cliquei no item: ${it.nome}", Toast.LENGTH_LONG).show()
+                }
+
+                binding.recyclerViewlistProduto.layoutManager = LinearLayoutManager(this.context)
+                binding.recyclerViewlistProduto.adapter = adapter
+
+                adapter.submitList(listaProduto)
+
+            }.addOnFailureListener {
+                Toast.makeText(context, "Ocorreu um Erro ao baixar a lista", Toast.LENGTH_LONG)
+                    .show()
+
             }
-        }
-
-        adapter = ProdutoAdapter(listaProduto)
-        binding.recyclerViewlistProduto.adapter = adapter
-
     }
 }

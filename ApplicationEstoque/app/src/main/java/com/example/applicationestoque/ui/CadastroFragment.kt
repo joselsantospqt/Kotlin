@@ -82,9 +82,10 @@ class CadastroFragment : Fragment() {
             db.collection(nomeCollection)
                 .add(novoProduto).addOnSuccessListener { documentReference ->
                     uploadFoto(documentReference.id, nomeCollection)
+                    Toast.makeText(context, "Dados cadastrado com sucesso", Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener { e ->
-                    Log.i(TAG, "Error incluir documento", e)
+                    Log.i(TAG, "Error ao Cadastar", e)
                 }
         }
     }
@@ -126,6 +127,7 @@ class CadastroFragment : Fragment() {
         bmp?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val uploadTask = fotoRef.putBytes(baos.toByteArray())
         uploadTask.addOnSuccessListener {
+            Toast.makeText(context, "Foto Enviada com sucesso", Toast.LENGTH_LONG).show()
             Log.i(TAG, "DocumentSnapshot and Register added with ID: ${idUpload}")
             limparCampos()
         }

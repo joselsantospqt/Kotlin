@@ -28,7 +28,12 @@ class HomeFragment : Fragment() {
 
     fun setupListerner(view: View) {
         binding.btnCadastrar.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_cadastroFragment)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_homeFragment_to_cadastroFragment)
+        }
+
+        binding.btnListar.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_listFragment)
         }
     }
 

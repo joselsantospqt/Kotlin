@@ -5,49 +5,55 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.applicationestoque.databinding.ProdutoItemListBinding
+import com.example.applicationestoque.model.Produto
 import com.example.applicationestoque.model.ProdutoComFoto
 
-class ProdutoAdapter(private val dataSet: MutableList<ProdutoComFoto>) :
-    RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
+//https://developer.android.com/codelabs/android-room-with-a-view-kotlin?hl=pt-br#11
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txtNome: TextView
-        val txtQuantidade: TextView
-        val txtPreco: TextView
-        val imageViewFoto: ImageView
+class ProdutoAdapter(private val onItemClicked: (Produto) -> Unit) : ListAdapter<Produto, ProdutoAdapter.MyViewHolder>(DiffCallBack) {
 
-        init {
-            txtNome = view.findViewById(R.id.txtNome)
-            txtQuantidade = view.findViewById(R.id.txtQuantidade)
-            txtPreco = view.findViewById(R.id.txtPreco)
-            imageViewFoto = view.findViewById(R.id.imageViewFoto)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(
+            ProdutoItemListBinding.inflate(LayoutInflater.from(parent.context))
+        )
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val current = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClicked(current)
+        }
+
+        holder.bind(current)
+    }
+
+
+    class MyViewHolder(private val binding: ProdutoItemListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: Produto) {
+            binding.txtNome.text = item.nome
+            binding.txtDescricao.setText(item.descricao.toString())
+            binding.txtQuantidade.setText(item.quantidade.toString())
+            binding.txtPreco.setText("R$: ${item.preco.toString()}")
         }
     }
 
-    // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.produto_item_list, viewGroup, false)
+    companion object {
+        private val DiffCallBack = object : DiffUtil.ItemCallback<Produto>() {
+            override fun areItemsTheSame(oldItem: Produto, newItem: Produto): Boolean {
+                return oldItem === newItem
+            }
 
-        return ViewHolder(view)
+            override fun areContentsTheSame(oldItem: Produto, newItem: Produto): Boolean {
+                return oldItem.nome == newItem.nome
+            }
+
+        }
     }
-
-    // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        viewHolder.txtNome.text = dataSet[position].nome
-        viewHolder.txtQuantidade.text = dataSet[position].quantidade.toString()
-        viewHolder.txtPreco.text = dataSet[position].preco.toString()
-        viewHolder.imageViewFoto.setImageBitmap(dataSet[position].foto)
-    }
-
-    // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
 
 }
