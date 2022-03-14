@@ -1,5 +1,6 @@
 package com.example.applicationestoque.ui
 
+import android.content.ContentValues.TAG
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -22,6 +23,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import com.google.firebase.firestore.DocumentChange
 
 
 class ListFragment : Fragment() {
@@ -68,27 +70,49 @@ class ListFragment : Fragment() {
     fun setupRecyclerView() {
         val db = Firebase.firestore
         val storage = FirebaseStorage.getInstance()
-        var storageRef = storage.reference
-        var listaProduto: MutableList<Produto> = mutableListOf<Produto>()
-        val listaRecebida = db
+        val storageRef = storage.reference
+        val listaProduto: MutableList<Produto> = mutableListOf()
+        val listaTempoReal = db
             .collection(nomeCollection)
             .orderBy("nome")
-//            .whereGreaterThan("preco", "0")
-            .get()
-            .addOnSuccessListener { it ->
-                for (document in it) {
-                    var entrada = Produto(
-                        nome = document.get("nome").toString(),
-                        quantidade = document.get("quantidade").toString().toInt(),
-                        preco = document.get("preco").toString().toDouble(),
-                        descricao = document.get("descricao").toString()
-                    )
-                    listaProduto.add(entrada)
+            .addSnapshotListener { it, e ->
+                if (e != null) {
+                    Log.i(TAG, "Erro ao carregar as informações", e)
+                    return@addSnapshotListener
+                }
+//                listaProduto.clear()
+
+                if (it != null) {
+                    for (document in it.documentChanges) {
+
+                        when (document.type) {
+                            DocumentChange.Type.ADDED -> {
+                                Log.d(
+                                    "Download",
+                                    "Novo produto ${document.document.data.get("nome")}"
+                                )
+                                val entrada = Produto(
+                                    nome = document.document.data.get("nome").toString(),
+                                    quantidade = document.document.data.get("quantidade").toString()
+                                        .toInt(),
+                                    preco = document.document.data.get("preco").toString()
+                                        .toDouble(),
+                                    descricao = document.document.data.get("descricao").toString()
+                                )
+                                listaProduto.add(entrada)
+                            }
+                            DocumentChange.Type.MODIFIED -> Log.d(
+                                "Download",
+                                "Produto Alterado ${document.document.data.get("nome")}"
+                            )
+                            DocumentChange.Type.REMOVED -> Log.d(
+                                "Download",
+                                "Produto Removido ${document.document.data.get("nome")}"
+                            )
+                        }
+                    }
                 }
                 listaFora = listaProduto
-                Log.i("Download", "listaFora tem tamanho: ${listaFora.size}")
-                Log.i("Download", "lista de Produto tem tamanho: ${listaProduto.size}")
-
                 adapter = ProdutoAdapter {
                     Toast.makeText(context, "Cliquei no item: ${it.nome}", Toast.LENGTH_LONG).show()
                 }
@@ -97,10 +121,6 @@ class ListFragment : Fragment() {
                 binding.recyclerViewlistProduto.adapter = adapter
 
                 adapter.submitList(listaProduto)
-
-            }.addOnFailureListener {
-                Toast.makeText(context, "Ocorreu um Erro ao baixar a lista", Toast.LENGTH_LONG)
-                    .show()
 
             }
     }
