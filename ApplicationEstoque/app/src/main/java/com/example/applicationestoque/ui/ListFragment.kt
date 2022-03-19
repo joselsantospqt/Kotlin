@@ -161,7 +161,7 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
         val rotuloBotao = alertDialog.getButton(id).text
         val navController = findNavController()
         when(rotuloBotao){
-            "Editar" ->  Toast.makeText(context, "funcionalidade não foi implementada", Toast.LENGTH_SHORT).show()
+            "Editar" ->  navController.navigate(R.id.action_listFragment_to_editarFragment)
             "Excluir" -> navController.navigate(R.id.action_listFragment_to_deletarFragment)
         }
     }

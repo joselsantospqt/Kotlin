@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_listFragment_to_deletarFragment"
             app:destination="@id/deletarFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_editarFragment"
+            app:destination="@id/editarFragment" />
     </fragment>
     <fragment
         android:id="@+id/deletarFragment"
@@ -45,6 +48,15 @@
         tools:layout="@layout/fragment_deletar" >
         <action
             android:id="@+id/action_deletarFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarFragment"
+        android:name="com.example.applicationestoque.ui.EditarFragment"
+        android:label="fragment_editar"
+        tools:layout="@layout/fragment_editar" >
+        <action
+            android:id="@+id/action_editarFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
 </navigation>
