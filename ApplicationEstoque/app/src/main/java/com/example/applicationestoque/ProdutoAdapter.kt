@@ -14,7 +14,7 @@ import com.example.applicationestoque.model.ProdutoComFoto
 
 //https://developer.android.com/codelabs/android-room-with-a-view-kotlin?hl=pt-br#11
 
-class ProdutoAdapter(private val onItemClicked: (Produto) -> Unit) : ListAdapter<Produto, ProdutoAdapter.MyViewHolder>(DiffCallBack) {
+class ProdutoAdapter(private val onItemClicked: (ProdutoComFoto) -> Unit) : ListAdapter<ProdutoComFoto, ProdutoAdapter.MyViewHolder>(DiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -35,7 +35,7 @@ class ProdutoAdapter(private val onItemClicked: (Produto) -> Unit) : ListAdapter
     class MyViewHolder(private val binding: ProdutoItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Produto) {
+        fun bind(item: ProdutoComFoto) {
             binding.txtNome.text = item.nome
             binding.txtDescricao.setText(item.descricao.toString())
             binding.txtQuantidade.setText(item.quantidade.toString())
@@ -44,13 +44,13 @@ class ProdutoAdapter(private val onItemClicked: (Produto) -> Unit) : ListAdapter
     }
 
     companion object {
-        private val DiffCallBack = object : DiffUtil.ItemCallback<Produto>() {
-            override fun areItemsTheSame(oldItem: Produto, newItem: Produto): Boolean {
+        private val DiffCallBack = object : DiffUtil.ItemCallback<ProdutoComFoto>() {
+            override fun areItemsTheSame(oldItem: ProdutoComFoto, newItem: ProdutoComFoto): Boolean {
                 return oldItem === newItem
             }
 
-            override fun areContentsTheSame(oldItem: Produto, newItem: Produto): Boolean {
-                return oldItem.nome == newItem.nome
+            override fun areContentsTheSame(oldItem: ProdutoComFoto, newItem: ProdutoComFoto): Boolean {
+                return oldItem.id == newItem.id
             }
 
         }
