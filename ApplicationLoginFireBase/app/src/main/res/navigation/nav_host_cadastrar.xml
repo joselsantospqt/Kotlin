@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host_cadastrar"
+    app:startDestination="@id/cadastrarPessoaFragment">
+
+    <fragment
+        android:id="@+id/cadastrarPessoaFragment"
+        android:name="com.example.applicationloginfirebase.login.CadastrarPessoaFragment"
+        android:label="fragment_cadastrar_pessoa"
+        tools:layout="@layout/fragment_cadastrar_pessoa" >
+        <action
+            android:id="@+id/action_cadastrarPessoaFragment_to_cadastarEnderecoFragment"
+            app:destination="@id/cadastarEnderecoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastarEnderecoFragment"
+        android:name="com.example.applicationloginfirebase.login.CadastarEnderecoFragment"
+        android:label="fragment_cadastar_endereco"
+        tools:layout="@layout/fragment_cadastar_endereco" >
+        <action
+            android:id="@+id/action_cadastarEnderecoFragment_to_cadastrarPessoaFragment"
+            app:destination="@id/cadastrarPessoaFragment" />
+    </fragment>
+</navigation>
