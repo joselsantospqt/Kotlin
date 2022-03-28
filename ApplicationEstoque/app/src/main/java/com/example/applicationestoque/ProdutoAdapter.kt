@@ -40,6 +40,7 @@ class ProdutoAdapter(private val onItemClicked: (ProdutoComFoto) -> Unit) : List
             binding.txtDescricao.setText(item.descricao.toString())
             binding.txtQuantidade.setText(item.quantidade.toString())
             binding.txtPreco.setText("R$: ${item.preco.toString()}")
+            binding.imageViewFoto.setImageBitmap(item.foto)
         }
     }
 

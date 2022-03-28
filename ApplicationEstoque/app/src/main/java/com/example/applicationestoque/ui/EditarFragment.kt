@@ -39,7 +39,6 @@ class EditarFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        CarregaViewModel()
         setupListerner(view)
         carregaProduto()
     }

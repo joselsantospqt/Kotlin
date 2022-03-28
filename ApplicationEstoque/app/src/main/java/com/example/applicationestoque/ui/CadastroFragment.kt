@@ -16,6 +16,8 @@ import com.example.applicationestoque.R
 import com.example.applicationestoque.databinding.FragmentCadastroBinding
 import com.example.applicationestoque.databinding.FragmentHomeBinding
 import com.example.applicationestoque.model.Produto
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -30,6 +32,7 @@ class CadastroFragment : Fragment() {
     private val REQUEST_CODE_PHOTO = 1
     lateinit var bmp: Bitmap
     private val nomeCollection = "produtos"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

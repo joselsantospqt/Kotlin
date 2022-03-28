@@ -2,6 +2,8 @@ package com.example.applicationestoque.ui
 
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,6 +24,9 @@ import com.example.applicationestoque.databinding.FragmentListBinding
 import com.example.applicationestoque.model.ProdutoViewModel
 import com.example.applicationestoque.model.Produto
 import com.example.applicationestoque.model.ProdutoComFoto
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -29,7 +34,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.google.firebase.firestore.DocumentChange
 
-class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
+class ListFragment : Fragment(), DialogInterface.OnClickListener {
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
@@ -37,6 +42,12 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
     lateinit var adapter: ProdutoAdapter
     lateinit var listaFora: List<ProdutoComFoto>
     private val cargaViewModel: ProdutoViewModel by activityViewModels()
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        auth = Firebase.auth
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,36 +95,49 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
                     Log.i(TAG, "Erro ao carregar as informações", e)
                     return@addSnapshotListener
                 }
-//                listaProduto.clear()
 
                 if (it != null) {
                     for (document in it.documentChanges) {
-
                         when (document.type) {
                             DocumentChange.Type.ADDED -> {
-                                Log.d(
+                                Log.i(
                                     "Download",
                                     "Novo produto ${document.document.data.get("nome")}"
                                 )
-                                val entrada = ProdutoComFoto(
-                                    id = document.document.id,
-                                    nome = document.document.data.get("nome").toString(),
-                                    quantidade = document.document.data.get("quantidade").toString()
-                                        .toInt(),
-                                    preco = document.document.data.get("preco").toString()
-                                        .toDouble(),
-                                    descricao = document.document.data.get("descricao").toString()
-                                )
-                                listaProduto.add(entrada)
+                                /*Baixa a foto a partir do document.id*/
+                                val fotoRef =
+                                    storageRef.child("$nomeCollection/${document.document.id}.jpg")
+                                fotoRef.getBytes(1024 * 1024)
+                                    .addOnSuccessListener {
+                                        val bmp = BitmapFactory.decodeByteArray(it, 0, it.size)
+                                        val entrada = ProdutoComFoto(
+                                            id = document.document.id,
+                                            nome = document.document.data.get("nome").toString(),
+                                            quantidade = document.document.data.get("quantidade")
+                                                .toString()
+                                                .toInt(),
+                                            preco = document.document.data.get("preco").toString()
+                                                .toDouble(),
+                                            descricao = document.document.data.get("descricao")
+                                                .toString(),
+                                            foto = bmp
+                                        )
+                                        listaProduto.add(entrada)
+                                    }.addOnFailureListener {
+                                        Log.i(
+                                            "Download",
+                                            "Erro ao carregar a imagem do : ${document.document.data.get("nome")}"
+                                        )
+                                    }
                             }
                             DocumentChange.Type.MODIFIED -> {
-                                Log.d(
+                                Log.i(
                                     "Download",
                                     "Produto Alterado ${document.document.data.get("nome")}"
                                 )
 //                                https://firebase.google.com/docs/firestore/query-data/listen?hl=pt&authuser=0
                             }
-                            DocumentChange.Type.REMOVED -> Log.d(
+                            DocumentChange.Type.REMOVED -> Log.i(
                                 "Download",
                                 "Produto Removido ${document.document.data.get("nome")}"
                             )
@@ -123,7 +147,7 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
                 listaFora = listaProduto
                 adapter = ProdutoAdapter {
                     Toast.makeText(context, "Cliquei no item: ${it.nome}", Toast.LENGTH_LONG).show()
-                    Log.i("AÇÃO DO CLICK","Testeando Produto: ${it?.nome}")
+                    Log.i("AÇÃO DO CLICK", "Testeando Produto: ${it?.nome}")
 
                     var produto = ProdutoComFoto(
                         id = it.id,
@@ -134,8 +158,6 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
                     )
                     cargaViewModel.setData(produto)
 
-
-
                     val alertDialog = AlertDialog.Builder(requireContext())
                     alertDialog.setTitle("Alerta")
                     alertDialog.setMessage("Opção do item : ${it.nome}")
@@ -143,16 +165,12 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
                     alertDialog.setNegativeButton("Excluir", this)
                     alertDialog.setCancelable(true)//alerta modal
                     alertDialog.show()
-
-
-
                 }
 
                 binding.recyclerViewlistProduto.layoutManager = LinearLayoutManager(this.context)
                 binding.recyclerViewlistProduto.adapter = adapter
 
                 adapter.submitList(listaProduto)
-
             }
     }
 
@@ -160,12 +178,11 @@ class ListFragment : Fragment(),  DialogInterface.OnClickListener  {
         val alertDialog = dialog as AlertDialog // Cast implicito
         val rotuloBotao = alertDialog.getButton(id).text
         val navController = findNavController()
-        when(rotuloBotao){
-            "Editar" ->  navController.navigate(R.id.action_listFragment_to_editarFragment)
+        when (rotuloBotao) {
+            "Editar" -> navController.navigate(R.id.action_listFragment_to_editarFragment)
             "Excluir" -> navController.navigate(R.id.action_listFragment_to_deletarFragment)
         }
     }
-
 
 
 }
