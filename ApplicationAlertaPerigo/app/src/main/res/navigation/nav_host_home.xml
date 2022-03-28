@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host_home"
+    app:startDestination="@id/homeDashboardFragment">
+
+    <fragment
+        android:id="@+id/homeDashboardFragment"
+        android:name="com.example.applicationalertaperigo.ui.home.HomeDashboardFragment"
+        android:label="fragment_home_dashboard"
+        tools:layout="@layout/fragment_home_dashboard" >
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePerfilFragment"
+        android:name="com.example.applicationalertaperigo.ui.home.HomePerfilFragment"
+        android:label="fragment_home_perfil"
+        tools:layout="@layout/fragment_home_perfil" >
+        <action
+            android:id="@+id/action_homePerfilFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+    </fragment>
+</navigation>
