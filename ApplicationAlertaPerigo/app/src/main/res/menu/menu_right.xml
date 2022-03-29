@@ -4,6 +4,12 @@
     <!--        android:id="@+id/menuItemConfiguracao"-->
     <!--        android:contentDescription="Configuração"-->
     <!--        android:title="Configuração" />-->
+
+    <item
+        android:id="@+id/menuItemPerfil"
+        android:contentDescription="Botão Perfil"
+        android:title="Meu Perfil" />
+
     <item
         android:id="@+id/menuItemSair"
         android:contentDescription="Botão Sair"

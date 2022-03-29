@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -15,7 +16,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.applicationalertaperigo.R
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.applicationalertaperigo.databinding.ActivityHomeBinding
 import com.example.applicationalertaperigo.ui.login.LoginActivity
 import com.example.applicationalertaperigo.viewModel.HomeViewModel
@@ -23,7 +27,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
-
 
 lateinit var mDrawerLayout: DrawerLayout
 
@@ -43,7 +46,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun setup() {
         onCreateFloatingMenu()
-        carregaDados()
     }
 
     private fun onCreateFloatingMenu() {
@@ -76,6 +78,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 mensagem = "Menu Aberto !"
                 retorno = true
             }
+//            R.id.menuItemPerfil -> {
+//                val navHostFragment =
+//                    supportFragmentManager.findFragmentById(R.id.nav_host_home) as NavHostFragment
+//                val navController = navHostFragment.navController
+//                navController.navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
+//                mensagem = "Menu Pefil !"
+//                retorno = true
+//            }
             R.id.menuItemSair -> {
                 Firebase.auth.signOut()
                 val intent = Intent(this, LoginActivity::class.java)
@@ -125,8 +135,4 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return retorno
     }
 
-    fun carregaDados(){
-        auth = Firebase.auth
-        viewModel.CarregaDadosUsuario(auth.currentUser?.uid.toString())
-    }
 }

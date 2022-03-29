@@ -1,33 +1,45 @@
 package com.example.applicationalertaperigo.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.example.applicationalertaperigo.R
+import com.example.applicationalertaperigo.databinding.FragmentHomeDashboardBinding
+import com.example.applicationalertaperigo.databinding.FragmentHomePerfilBinding
+import com.example.applicationalertaperigo.model.login.DadosPessoa
+import com.example.applicationalertaperigo.ui.login.LoginActivity
+import com.example.applicationalertaperigo.viewModel.HomeViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomePerfilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomePerfilFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding: FragmentHomePerfilBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: HomeViewModel by activityViewModels()
+    private lateinit var auth: FirebaseAuth
+    private val nomeCollection = "Usuario"
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -35,26 +47,125 @@ class HomePerfilFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_perfil, container, false)
+        _binding = FragmentHomePerfilBinding.inflate(inflater, container, false)
+        val view = binding.root
+        setup(view)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomePerfilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomePerfilFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setup(view: View) {
+        carregaViewModel()
+        setuptextChange()
+        setupButton(view)
     }
+
+    private fun setuptextChange() {
+    }
+
+    private fun setupButton(view: View) {
+        val db = Firebase.firestore
+
+        binding.btnExcluir.setOnClickListener {
+            if (auth.currentUser?.uid.toString() != null) {
+                db.collection(nomeCollection).document(auth.currentUser?.uid.toString())
+                    .delete()
+                    .addOnSuccessListener {
+                        val usuario = Firebase.auth.currentUser!!
+                        usuario.delete()
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(context, "Conta ao Excluida com sucesso !", Toast.LENGTH_LONG).show()
+                                    var intent = Intent(context, LoginActivity::class.java)
+                                    startActivity(intent)
+                                }
+                                else
+                                    Toast.makeText(context, "${task.exception}", Toast.LENGTH_LONG).show()
+                            }
+                    }
+                    .addOnFailureListener { e -> Log.i("delete", "Error deleting document", e) }
+            } else
+                Toast.makeText(context, "Erro ao Excluir a conta", Toast.LENGTH_LONG).show()
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            verificaLogado()
+            if (verificaDados()) {
+                var usuario =
+                    db.collection(nomeCollection).document(auth.currentUser?.uid.toString())
+                db.runTransaction { transaction ->
+                    var updateUsuario = DadosPessoa(
+                        nome = binding.inputNome.text.toString(),
+                        sobrenome = binding.inputSobreNome.text.toString(),
+                        email = binding.inputEmail.text.toString(),
+                        cep = binding.inputCep.text.toString(),
+                        estado = binding.inputEstado.text.toString(),
+                        cidade = binding.inputCidade.text.toString(),
+                        bairro = binding.inputBairro.text.toString(),
+                        logradouro = binding.inputLogradouro.text.toString(),
+                        numero = binding.inputNumero.text.toString(),
+                        complemento = binding.inputComplemento.text.toString()
+                    )
+                    transaction.update(usuario, updateUsuario.toMap())
+                    // Success
+                    null
+                }.addOnSuccessListener {
+                    Toast.makeText(context, "Usuario atualizado", Toast.LENGTH_LONG).show()
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_homePerfilFragment_to_homeDashboardFragment)
+                }
+                    .addOnFailureListener {
+                        Toast.makeText(
+                            context,
+                            "Usuario não atualizado",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+            }
+        }
+
+        binding.btnVoltar.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_homePerfilFragment_to_homeDashboardFragment)
+        }
+    }
+
+    private fun carregaViewModel() {
+        viewModel.dadosPessoa.observe(viewLifecycleOwner, {
+            if (it != null) {
+                binding.inputNome.setText(it.nome.toString())
+                binding.inputSobreNome.setText(it.sobrenome.toString())
+                binding.inputEmail.setText(it.email.toString())
+                binding.inputCep.setText(it.cep.toString())
+                binding.inputEstado.setText(it.estado.toString())
+                binding.inputCidade.setText(it.cidade.toString())
+                binding.inputBairro.setText(it.bairro.toString())
+                binding.inputLogradouro.setText(it.logradouro.toString())
+                binding.inputNumero.setText(it.numero.toString())
+                binding.inputComplemento.setText(it.complemento.toString())
+            }
+        })
+    }
+
+    private fun verificaDados(): Boolean {
+        if (
+            binding.inputNome.length() < 3 ||
+            binding.inputSobreNome.length() < 3
+        ) {
+            Toast.makeText(this.context, "Dados não preenchidos", Toast.LENGTH_LONG).show()
+            return false
+        } else {
+            return true
+        }
+    }
+
+    private fun verificaLogado() {
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            var intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(context, "Conexão Perdida", Toast.LENGTH_LONG).show()
+        }
+    }
+
 }

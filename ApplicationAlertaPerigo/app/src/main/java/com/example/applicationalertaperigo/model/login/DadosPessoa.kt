@@ -1,6 +1,10 @@
 package com.example.applicationalertaperigo.model.login
 
-class DadosPessoa(
+import com.google.firebase.firestore.Exclude
+import com.google.firebase.firestore.IgnoreExtraProperties
+
+@IgnoreExtraProperties
+data class DadosPessoa(
     val nome: String? = null,
     val sobrenome: String? = null,
     val email: String? = null,
@@ -12,3 +16,22 @@ class DadosPessoa(
     val numero: String? = null,
     val complemento: String? = null
 )
+
+{
+
+    @Exclude
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "nome" to nome,
+            "sobrenome" to sobrenome,
+            "email" to email,
+            "cep" to cep,
+            "estado" to estado,
+            "cidade" to cidade,
+            "bairro" to bairro,
+            "logradouro" to logradouro,
+            "numero" to numero,
+            "complemento" to complemento,
+        )
+    }
+}
