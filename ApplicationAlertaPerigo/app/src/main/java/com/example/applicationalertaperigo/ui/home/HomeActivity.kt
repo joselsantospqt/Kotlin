@@ -16,10 +16,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.applicationalertaperigo.R
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import com.example.applicationalertaperigo.databinding.ActivityHomeBinding
 import com.example.applicationalertaperigo.ui.login.LoginActivity
 import com.example.applicationalertaperigo.viewModel.HomeViewModel
@@ -40,8 +40,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = binding.root
+        auth = Firebase.auth
         setContentView(view)
         setup()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.CarregaDadosUsuario(auth.currentUser?.uid.toString())
     }
 
     private fun setup() {

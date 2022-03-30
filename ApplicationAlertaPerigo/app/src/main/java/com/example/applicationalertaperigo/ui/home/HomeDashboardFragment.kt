@@ -46,7 +46,7 @@ class HomeDashboardFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        carregaDados()
+        //carregaDados()
         leViewModel()
         setupButton(view)
     }
@@ -60,6 +60,10 @@ class HomeDashboardFragment : Fragment() {
         binding.btnPerfil.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
+        }
+        binding.btnDenunciar.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_homeDashboardFragment_to_denunciaCadastroFragment)
         }
     }
 

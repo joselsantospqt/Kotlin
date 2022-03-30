@@ -61,10 +61,10 @@ class LoginCadastrarPessoaFragment : Fragment() {
                 Navigation.findNavController(view)
                     .navigate(R.id.action_loginCadastrarPessoaFragment_to_loginCadastrarEnderecoFragment)
             else
-                Toast.makeText(activity, "Preencha os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Preencha os campos", Toast.LENGTH_SHORT).show()
         }
         binding.btnVoltar.setOnClickListener {
-            var intent = Intent(activity, LoginActivity::class.java)
+            var intent = Intent(this.context, LoginActivity::class.java)
             startActivity(intent)
         }
     }

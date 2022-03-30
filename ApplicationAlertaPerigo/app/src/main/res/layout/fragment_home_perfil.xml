@@ -53,7 +53,7 @@
                         android:id="@+id/input_Email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="E-mail" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,7 +67,7 @@
                         android:id="@+id/input_Cep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="CEP" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +81,7 @@
                         android:id="@+id/input_Numero"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Número" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -95,7 +95,7 @@
                         android:id="@+id/input_Logradouro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Logradouro" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -109,7 +109,7 @@
                         android:id="@+id/input_Cidade"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Cidade" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -123,7 +123,7 @@
                         android:id="@+id/input_Complemento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Complemento" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -137,7 +137,7 @@
                         android:id="@+id/input_Estado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Estado" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -151,7 +151,7 @@
                         android:id="@+id/input_Bairro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
+                        android:enabled="false"
                         android:hint="Bairro" />
 
                 </com.google.android.material.textfield.TextInputLayout>

@@ -47,7 +47,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
 
+    //dependencia GPS
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
+    //dependencias para realizar gets em api
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
 

@@ -54,7 +54,7 @@ class LoginCadastrarEnderecoFragment : Fragment() {
             if (viewModel.verificacaoDadosEndereco())
                 cadastroFireBase()
             else {
-                Toast.makeText(activity, "Preencha os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Preencha os campos", Toast.LENGTH_SHORT).show()
             }
         }
         binding.btnVoltar.setOnClickListener {
@@ -67,10 +67,10 @@ class LoginCadastrarEnderecoFragment : Fragment() {
         viewModel.cadastroFireBase()
         viewModel.confirmaCadastro.observe(viewLifecycleOwner) {
             if (it == true) {
-                var intent = Intent(activity, LoginActivity::class.java)
+                var intent = Intent(this.context, LoginActivity::class.java)
                 startActivity(intent)
             } else
-                Toast.makeText(activity, "Processando...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Processando...", Toast.LENGTH_SHORT).show()
         }
     }
 

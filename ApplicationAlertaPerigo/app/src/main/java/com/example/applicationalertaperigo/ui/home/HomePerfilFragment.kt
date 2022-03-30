@@ -75,12 +75,12 @@ class HomePerfilFragment : Fragment() {
                         usuario.delete()
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    Toast.makeText(context, "Conta ao Excluida com sucesso !", Toast.LENGTH_LONG).show()
-                                    var intent = Intent(context, LoginActivity::class.java)
+                                    Toast.makeText(this.context, "Conta ao Excluida com sucesso !", Toast.LENGTH_LONG).show()
+                                    var intent = Intent(this.context, LoginActivity::class.java)
                                     startActivity(intent)
                                 }
                                 else
-                                    Toast.makeText(context, "${task.exception}", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(this.context, "${task.exception}", Toast.LENGTH_LONG).show()
                             }
                     }
                     .addOnFailureListener { e -> Log.i("delete", "Error deleting document", e) }
@@ -162,9 +162,9 @@ class HomePerfilFragment : Fragment() {
     private fun verificaLogado() {
         val currentUser = auth.currentUser
         if (currentUser == null) {
-            var intent = Intent(context, LoginActivity::class.java)
+            var intent = Intent(this.context, LoginActivity::class.java)
             startActivity(intent)
-            Toast.makeText(context, "Conexão Perdida", Toast.LENGTH_LONG).show()
+            Toast.makeText(this.context, "Conexão Perdida", Toast.LENGTH_LONG).show()
         }
     }
 

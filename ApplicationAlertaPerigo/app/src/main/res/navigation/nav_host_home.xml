@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeDashboardFragment_to_homePerfilFragment"
             app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
     </fragment>
     <fragment
         android:id="@+id/homePerfilFragment"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_home_perfil" >
         <action
             android:id="@+id/action_homePerfilFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/denunciaCadastroFragment"
+        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaCadastroFragment"
+        android:label="fragment_denuncia_cadastro"
+        tools:layout="@layout/fragment_denuncia_cadastro" >
+        <action
+            android:id="@+id/action_denunciaCadastroFragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
     </fragment>
 </navigation>

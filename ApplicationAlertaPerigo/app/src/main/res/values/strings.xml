@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApplicationAlertaPerigo</string>
+    <string name="app_name">Alerta Perigo</string>
     <string name="title_activity_login_cadastrar">LoginCadastrarActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
