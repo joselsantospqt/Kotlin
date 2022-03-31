@@ -36,6 +36,7 @@ class DenunciaAdapter(private val onItemClicked: (DadosDenunciaComFoto) -> Unit)
             binding.txtDescricao.setText("Descrição: ${item.descricao.toString()}")
             binding.txtLatitude.setText("Latitude: ${item.latitude.toString()}")
             binding.txtLongitude.setText("Logitude: ${item.longitude.toString()}")
+            binding.txtTitulo.setText("Titulo: ${item.titulo.toString()}")
             binding.imageViewFoto.setImageBitmap(item.foto)
         }
     }

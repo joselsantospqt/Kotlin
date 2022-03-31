@@ -11,6 +11,7 @@ data class DadosDenuncia (
     val latitude: String? = null,
     val longitude: String? = null,
     val descricao: String? = null,
+    val titulo: String? = null
     ) {
 
         @Exclude
@@ -20,7 +21,8 @@ data class DadosDenuncia (
                 "dateRegistro" to dateRegistro,
                 "latitude" to latitude,
                 "longitude" to longitude,
-                "descricao" to descricao
+                "descricao" to descricao,
+                "titulo" to titulo
             )
         }
     }

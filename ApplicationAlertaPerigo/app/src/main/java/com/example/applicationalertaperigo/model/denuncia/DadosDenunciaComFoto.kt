@@ -9,6 +9,7 @@ class DadosDenunciaComFoto(
     val latitude: String? = null,
     val longitude: String? = null,
     val descricao: String? = null,
+    val titulo: String? = null,
     val foto: Bitmap? = null
 
 )
