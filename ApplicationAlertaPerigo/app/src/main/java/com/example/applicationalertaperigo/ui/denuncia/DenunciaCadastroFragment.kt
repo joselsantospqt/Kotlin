@@ -93,6 +93,32 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
     private fun setup(view: View) {
         carregaDados()
         setupButton(view)
+        setupObservers(view)
+    }
+
+    private fun setupObservers(view: View) {
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when (it) {
+                    1 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaCadastroFragment_to_homeDashboardFragment)
+                    }
+                    2 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaCadastroFragment_to_homePerfilFragment)
+                    }
+                    4 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaCadastroFragment_to_denunciaListarFragment)
+                    }
+                }
+
+            }
+        })
     }
 
     private fun carregaDados() {

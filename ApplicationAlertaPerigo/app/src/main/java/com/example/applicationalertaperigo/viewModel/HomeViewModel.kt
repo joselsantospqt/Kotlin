@@ -40,8 +40,15 @@ class HomeViewModel : ViewModel() {
     }
 
     //NAVEGAÇÃO DA ACTIVITY ENTRE FRAGMENTS
+    //RASCUNHO DE COMO VAI FUNCIONAR A NÚMERAÇÃO DA PÁGINAÇÃO
+    //N° PAGINAÇÃO:
+    // 0 = DEFAULT
+    // 1 = HOME
+    // 2 = PERFIL
+    // 3 = CADASTRAR DENUNCIA
+    // 4 = LISTAR DENUNCIA
 
-    private val _trocaFragment = MutableLiveData<Int>(0)
+    private val _trocaFragment = MutableLiveData<Int>(null)
     var trocaFragment: LiveData<Int> = _trocaFragment
 
     fun setTrocaFragment(id: Int) {

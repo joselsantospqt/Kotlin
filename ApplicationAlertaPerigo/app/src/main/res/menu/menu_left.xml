@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-     <!--   <item
-            android:id="@+id/navigation_item_01"
-            android:checked="true"
-            android:contentDescription="botão 01"
-            android:icon="@drawable/ic_baseline_grading_24"
-            android:title="Botão 01" />
         <item
-            android:id="@+id/navigation_item_02"
-            android:contentDescription="botão 02"
-            android:icon="@drawable/ic_baseline_monetization_on_24"
-            android:title="Botão 02" />-->
+            android:id="@+id/navigation_item_Home"
+            android:checked="true"
+            android:contentDescription="botão Home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/navigation_item_Cadastrar"
+            android:contentDescription="Cadastrar Denuncia"
+            android:icon="@drawable/ic_baseline_add_task_24"
+            android:title="Cadastrar denuncia" />
+        <item
+            android:id="@+id/navigation_item_Listar"
+            android:contentDescription="Lista de Denuncias"
+            android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            android:title="Lista de Denuncias" />
         <item
             android:id="@+id/navigation_item_calculadora"
             android:contentDescription="botão calculadora"

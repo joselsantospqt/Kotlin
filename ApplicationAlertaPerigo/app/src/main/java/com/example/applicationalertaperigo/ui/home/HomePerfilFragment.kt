@@ -55,7 +55,7 @@ class HomePerfilFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        carregaViewModel()
+        setupObservers(view)
         setuptextChange()
         setupButton(view)
     }
@@ -75,12 +75,19 @@ class HomePerfilFragment : Fragment() {
                         usuario.delete()
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    Toast.makeText(this.context, "Conta ao Excluida com sucesso !", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(
+                                        this.context,
+                                        "Conta ao Excluida com sucesso !",
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                     var intent = Intent(this.context, LoginActivity::class.java)
                                     startActivity(intent)
-                                }
-                                else
-                                    Toast.makeText(this.context, "${task.exception}", Toast.LENGTH_LONG).show()
+                                } else
+                                    Toast.makeText(
+                                        this.context,
+                                        "${task.exception}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
                             }
                     }
                     .addOnFailureListener { e -> Log.i("delete", "Error deleting document", e) }
@@ -130,7 +137,7 @@ class HomePerfilFragment : Fragment() {
         }
     }
 
-    private fun carregaViewModel() {
+    private fun setupObservers(view: View) {
         viewModel.dadosPessoa.observe(viewLifecycleOwner, {
             if (it != null) {
                 binding.inputNome.setText(it.nome.toString())
@@ -143,6 +150,29 @@ class HomePerfilFragment : Fragment() {
                 binding.inputLogradouro.setText(it.logradouro.toString())
                 binding.inputNumero.setText(it.numero.toString())
                 binding.inputComplemento.setText(it.complemento.toString())
+            }
+        })
+
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when (it) {
+                    1 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homePerfilFragment_to_homeDashboardFragment)
+                    }
+                    3 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homePerfilFragment_to_denunciaCadastroFragment)
+                    }
+                    4 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homePerfilFragment_to_denunciaListarFragment)
+                    }
+                }
+
             }
         })
     }

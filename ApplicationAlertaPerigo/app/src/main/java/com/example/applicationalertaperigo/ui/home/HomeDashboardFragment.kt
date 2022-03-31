@@ -45,12 +45,12 @@ class HomeDashboardFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        carregaDados()
-        leViewModel(view)
+        lerViewModel()
+        setupObservers(view)
         setupButton(view)
     }
 
-    private fun carregaDados() {
+    private fun lerViewModel() {
         viewModel.CarregaDadosUsuario(auth.currentUser?.uid.toString())
     }
 
@@ -70,7 +70,7 @@ class HomeDashboardFragment : Fragment() {
         }
     }
 
-    private fun leViewModel(view: View) {
+    private fun setupObservers(view: View) {
         viewModel.dadosPessoa.observe(viewLifecycleOwner, {
             if (it != null) {
                 binding.txtNomeUsuario.setText(it.nome.toString() + " " + it.sobrenome.toString())
@@ -79,10 +79,24 @@ class HomeDashboardFragment : Fragment() {
 
         viewModel.trocaFragment.observe(viewLifecycleOwner, {
             if (it != null) {
-                when(it){
-                    1 ->  Navigation.findNavController(view)
-                        .navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
+                when (it) {
+                    2 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
+                    }
+                    3 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homeDashboardFragment_to_denunciaCadastroFragment)
+                    }
+                    4 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homeDashboardFragment_to_denunciaListarFragment)
+                    }
                 }
+
             }
         })
 

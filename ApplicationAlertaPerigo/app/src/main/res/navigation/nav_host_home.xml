@@ -28,6 +28,15 @@
         <action
             android:id="@+id/action_homePerfilFragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_homePerfilFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_homePerfilFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_homePerfilFragment_to_denunciaCadastroFragment2"
+            app:destination="@id/denunciaCadastroFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaCadastroFragment"
@@ -37,6 +46,12 @@
         <action
             android:id="@+id/action_denunciaCadastroFragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_denunciaCadastroFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_denunciaCadastroFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaListarFragment"
@@ -52,6 +67,12 @@
         <action
             android:id="@+id/action_denunciaListarFragment_to_denunciaEditarFragment"
             app:destination="@id/denunciaEditarFragment" />
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaEditarFragment"
@@ -61,6 +82,18 @@
         <action
             android:id="@+id/action_denunciaEditarFragment_to_denunciaListarFragment"
             app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_denunciaListarFragment2"
+            app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaExcluirFragment"
@@ -70,5 +103,14 @@
         <action
             android:id="@+id/action_denunciaExcluirFragment_to_denunciaListarFragment"
             app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_denunciaExcluirFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_denunciaExcluirFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_denunciaExcluirFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
     </fragment>
 </navigation>

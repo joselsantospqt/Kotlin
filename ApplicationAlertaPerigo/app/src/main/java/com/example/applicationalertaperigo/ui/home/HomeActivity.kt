@@ -63,9 +63,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
-        findViewById<NavigationView>(R.id.nav_host_home)?.setNavigationItemSelectedListener(
-            this
-        )
+        binding.navigationMenu.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -85,7 +83,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 retorno = true
             }
             R.id.menuItemPerfil -> {
-                viewModel.NavegaFragment(1)
+                viewModel.NavegaFragment(2)
                 mensagem = "Menu Pefil !"
                 retorno = true
             }
@@ -105,15 +103,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var retorno = false
 
         when (item.itemId) {
-/*            R.id.navigation_item_01 -> {
-
-
+            R.id.navigation_item_Home -> {
+                viewModel.NavegaFragment(1)
                 retorno = true
             }
-            R.id.navigation_item_02 -> {
-
+            R.id.navigation_item_Cadastrar -> {
+                viewModel.NavegaFragment(3)
                 retorno = true
-            }*/
+            }
+            R.id.navigation_item_Listar -> {
+                viewModel.NavegaFragment(4)
+                retorno = true
+            }
             R.id.navigation_item_Telefonar -> {
                 val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
                     Intent(Intent.ACTION_CALL, number)

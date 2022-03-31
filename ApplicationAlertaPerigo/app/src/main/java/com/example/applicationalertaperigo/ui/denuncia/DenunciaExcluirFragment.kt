@@ -14,6 +14,7 @@ import com.example.applicationalertaperigo.R
 import com.example.applicationalertaperigo.databinding.FragmentDenunciaExcluirBinding
 import com.example.applicationalertaperigo.model.denuncia.DadosDenunciaComFoto
 import com.example.applicationalertaperigo.viewModel.DenunciaViewModel
+import com.example.applicationalertaperigo.viewModel.HomeViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -25,6 +26,7 @@ class DenunciaExcluirFragment : Fragment() {
     private val nomeCollection = "Denuncias"
     private var denuncia: DadosDenunciaComFoto? = null
     private val cargaViewModel: DenunciaViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +46,7 @@ class DenunciaExcluirFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        CarregaViewModel()
+        setupObservers(view)
         setupListerner(view)
         carregaDenuncia()
     }
@@ -112,13 +114,41 @@ class DenunciaExcluirFragment : Fragment() {
         }
     }
 
-    private fun CarregaViewModel() {
+    private fun setupObservers(view: View) {
         cargaViewModel.itemDenuncia.observe(viewLifecycleOwner, {
             if (it != null) {
                 binding.inputDataHora.setText(it.dateRegistro)
                 binding.inputDescricao.setText(it.descricao)
                 binding.inputLongitude.setText(it.longitude)
                 binding.inputLatitude.setText(it.latitude)
+            }
+        })
+
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when (it) {
+                    1 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaExcluirFragment_to_homeDashboardFragment)
+                    }
+                    2 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaExcluirFragment_to_homePerfilFragment)
+                    }
+                    3 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaExcluirFragment_to_denunciaCadastroFragment)
+                    }
+                    4 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaExcluirFragment_to_denunciaListarFragment)
+                    }
+                }
+
             }
         })
     }

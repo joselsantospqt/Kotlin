@@ -22,6 +22,7 @@ import com.example.applicationalertaperigo.R
 import com.example.applicationalertaperigo.databinding.FragmentDenunciaListarBinding
 import com.example.applicationalertaperigo.model.denuncia.DadosDenunciaComFoto
 import com.example.applicationalertaperigo.viewModel.DenunciaViewModel
+import com.example.applicationalertaperigo.viewModel.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
@@ -39,8 +40,9 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
     private val nomeCollection = "Denuncias"
     lateinit var adapter: DenunciaAdapter
     lateinit var listaFora: List<DadosDenunciaComFoto>
-    private val cargaViewModel: DenunciaViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
+    private val cargaViewModel: DenunciaViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,8 +70,34 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
     }
 
     private fun setup(view: View) {
+        setupObservers(view)
         setupListerner(view)
         setupRecyclerView()
+    }
+
+    private fun setupObservers(view: View) {
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when (it) {
+                    1 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaListarFragment_to_homeDashboardFragment)
+                    }
+                    2 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaListarFragment_to_homePerfilFragment)
+                    }
+                    3 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaListarFragment_to_denunciaCadastroFragment)
+                    }
+                }
+            }
+        })
+
     }
 
     private fun setupListerner(view: View) {
