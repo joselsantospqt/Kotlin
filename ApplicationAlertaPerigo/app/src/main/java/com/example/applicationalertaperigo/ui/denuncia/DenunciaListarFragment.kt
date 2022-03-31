@@ -26,9 +26,11 @@ import com.example.applicationalertaperigo.viewModel.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -43,6 +45,7 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
     private lateinit var auth: FirebaseAuth
     private val cargaViewModel: DenunciaViewModel by activityViewModels()
     private val viewModel: HomeViewModel by activityViewModels()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,7 +122,8 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
         val storageRef = storage.reference
         val listaTempoReal = db
             .collection(nomeCollection)
-            //.orderBy("dateRegistro")
+            .whereEqualTo("idUsuario", auth.currentUser?.uid)
+            .orderBy("titulo", Query.Direction.DESCENDING)
             .addSnapshotListener { documents, e ->
                 if (e != null) {
                     Log.i(ContentValues.TAG, "Erro ao carregar as informações", e)
@@ -149,6 +153,8 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
                                     longitude = document.document.data.get("longitude")
                                         .toString(),
                                     descricao = document.document.data.get("descricao")
+                                        .toString(),
+                                    titulo = document.document.data.get("titulo")
                                         .toString(),
                                     foto = null
                                 )

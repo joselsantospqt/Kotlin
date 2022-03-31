@@ -46,7 +46,7 @@ class LoginCadastrarEnderecoFragment : Fragment() {
         lerViewModel()
         setuptextChange()
         setupButton(view)
-        //setupObservers()
+        setupObservers()
     }
 
     private fun setupButton(view: View) {
@@ -167,16 +167,15 @@ class LoginCadastrarEnderecoFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.cep.observe(viewLifecycleOwner) {
-            if (it.length == 8) {
-                viewModel.getEndereco()
+        viewModel.atualizaEndereco.observe(viewLifecycleOwner) {
+            if (it == 0) {
+                viewModel.cep.observe(viewLifecycleOwner) {
+                    if (it.length == 8) { viewModel.getEndereco() }
+                }
+            } else {
+                lerViewModelSemCep()
             }
         }
-
-        viewModel.atualizaEndereco.observe(viewLifecycleOwner) {
-            lerViewModelSemCep()
-        }
-
     }
 
 

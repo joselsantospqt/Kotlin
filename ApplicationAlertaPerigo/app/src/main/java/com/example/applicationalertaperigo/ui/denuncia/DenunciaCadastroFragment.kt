@@ -34,6 +34,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_home.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
@@ -59,6 +60,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
         super.onDestroyView()
         _binding = null
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,13 +157,13 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
 
     private fun addProduto() {
         if (verificaDados()) {
-
             var novaDenuncia = DadosDenuncia(
                 idUsuario = auth.currentUser?.uid.toString(),
                 dateRegistro = binding.inputDataHora.text.toString(),
                 latitude = binding.inputLatitude.text.toString(),
                 longitude = binding.inputLongitude.text.toString(),
                 descricao = binding.inputDescricao.text.toString(),
+                titulo = binding.inputTitulo.text.toString()
             )
 
             val db = Firebase.firestore
@@ -193,6 +195,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
         binding.inputLatitude.setText("")
         binding.inputLongitude.setText("")
         binding.inputDescricao.setText("")
+        binding.inputTitulo.setText("")
         binding.imageView.setImageResource(R.drawable.ic_person)
     }
 

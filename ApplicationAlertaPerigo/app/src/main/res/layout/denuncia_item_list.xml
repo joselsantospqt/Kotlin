@@ -21,6 +21,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titulo"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/txtdateRegistro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

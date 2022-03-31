@@ -20,6 +20,7 @@ import com.example.applicationalertaperigo.viewModel.HomeViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_home.*
 
 class DenunciaEditarFragment : Fragment() {
 
@@ -30,10 +31,9 @@ class DenunciaEditarFragment : Fragment() {
     private val cargaViewModel: DenunciaViewModel by activityViewModels()
     private val viewModel: HomeViewModel by activityViewModels()
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateView(
@@ -51,7 +51,6 @@ class DenunciaEditarFragment : Fragment() {
     private fun setup(view: View) {
         setupObservers(view)
         setupListerner(view)
-        carregaDenuncia()
     }
 
     private fun setupListerner(view: View) {
@@ -76,6 +75,7 @@ class DenunciaEditarFragment : Fragment() {
                     latitude = binding.inputLatitude.text.toString(),
                     longitude = binding.inputLongitude.text.toString(),
                     descricao = binding.inputDescricao.text.toString(),
+                    titulo = binding.inputTitulo.text.toString()
                 )
                 transaction.update(updateProduto, newProduto.toMap())
 
@@ -94,18 +94,6 @@ class DenunciaEditarFragment : Fragment() {
         Toast.makeText(context, "Concluido", Toast.LENGTH_LONG).show()
     }
 
-    private fun carregaDenuncia() {
-        denuncia = cargaViewModel.itemDenuncia.value
-        if (denuncia == null) {
-            Toast.makeText(context, "Houve um erro no processo, tente novamente", Toast.LENGTH_LONG).show()
-        } else {
-            binding.inputDataHora.setText(denuncia?.dateRegistro)
-            binding.inputDescricao.setText(denuncia?.descricao)
-            binding.inputLatitude.setText(denuncia?.latitude)
-            binding.inputLongitude.setText(denuncia?.longitude)
-        }
-    }
-
     private fun setupObservers(view: View) {
         cargaViewModel.itemDenuncia.observe(viewLifecycleOwner, {
             if (it != null) {
@@ -113,6 +101,8 @@ class DenunciaEditarFragment : Fragment() {
                 binding.inputDescricao.setText(it.descricao)
                 binding.inputLongitude.setText(it.longitude)
                 binding.inputLatitude.setText(it.latitude)
+            }else{
+                Toast.makeText(context, "Houve um erro no processo, tente novamente", Toast.LENGTH_LONG).show()
             }
         })
 

@@ -18,6 +18,10 @@ import com.example.applicationalertaperigo.viewModel.HomeViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.coroutines.Dispatchers.Unconfined
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DenunciaExcluirFragment : Fragment() {
 
@@ -28,9 +32,9 @@ class DenunciaExcluirFragment : Fragment() {
     private val cargaViewModel: DenunciaViewModel by activityViewModels()
     private val viewModel: HomeViewModel by activityViewModels()
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateView(
@@ -48,27 +52,26 @@ class DenunciaExcluirFragment : Fragment() {
     private fun setup(view: View) {
         setupObservers(view)
         setupListerner(view)
-        carregaDenuncia()
     }
 
-    private fun carregaDenuncia() {
-        denuncia = cargaViewModel.itemDenuncia.value
-        if (denuncia == null) {
-
-        }
-        binding.inputDataHora.setText(denuncia?.dateRegistro)
-        binding.inputDescricao.setText(denuncia?.descricao)
-        binding.inputLatitude.setText(denuncia?.latitude)
-        binding.inputLongitude.setText(denuncia?.longitude)
-    }
 
     fun limparCampos() {
         binding.inputDataHora.setText("")
         binding.inputLatitude.setText("")
         binding.inputLongitude.setText("")
         binding.inputDescricao.setText("")
+        binding.inputTitulo.setText("")
         binding.imageView.setImageResource(R.drawable.ic_person)
     }
+
+/*
+    EXEMPLO CORROTINA
+    suspend fun backgroundTask(param: Int): Int {
+        return param
+    }
+    GlobalScope.launch(Unconfined) {
+        var a = backgroundTask(1)
+    }*/
 
     private fun setupListerner(view: View) {
         val db = Firebase.firestore
@@ -85,6 +88,8 @@ class DenunciaExcluirFragment : Fragment() {
             progressDialog.setMessage("Excluido Dados...")
             progressDialog.setCancelable(false)
             progressDialog.show()
+
+
 
             if (denuncia?.id != null) {
                 db.collection(nomeCollection).document(denuncia?.id!!)
@@ -117,10 +122,17 @@ class DenunciaExcluirFragment : Fragment() {
     private fun setupObservers(view: View) {
         cargaViewModel.itemDenuncia.observe(viewLifecycleOwner, {
             if (it != null) {
-                binding.inputDataHora.setText(it.dateRegistro)
+                binding.inputDataHora.setText(it.dateRegistro.toString())
                 binding.inputDescricao.setText(it.descricao)
                 binding.inputLongitude.setText(it.longitude)
                 binding.inputLatitude.setText(it.latitude)
+                binding.inputTitulo.setText(it.titulo)
+            } else {
+                Toast.makeText(
+                    context,
+                    "Houve um erro no processo, tente novamente",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         })
 
