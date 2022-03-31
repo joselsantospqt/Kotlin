@@ -1,6 +1,7 @@
 package com.example.applicationalertaperigo.ui.denuncia
 
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -104,6 +105,12 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
             binding.inputLongitude.setText(longitude.toString())
             binding.inputLatitude.setText(latitude.toString())
             binding.inputDataHora.setText(currentDate)
+        }else{
+            Toast.makeText(
+                context,
+                "Erro, Tente Novamente ou mais tarde.",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
@@ -122,6 +129,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
 
     private fun addProduto() {
         if (verificaDados()) {
+
             var novaDenuncia = DadosDenuncia(
                 idUsuario = auth.currentUser?.uid.toString(),
                 dateRegistro = binding.inputDataHora.text.toString(),
@@ -167,7 +175,11 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
         startActivityForResult(i, REQUEST_CODE_PHOTO)
     }
 
-    private fun uploadFoto(idUpload: String, caminho: String) {
+    fun uploadFoto(idUpload: String, caminho: String) {
+        val progressDialog = ProgressDialog(this.context)
+        progressDialog.setMessage("Cadastrando Dados...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
 
         val storage = FirebaseStorage.getInstance()
         var storageRef = storage.reference
@@ -176,10 +188,12 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
         bmp?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val uploadTask = fotoRef.putBytes(baos.toByteArray())
         uploadTask.addOnSuccessListener {
-            Toast.makeText(this.context, "Foto e Dados salvas com sucesso", Toast.LENGTH_LONG).show()
+            if (progressDialog.isShowing)
+                progressDialog.dismiss()
             limparCampos()
         }
             .addOnFailureListener { e ->
+                progressDialog.dismiss()
                 Toast.makeText(this.context, "Falha ao Salvar a imagem", Toast.LENGTH_LONG).show()
             }
 

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeDashboardFragment_to_denunciaCadastroFragment"
             app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
     </fragment>
     <fragment
         android:id="@+id/homePerfilFragment"
@@ -34,5 +37,38 @@
         <action
             android:id="@+id/action_denunciaCadastroFragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/denunciaListarFragment"
+        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaListarFragment"
+        android:label="fragment_denuncia_listar"
+        tools:layout="@layout/fragment_denuncia_listar" >
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_denunciaExcluirFragment"
+            app:destination="@id/denunciaExcluirFragment" />
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_denunciaEditarFragment"
+            app:destination="@id/denunciaEditarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/denunciaEditarFragment"
+        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaEditarFragment"
+        android:label="fragment_denuncia_editar"
+        tools:layout="@layout/fragment_denuncia_editar" >
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/denunciaExcluirFragment"
+        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaExcluirFragment"
+        android:label="fragment_denuncia_excluir"
+        tools:layout="@layout/fragment_denuncia_excluir" >
+        <action
+            android:id="@+id/action_denunciaExcluirFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
     </fragment>
 </navigation>

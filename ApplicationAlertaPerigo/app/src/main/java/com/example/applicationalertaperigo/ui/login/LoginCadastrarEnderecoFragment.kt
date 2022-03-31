@@ -1,5 +1,6 @@
 package com.example.applicationalertaperigo.ui.login
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -37,7 +38,6 @@ class LoginCadastrarEnderecoFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginCadastrarEnderecoBinding.inflate(inflater, container, false)
         val view = binding.root
-        lerViewModel()
         setup(view)
         return view
     }
@@ -46,7 +46,7 @@ class LoginCadastrarEnderecoFragment : Fragment() {
         lerViewModel()
         setuptextChange()
         setupButton(view)
-//        setupObservers()
+        //setupObservers()
     }
 
     private fun setupButton(view: View) {
@@ -65,12 +65,18 @@ class LoginCadastrarEnderecoFragment : Fragment() {
 
     private fun cadastroFireBase() {
         viewModel.cadastroFireBase()
+
+        val progressDialog = ProgressDialog(this.context)
+        progressDialog.setMessage("Cadastrando Aguarde...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
         viewModel.confirmaCadastro.observe(viewLifecycleOwner) {
             if (it == true) {
+                progressDialog.dismiss()
                 var intent = Intent(this.context, LoginActivity::class.java)
                 startActivity(intent)
-            } else
-                Toast.makeText(this.context, "Processando...", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -166,9 +172,11 @@ class LoginCadastrarEnderecoFragment : Fragment() {
                 viewModel.getEndereco()
             }
         }
+
         viewModel.atualizaEndereco.observe(viewLifecycleOwner) {
             lerViewModelSemCep()
         }
+
     }
 
 

@@ -1,14 +1,13 @@
 package com.example.applicationalertaperigo.ui.home
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.applicationalertaperigo.R
 import com.example.applicationalertaperigo.databinding.FragmentHomeDashboardBinding
 import com.example.applicationalertaperigo.viewModel.HomeViewModel
@@ -46,8 +45,8 @@ class HomeDashboardFragment : Fragment() {
     }
 
     private fun setup(view: View) {
-        //carregaDados()
-        leViewModel()
+        carregaDados()
+        leViewModel(view)
         setupButton(view)
     }
 
@@ -65,15 +64,28 @@ class HomeDashboardFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_homeDashboardFragment_to_denunciaCadastroFragment)
         }
+        binding.btnListDenuncia.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_homeDashboardFragment_to_denunciaListarFragment)
+        }
     }
 
-    private fun leViewModel() {
+    private fun leViewModel(view: View) {
         viewModel.dadosPessoa.observe(viewLifecycleOwner, {
             if (it != null) {
                 binding.txtNomeUsuario.setText(it.nome.toString() + " " + it.sobrenome.toString())
             }
         })
-    }
 
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when(it){
+                    1 ->  Navigation.findNavController(view)
+                        .navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
+                }
+            }
+        })
+
+    }
 
 }

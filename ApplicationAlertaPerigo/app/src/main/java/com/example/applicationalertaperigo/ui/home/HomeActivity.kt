@@ -20,6 +20,8 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.applicationalertaperigo.databinding.ActivityHomeBinding
 import com.example.applicationalertaperigo.ui.login.LoginActivity
 import com.example.applicationalertaperigo.viewModel.HomeViewModel
@@ -31,7 +33,6 @@ import kotlinx.android.synthetic.main.activity_home.*
 lateinit var mDrawerLayout: DrawerLayout
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
     private lateinit var binding: ActivityHomeBinding
     private lateinit var auth: FirebaseAuth
     private val viewModel: HomeViewModel by viewModels()
@@ -47,7 +48,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-        viewModel.CarregaDadosUsuario(auth.currentUser?.uid.toString())
     }
 
     private fun setup() {
@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun onCreateFloatingMenu() {
-        mDrawerLayout = drawer_layout
+        mDrawerLayout = binding.drawerLayout
         val toolbar = toolbar as Toolbar;
         setSupportActionBar(toolbar)
         val actionBar: ActionBar? = supportActionBar
@@ -84,14 +84,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 mensagem = "Menu Aberto !"
                 retorno = true
             }
-//            R.id.menuItemPerfil -> {
-//                val navHostFragment =
-//                    supportFragmentManager.findFragmentById(R.id.nav_host_home) as NavHostFragment
-//                val navController = navHostFragment.navController
-//                navController.navigate(R.id.action_homeDashboardFragment_to_homePerfilFragment)
-//                mensagem = "Menu Pefil !"
-//                retorno = true
-//            }
+            R.id.menuItemPerfil -> {
+                viewModel.NavegaFragment(1)
+                mensagem = "Menu Pefil !"
+                retorno = true
+            }
             R.id.menuItemSair -> {
                 Firebase.auth.signOut()
                 val intent = Intent(this, LoginActivity::class.java)
@@ -108,7 +105,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var retorno = false
 
         when (item.itemId) {
-            R.id.navigation_item_01 -> {
+/*            R.id.navigation_item_01 -> {
 
 
                 retorno = true
@@ -116,7 +113,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_item_02 -> {
 
                 retorno = true
-            }
+            }*/
             R.id.navigation_item_Telefonar -> {
                 val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
                     Intent(Intent.ACTION_CALL, number)
