@@ -288,16 +288,6 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
                 adapter = DenunciaAdapter {
                     Toast.makeText(context, "Você só pode observar o item: ${it.titulo}", Toast.LENGTH_LONG)
                         .show()
-
-                    var produto = DadosDenunciaComFoto(
-                        id = it.id,
-                        titulo = it.titulo,
-                        dateRegistro = it.dateRegistro,
-                        latitude = it.latitude,
-                        longitude = it.longitude,
-                        descricao = it.descricao
-                    )
-                    cargaViewModel.setData(produto)
                 }
 
                 binding.recyclerViewlistDenuncias.layoutManager = LinearLayoutManager(this.context)

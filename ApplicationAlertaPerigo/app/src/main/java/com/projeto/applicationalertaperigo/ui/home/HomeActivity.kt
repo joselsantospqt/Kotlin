@@ -47,13 +47,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = binding.root
-        auth = Firebase.auth
         setContentView(view)
         setup()
     }
 
     override fun onStart() {
         super.onStart()
+        auth = Firebase.auth
     }
 
     private fun setup() {
@@ -135,7 +135,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     retorno = false
                 } else {
 
-                    val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
+                    val intent: Intent = Uri.parse("190").let { number ->
                         Intent(Intent.ACTION_CALL, number)
                     }
                     startActivityForResult(intent, REQUEST_CODE_CALL)

@@ -65,15 +65,6 @@ class DenunciaExcluirFragment : Fragment() {
         binding.imageView.setImageResource(R.drawable.ic_person)
     }
 
-/*
-    EXEMPLO CORROTINA
-    suspend fun backgroundTask(param: Int): Int {
-        return param
-    }
-    GlobalScope.launch(Unconfined) {
-        var a = backgroundTask(1)
-    }*/
-
     private fun setupListerner(view: View) {
         val db = Firebase.firestore
         val storage = FirebaseStorage.getInstance()
@@ -89,7 +80,6 @@ class DenunciaExcluirFragment : Fragment() {
             progressDialog.setMessage("Excluido Dados...")
             progressDialog.setCancelable(false)
             progressDialog.show()
-
             if (denuncia?.id != null) {
                 db.collection(nomeCollection).document(denuncia?.id!!)
                     .delete()

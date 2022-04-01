@@ -72,7 +72,7 @@ class DenunciaEditarFragment : Fragment() {
 
         binding.btnUpdate.setOnClickListener {
             val progressDialog = ProgressDialog(this.context)
-            progressDialog.setMessage("Excluido Dados...")
+            progressDialog.setMessage("Atualizando Dados...")
             progressDialog.setCancelable(false)
             progressDialog.show()
 

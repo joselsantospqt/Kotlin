@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -25,7 +26,9 @@ import androidx.navigation.Navigation
 import com.projeto.applicationalertaperigo.R
 import com.projeto.applicationalertaperigo.databinding.FragmentDenunciaCadastroBinding
 import android.net.Uri
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.navigation.fragment.findNavController
 import com.projeto.applicationalertaperigo.model.denuncia.DadosDenuncia
 import com.google.android.gms.location.*
 import com.projeto.applicationalertaperigo.viewModel.HomeViewModel
@@ -42,7 +45,7 @@ import java.time.format.FormatStyle
 import java.util.*
 
 
-class DenunciaCadastroFragment : Fragment(), LocationListener {
+class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.OnClickListener {
 
     private var _binding: FragmentDenunciaCadastroBinding? = null
     private val binding get() = _binding!!
@@ -157,6 +160,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
     }
 
     private fun addProduto() {
+
         if (verificaDados()) {
             var novaDenuncia = DadosDenuncia(
                 idUsuario = auth.currentUser?.uid.toString(),
@@ -167,11 +171,19 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
                 titulo = binding.inputTitulo.text.toString()
             )
 
-            val db = Firebase.firestore
+            val alertDialog = AlertDialog.Builder(requireContext())
+            alertDialog.setTitle("Alerta")
+            alertDialog.setMessage("Fazer backup Denuncia: ${binding.inputTitulo.text.toString()}")
+            alertDialog.setPositiveButton("Sim", this)
+            alertDialog.setNegativeButton("Não", this)
+            alertDialog.setCancelable(true)//alerta modal
 
+
+            val db = Firebase.firestore
             db.collection(nomeCollection)
                 .add(novaDenuncia).addOnSuccessListener { documentReference ->
                     uploadFoto(documentReference.id, nomeCollection)
+                    alertDialog.show()
                 }
                 .addOnFailureListener { e ->
                     Log.i(ContentValues.TAG, "Error ao Cadastar", e)
@@ -312,13 +324,21 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
             this.obterCoordenasGps()
         }
         //PERMISSÃO PARA CAMERA
-        if (requestCode == camera_permission_code)
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
-                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
-            } else
-                Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
+        if (requestCode == camera_permission_code && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
+        } else
+            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
     }
 
+    override fun onClick(dialog: DialogInterface?, id: Int) {
+        val alertDialog = dialog as AlertDialog // Cast implicito
+        val rotuloBotao = alertDialog.getButton(id).text
+        val navController = findNavController()
+        when (rotuloBotao) {
+            "Sim" -> ""
+            "Não" -> ""
+        }
+    }
 }
