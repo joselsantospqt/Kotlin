@@ -135,7 +135,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     retorno = false
                 } else {
 
-                    val intent: Intent = Uri.parse("190").let { number ->
+                    val intent: Intent = Uri.parse("tel: 190").let { number ->
                         Intent(Intent.ACTION_CALL, number)
                     }
                     startActivityForResult(intent, REQUEST_CODE_CALL)
@@ -143,15 +143,15 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
 
             }
-            R.id.navigation_item_calculadora -> {
-                val intent =
-                    intent.setClassName(
-                        "com.android.calculator2",
-                        "com.android.calculator2.Calculator"
-                    )
-                startActivity(intent)
-                retorno = true
-            }
+//            R.id.navigation_item_calculadora -> {
+//                val intent =
+//                    intent.setClassName(
+//                        "com.android.calculator2",
+//                        "com.android.calculator2.Calculator"
+//                    )
+//                startActivity(intent)
+//                retorno = true
+//            }
         }
 
         return retorno

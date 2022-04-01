@@ -17,11 +17,11 @@
             android:contentDescription="Lista de Denuncias"
             android:icon="@drawable/ic_baseline_format_list_bulleted_24"
             android:title="Lista de Denuncias" />
-        <item
+      <!--  <item
             android:id="@+id/navigation_item_calculadora"
             android:contentDescription="botão calculadora"
             android:icon="@drawable/ic_baseline_calculate_24"
-            android:title="Calculadora" />
+            android:title="Calculadora" />-->
 
     </group>
     <item android:title="Fale Conosco">
