@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472828162511",
+    "project_id": "applicationalertaperigo-f80aa",
+    "storage_bucket": "applicationalertaperigo-f80aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472828162511:android:eb622c41041f26f465a2ba",
+        "android_client_info": {
+          "package_name": "com.projeto.applicationalertaperigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472828162511-sp78thl28e08heamgrdo8ovdk3g6il2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGRoaAGWPZNQX2d7RT6S7mvcVMC2c0LMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472828162511-sp78thl28e08heamgrdo8ovdk3g6il2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

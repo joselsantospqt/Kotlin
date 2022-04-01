@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeDashboardFragment"
-        android:name="com.example.applicationalertaperigo.ui.home.HomeDashboardFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.home.HomeDashboardFragment"
         android:label="fragment_home_dashboard"
         tools:layout="@layout/fragment_home_dashboard" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/homePerfilFragment"
-        android:name="com.example.applicationalertaperigo.ui.home.HomePerfilFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.home.HomePerfilFragment"
         android:label="fragment_home_perfil"
         tools:layout="@layout/fragment_home_perfil" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/denunciaCadastroFragment"
-        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaCadastroFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.denuncia.DenunciaCadastroFragment"
         android:label="fragment_denuncia_cadastro"
         tools:layout="@layout/fragment_denuncia_cadastro" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/denunciaListarFragment"
-        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaListarFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.denuncia.DenunciaListarFragment"
         android:label="fragment_denuncia_listar"
         tools:layout="@layout/fragment_denuncia_listar" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/denunciaEditarFragment"
-        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaEditarFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.denuncia.DenunciaEditarFragment"
         android:label="fragment_denuncia_editar"
         tools:layout="@layout/fragment_denuncia_editar" >
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/denunciaExcluirFragment"
-        android:name="com.example.applicationalertaperigo.ui.denuncia.DenunciaExcluirFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.denuncia.DenunciaExcluirFragment"
         android:label="fragment_denuncia_excluir"
         tools:layout="@layout/fragment_denuncia_excluir" >
         <action

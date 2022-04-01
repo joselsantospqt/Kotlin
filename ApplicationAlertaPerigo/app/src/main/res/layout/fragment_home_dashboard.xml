@@ -53,4 +53,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ver Minhas Denúncias" />
+
+    <Button
+        android:id="@+id/btnListReward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Todas as Denúncias" />
 </LinearLayout>

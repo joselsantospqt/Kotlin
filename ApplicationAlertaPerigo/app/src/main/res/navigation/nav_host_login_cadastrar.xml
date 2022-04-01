@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginCadastrarPessoaFragment"
-        android:name="com.example.applicationalertaperigo.ui.login.LoginCadastrarPessoaFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.login.LoginCadastrarPessoaFragment"
         android:label="fragment_login_cadastrar_pessoa"
         tools:layout="@layout/fragment_login_cadastrar_pessoa" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginCadastrarEnderecoFragment"
-        android:name="com.example.applicationalertaperigo.ui.login.LoginCadastrarEnderecoFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.login.LoginCadastrarEnderecoFragment"
         android:label="fragment_login_cadastrar_endereco"
         tools:layout="@layout/fragment_login_cadastrar_endereco" >
         <action
