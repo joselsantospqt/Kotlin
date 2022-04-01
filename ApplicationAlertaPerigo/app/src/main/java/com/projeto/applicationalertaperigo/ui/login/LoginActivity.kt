@@ -59,7 +59,9 @@ class LoginActivity : AppCompatActivity() {
                 logarFirebase(
                     binding.textInputLogin.text.toString(),
                     binding.textInputSenha.text.toString()
-                )
+                )else
+                Toast.makeText(this, "Preencha os campos de login", Toast.LENGTH_LONG)
+                    .show()
 
             //IMPLEMENTAR O ANUNCIOS CASO ELE ERRE A SENHA 3 VEZES
         }

@@ -23,14 +23,12 @@ class DenunciaViewModel : ViewModel() {
     private val _atualizaReward = MutableLiveData<Int>(0)
     var atualizaReward: LiveData<Int> = _atualizaReward
 
-    fun setAtualizaReward() {
-        _atualizaReward.value = _atualizaReward.value?.plus(1)
+    fun setAtualizaReward(number: Int) {
+        _atualizaReward.value = number
     }
 
-    fun ativaReward() {
-        viewModelScope.launch(Dispatchers.Main) {
-            setAtualizaReward()
-        }
+    fun ativaReward(number: Int) {
+            setAtualizaReward(number)
     }
 
 }

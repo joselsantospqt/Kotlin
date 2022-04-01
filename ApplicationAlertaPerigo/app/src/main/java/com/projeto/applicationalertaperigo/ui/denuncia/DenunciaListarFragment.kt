@@ -41,13 +41,11 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
     private var _binding: FragmentDenunciaListarBinding? = null
     private val binding get() = _binding!!
     private val nomeCollection = "Denuncias"
+    private lateinit var auth: FirebaseAuth
     lateinit var adapter: DenunciaAdapter
     lateinit var listaFora: List<DadosDenunciaComFoto>
-    private lateinit var auth: FirebaseAuth
     private val cargaViewModel: DenunciaViewModel by activityViewModels()
     private val viewModel: HomeViewModel by activityViewModels()
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +99,6 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
                 }
             }
         })
-
     }
 
     private fun setupListerner(view: View) {
@@ -121,8 +118,11 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
         val listaDenuncias: MutableList<DadosDenunciaComFoto> = mutableListOf()
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
-        ListaDenunciasById(db, listaDenuncias, progressDialog)
-        //ListaDenunciasGetAll(db, listaDenuncias, progressDialog)
+
+        if (cargaViewModel.atualizaReward.value == 1)
+            ListaDenunciasGetAll(db, listaDenuncias, progressDialog)
+        else
+            ListaDenunciasById(db, listaDenuncias, progressDialog)
     }
 
     fun ListaDenunciasById(
@@ -200,7 +200,7 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
 
                     val alertDialog = AlertDialog.Builder(requireContext())
                     alertDialog.setTitle("Alerta")
-                    alertDialog.setMessage("Opção do item : ${it.descricao}")
+                    alertDialog.setMessage("Descrição do item : ${it.descricao}")
                     alertDialog.setPositiveButton("Editar", this)
                     alertDialog.setNegativeButton("Excluir", this)
                     alertDialog.setCancelable(true)//alerta modal
@@ -286,26 +286,18 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
 
                 listaFora = listaDenuncias
                 adapter = DenunciaAdapter {
-                    Toast.makeText(context, "Cliquei no item: ${it.id}", Toast.LENGTH_LONG)
+                    Toast.makeText(context, "Você só pode observar o item: ${it.titulo}", Toast.LENGTH_LONG)
                         .show()
-                    Log.i("AÇÃO DO CLICK", "Testeando Denuncia: ${it?.id}")
 
                     var produto = DadosDenunciaComFoto(
                         id = it.id,
+                        titulo = it.titulo,
                         dateRegistro = it.dateRegistro,
                         latitude = it.latitude,
                         longitude = it.longitude,
                         descricao = it.descricao
                     )
                     cargaViewModel.setData(produto)
-
-                    val alertDialog = AlertDialog.Builder(requireContext())
-                    alertDialog.setTitle("Alerta")
-                    alertDialog.setMessage("Opção do item : ${it.descricao}")
-                    alertDialog.setPositiveButton("Editar", this)
-                    alertDialog.setNegativeButton("Excluir", this)
-                    alertDialog.setCancelable(true)//alerta modal
-                    alertDialog.show()
                 }
 
                 binding.recyclerViewlistDenuncias.layoutManager = LinearLayoutManager(this.context)

@@ -1,5 +1,6 @@
 package com.projeto.applicationalertaperigo.ui.home
 
+import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,8 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.provider.MediaStore
+import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.projeto.applicationalertaperigo.databinding.ActivityHomeBinding
@@ -36,6 +39,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var binding: ActivityHomeBinding
     private lateinit var auth: FirebaseAuth
     private val viewModel: HomeViewModel by viewModels()
+    private val REQUEST_CODE_CALL = 2
+    val call_permission_code = 800
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,14 +122,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 retorno = true
             }
             R.id.navigation_item_Telefonar -> {
-                val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
-                    Intent(Intent.ACTION_CALL, number)
-                }
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                    retorno = true
-                } else
+
+                if (ActivityCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CALL_PHONE
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    requestPermissions(
+                        arrayOf(Manifest.permission.CALL_PHONE),
+                        call_permission_code
+                    )
                     retorno = false
+                } else {
+
+                    val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
+                        Intent(Intent.ACTION_CALL, number)
+                    }
+                    startActivityForResult(intent, REQUEST_CODE_CALL)
+                    retorno = true
+                }
+
             }
             R.id.navigation_item_calculadora -> {
                 val intent =
@@ -139,4 +157,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return retorno
     }
 
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == call_permission_code)
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "A permissão foi concedida"   , Toast.LENGTH_LONG).show()
+                val intent: Intent = Uri.parse("tel:(00)0000-0000").let { number ->
+                    Intent(Intent.ACTION_CALL, number)}
+                startActivityForResult(intent, REQUEST_CODE_CALL)
+            }else
+                Toast.makeText(this, "A permissão foi negada"   , Toast.LENGTH_LONG).show()
+
+    }
 }

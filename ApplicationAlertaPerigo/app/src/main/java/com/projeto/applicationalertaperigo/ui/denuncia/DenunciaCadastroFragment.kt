@@ -52,6 +52,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
     private val nomeCollection = "Denuncias"
     private var fotoTirada = false
     private val REQUEST_CODE_PHOTO = 1
+    val camera_permission_code = 100
     val COARSE_REQUEST = 12345
     val FINE_REQUEST = 67890
 
@@ -133,7 +134,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
             binding.inputLongitude.setText(longitude.toString())
             binding.inputLatitude.setText(latitude.toString())
             binding.inputDataHora.setText(currentDate)
-        }else{
+        } else {
             Toast.makeText(
                 context,
                 "Erro, Tente Novamente ou mais tarde.",
@@ -200,8 +201,16 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
     }
 
     private fun tirarFoto() {
-        val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(i, REQUEST_CODE_PHOTO)
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        )
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), camera_permission_code)
+        else {
+            val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(i, REQUEST_CODE_PHOTO)
+        }
     }
 
     fun uploadFoto(idUpload: String, caminho: String) {
@@ -296,11 +305,20 @@ class DenunciaCadastroFragment : Fragment(), LocationListener {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        //PERMISSÃO PARA GPS
         if (requestCode == COARSE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             this.obterCoordenasRede()
         } else if (requestCode == FINE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             this.obterCoordenasGps()
         }
+        //PERMISSÃO PARA CAMERA
+        if (requestCode == camera_permission_code)
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
+            } else
+                Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
     }
 
 }

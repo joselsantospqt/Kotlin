@@ -3,6 +3,7 @@ package com.projeto.applicationalertaperigo.ui.home
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -77,6 +78,7 @@ class HomeDashboardFragment : Fragment() {
                 .navigate(R.id.action_homeDashboardFragment_to_denunciaCadastroFragment)
         }
         binding.btnListDenuncia.setOnClickListener {
+            DenunciaViewModel.ativaReward(0)
             Navigation.findNavController(view)
                 .navigate(R.id.action_homeDashboardFragment_to_denunciaListarFragment)
         }
@@ -84,12 +86,13 @@ class HomeDashboardFragment : Fragment() {
         binding.btnListReward.setOnClickListener {
             if (recompensa != null) {
                 recompensa?.show(requireActivity()) {
-                    var rewardAmount = it.getAmount()
-                    var rewardType = it.getType()
-                    Log.d("REWARD", "User earned the reward: $rewardAmount $rewardType")
+                    DenunciaViewModel.ativaReward(1)
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_homeDashboardFragment_to_denunciaListarFragment)
                 }
             } else {
-                Log.d("REWARD", "The rewarded ad wasn't ready yet.")
+                Toast.makeText(context, "O Vídeo está carregando", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
@@ -122,7 +125,6 @@ class HomeDashboardFragment : Fragment() {
                 }
             }
         })
-
     }
 
 
@@ -149,7 +151,6 @@ class HomeDashboardFragment : Fragment() {
             recompensa = null
         }
     }
-
 
     private fun createFullScreenCalback(
         TAG: String,
