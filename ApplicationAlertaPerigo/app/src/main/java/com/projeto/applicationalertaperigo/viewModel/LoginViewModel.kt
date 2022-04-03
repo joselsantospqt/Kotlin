@@ -156,8 +156,9 @@ class LoginViewModel: ViewModel() {
                     uid = user?.uid!!
                     cadastroFirestore()
                     Log.i("cadastro", "Sucesso ao cadastrar", task.exception)
-                } else
-                    Log.i("cadastro", "Falha ao cadastrar", task.exception)
+                } else{
+                    _confirmaCadastro.postValue(false)
+                    Log.i("cadastro", "Falha ao cadastrar", task.exception)}
             }
     }
 

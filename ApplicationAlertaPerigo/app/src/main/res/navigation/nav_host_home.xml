@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeDashboardFragment_to_denunciaListarFragment"
             app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/homePerfilFragment"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_homePerfilFragment_to_denunciaCadastroFragment2"
             app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_homePerfilFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaCadastroFragment"
@@ -52,6 +58,9 @@
         <action
             android:id="@+id/action_denunciaCadastroFragment_to_denunciaListarFragment"
             app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_denunciaCadastroFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaListarFragment"
@@ -73,6 +82,9 @@
         <action
             android:id="@+id/action_denunciaListarFragment_to_homePerfilFragment"
             app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_denunciaListarFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaEditarFragment"
@@ -94,6 +106,9 @@
         <action
             android:id="@+id/action_denunciaEditarFragment_to_denunciaCadastroFragment"
             app:destination="@id/denunciaCadastroFragment" />
+        <action
+            android:id="@+id/action_denunciaEditarFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/denunciaExcluirFragment"
@@ -112,5 +127,17 @@
         <action
             android:id="@+id/action_denunciaExcluirFragment_to_homePerfilFragment"
             app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_denunciaExcluirFragment_to_directoryFragment"
+            app:destination="@id/directoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/directoryFragment"
+        android:name="com.projeto.applicationalertaperigo.ui.directory.DirectoryFragment"
+        android:label="fragment_directory"
+        tools:layout="@layout/fragment_directory" >
+        <action
+            android:id="@+id/action_directoryFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
     </fragment>
 </navigation>

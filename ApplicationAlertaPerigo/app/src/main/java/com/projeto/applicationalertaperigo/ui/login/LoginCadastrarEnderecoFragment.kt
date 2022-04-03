@@ -76,7 +76,11 @@ class LoginCadastrarEnderecoFragment : Fragment() {
                 progressDialog.dismiss()
                 var intent = Intent(this.context, LoginActivity::class.java)
                 startActivity(intent)
+            }else{
+                Toast.makeText(this.context, "Houve um erro, falha no cadastro!", Toast.LENGTH_SHORT).show()
+                progressDialog.dismiss()
             }
+
         }
     }
 

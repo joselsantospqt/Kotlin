@@ -1,6 +1,7 @@
 package com.projeto.applicationalertaperigo.ui.denuncia
 
 import android.Manifest
+import android.app.Activity.RESULT_OK
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
@@ -40,9 +41,11 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_home.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
+import androidx.documentfile.provider.DocumentFile
 
 
 class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.OnClickListener {
@@ -58,6 +61,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
     val camera_permission_code = 100
     val COARSE_REQUEST = 12345
     val FINE_REQUEST = 67890
+    val WRITE_REQUEST = 999
 
 
     override fun onDestroyView() {
@@ -91,6 +95,27 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         } else {
             Toast.makeText(this.context, "Erro ao bater foto", Toast.LENGTH_LONG).show()
         }
+
+        if (requestCode == WRITE_REQUEST && resultCode == RESULT_OK) {
+            if (verificaDados()) {
+                var novaDenuncia = DadosDenuncia(
+                    idUsuario = auth.currentUser?.uid.toString(),
+                    dateRegistro = binding.inputDataHora.text.toString(),
+                    latitude = binding.inputLatitude.text.toString(),
+                    longitude = binding.inputLongitude.text.toString(),
+                    descricao = binding.inputDescricao.text.toString(),
+                    titulo = binding.inputTitulo.text.toString()
+                )
+
+                val fos =
+                    getActivity()?.getContentResolver()?.openOutputStream(data?.getData()!!)
+                fos!!.write(novaDenuncia.toString().toByteArray())
+                fos!!.close()
+                Toast.makeText(context, "Gravou com sucesso !", Toast.LENGTH_SHORT).show()
+            }
+        } else
+            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
+
     }
 
     override fun onLocationChanged(p0: Location) {
@@ -132,6 +157,9 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         if (location != null) {
             val latitude = location.latitude
             val longitude = location.longitude
+            Log.i("JLOCATION", latitude.toString())
+            Log.i("JLOCATION", longitude.toString())
+
             val date = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
             val currentDate = date.format(Date())
             binding.inputLongitude.setText(longitude.toString())
@@ -194,6 +222,9 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
     private fun verificaDados(): Boolean {
         if (
             binding.inputDescricao.length() < 3 ||
+            binding.inputTitulo.length() < 3 ||
+            binding.inputLatitude.length() < 3 ||
+            binding.inputLongitude.length() < 3 ||
             !fotoTirada
         ) {
             Toast.makeText(this.context, "Dados não preenchidos", Toast.LENGTH_LONG).show()
@@ -330,6 +361,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
             startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
         } else
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
+
     }
 
     override fun onClick(dialog: DialogInterface?, id: Int) {
@@ -337,8 +369,21 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         val rotuloBotao = alertDialog.getButton(id).text
         val navController = findNavController()
         when (rotuloBotao) {
-            "Sim" -> ""
-            "Não" -> ""
+            "Sim" -> backupDocumento()
+            "Não" -> alertDialog.cancel()
         }
     }
+
+    fun backupDocumento() {
+            var i = Intent(Intent.ACTION_CREATE_DOCUMENT)
+            i.addCategory(Intent.CATEGORY_OPENABLE)
+            i.setType("text/plain")
+            i.putExtra(
+                Intent.EXTRA_TITLE,
+                "${binding.inputDataHora.text.toString()}.txt"
+            )
+            startActivityForResult(i, WRITE_REQUEST)
+    }
+
+
 }
