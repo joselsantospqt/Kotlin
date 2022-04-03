@@ -96,6 +96,11 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
                         Navigation.findNavController(view)
                             .navigate(R.id.action_denunciaListarFragment_to_denunciaCadastroFragment)
                     }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaListarFragment_to_directoryFragment)
+                    }
                 }
             }
         })

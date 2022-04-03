@@ -17,6 +17,11 @@
             android:contentDescription="Lista de Denuncias"
             android:icon="@drawable/ic_baseline_format_list_bulleted_24"
             android:title="Lista de Denuncias" />
+        <item
+            android:id="@+id/navigation_item_Directory"
+            android:contentDescription="Diretório"
+            android:icon="@drawable/ic_baseline_archive_24"
+            android:title="Diretório" />
       <!--  <item
             android:id="@+id/navigation_item_calculadora"
             android:contentDescription="botão calculadora"

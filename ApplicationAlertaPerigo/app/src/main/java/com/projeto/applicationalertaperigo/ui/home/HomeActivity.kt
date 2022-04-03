@@ -121,6 +121,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 viewModel.NavegaFragment(4)
                 retorno = true
             }
+            R.id.navigation_item_Directory -> {
+                viewModel.NavegaFragment(5)
+                retorno = true
+            }
             R.id.navigation_item_Telefonar -> {
 
                 if (ActivityCompat.checkSelfPermission(
@@ -143,15 +147,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
 
             }
-//            R.id.navigation_item_calculadora -> {
-//                val intent =
-//                    intent.setClassName(
-//                        "com.android.calculator2",
-//                        "com.android.calculator2.Calculator"
-//                    )
-//                startActivity(intent)
-//                retorno = true
-//            }
         }
 
         return retorno

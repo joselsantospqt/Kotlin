@@ -1,33 +1,46 @@
 package com.projeto.applicationalertaperigo.ui.directory
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.documentfile.provider.DocumentFile
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
+import br.edu.infnet.dr4_e5_a1_criptostring.Criptografador
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.projeto.applicationalertaperigo.R
+import com.projeto.applicationalertaperigo.databinding.FragmentDenunciaCadastroBinding
+import com.projeto.applicationalertaperigo.databinding.FragmentDirectoryBinding
+import com.projeto.applicationalertaperigo.model.denuncia.DadosDenuncia
+import com.projeto.applicationalertaperigo.viewModel.HomeViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DirectoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DirectoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding: FragmentDirectoryBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var auth: FirebaseAuth
+    private val viewModel: HomeViewModel by activityViewModels()
+    val READ_REQUEST = 888
+    private val cripto = Criptografador()
+    val gson = Gson()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -35,26 +48,86 @@ class DirectoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_directory, container, false)
+        _binding = FragmentDirectoryBinding.inflate(inflater, container, false)
+        val view = binding.root
+        setup(view)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DirectoryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DirectoryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setup(view: View) {
+        setupButton(view)
+        setupObservers(view)
     }
+
+    private fun setupObservers(view: View) {
+        viewModel.trocaFragment.observe(viewLifecycleOwner, {
+            if (it != null) {
+                when (it) {
+                    1 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_directoryFragment_to_homeDashboardFragment)
+                    }
+                    2 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_directoryFragment_to_homePerfilFragment)
+                    }
+                    3 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_directoryFragment_to_denunciaCadastroFragment)
+                    }
+                    4 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_directoryFragment_to_denunciaListarFragment)
+                    }
+                }
+
+            }
+        })
+    }
+
+    private fun setupButton(view: View) {
+        binding.btnArquivo.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.setType("*/*")
+            startActivityForResult(intent, READ_REQUEST)
+        }
+
+        binding.btnDescripto.setOnClickListener {
+            binding.textView3.setText(cripto.decipher(binding.textView3.text.toString()))
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == READ_REQUEST && resultCode == AppCompatActivity.RESULT_OK) {
+            binding.textView3.setText(null)
+            val fis = getActivity()?.getContentResolver()?.openInputStream(data?.getData()!!)
+            val bytes = fis!!.readBytes()
+            fis!!.close()
+            val uri: Uri = data?.data!!
+            val documentFile = DocumentFile.fromSingleUri(requireContext(), uri)
+            if (documentFile!!.type.equals("text/plain")) {
+                binding.textView3.setText(String(bytes))
+                Toast.makeText(requireContext(), "Carregado com sucesso !", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "O tipo de arquivo é incompativel.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        } else
+            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
+
+    }
+
+
 }

@@ -46,10 +46,14 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 import androidx.documentfile.provider.DocumentFile
+import br.edu.infnet.dr4_e5_a1_criptostring.Criptografador
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 
 
 class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.OnClickListener {
 
+    private val cripto = Criptografador()
     private var _binding: FragmentDenunciaCadastroBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by activityViewModels()
@@ -62,6 +66,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
     val COARSE_REQUEST = 12345
     val FINE_REQUEST = 67890
     val WRITE_REQUEST = 999
+    val gson = Gson()
 
 
     override fun onDestroyView() {
@@ -88,32 +93,34 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE_PHOTO) {
+        if (requestCode == REQUEST_CODE_PHOTO && resultCode == RESULT_OK) {
             bmp = data?.extras?.get("data") as Bitmap
             fotoTirada = true
             binding.imageView.setImageBitmap(bmp)
-        } else {
+        } else if(requestCode == REQUEST_CODE_PHOTO && resultCode != RESULT_OK)
             Toast.makeText(this.context, "Erro ao bater foto", Toast.LENGTH_LONG).show()
-        }
+
 
         if (requestCode == WRITE_REQUEST && resultCode == RESULT_OK) {
             if (verificaDados()) {
                 var novaDenuncia = DadosDenuncia(
-                    idUsuario = auth.currentUser?.uid.toString(),
+                    idUsuario = cripto.cipher(auth.currentUser?.uid.toString()),
                     dateRegistro = binding.inputDataHora.text.toString(),
                     latitude = binding.inputLatitude.text.toString(),
                     longitude = binding.inputLongitude.text.toString(),
                     descricao = binding.inputDescricao.text.toString(),
                     titulo = binding.inputTitulo.text.toString()
                 )
-
+                val gsonPretty = GsonBuilder().setPrettyPrinting().create()
                 val fos =
                     getActivity()?.getContentResolver()?.openOutputStream(data?.getData()!!)
-                fos!!.write(novaDenuncia.toString().toByteArray())
+                fos!!.write(cripto.cipher(gsonPretty.toJson(novaDenuncia)).toByteArray())
                 fos!!.close()
                 Toast.makeText(context, "Gravou com sucesso !", Toast.LENGTH_SHORT).show()
+                limparCampos()
+                carregaDados()
             }
-        } else
+        } else if(requestCode == WRITE_REQUEST && resultCode != RESULT_OK)
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
 
     }
@@ -145,6 +152,11 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                         viewModel.NavegaFragment(0)
                         Navigation.findNavController(view)
                             .navigate(R.id.action_denunciaCadastroFragment_to_denunciaListarFragment)
+                    }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaCadastroFragment_to_directoryFragment)
                     }
                 }
 
@@ -201,7 +213,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
 
             val alertDialog = AlertDialog.Builder(requireContext())
             alertDialog.setTitle("Alerta")
-            alertDialog.setMessage("Fazer backup Denuncia: ${binding.inputTitulo.text.toString()}")
+            alertDialog.setMessage("Fazer backup da Denuncia: ${binding.inputTitulo.text.toString()}")
             alertDialog.setPositiveButton("Sim", this)
             alertDialog.setNegativeButton("Não", this)
             alertDialog.setCancelable(true)//alerta modal
@@ -271,7 +283,6 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         uploadTask.addOnSuccessListener {
             if (progressDialog.isShowing)
                 progressDialog.dismiss()
-            limparCampos()
         }
             .addOnFailureListener { e ->
                 progressDialog.dismiss()

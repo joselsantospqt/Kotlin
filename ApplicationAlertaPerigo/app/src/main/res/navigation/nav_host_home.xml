@@ -139,5 +139,17 @@
         <action
             android:id="@+id/action_directoryFragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_directoryFragment_to_homePerfilFragment"
+            app:destination="@id/homePerfilFragment" />
+        <action
+            android:id="@+id/action_directoryFragment_to_denunciaListarFragment"
+            app:destination="@id/denunciaListarFragment" />
+        <action
+            android:id="@+id/action_directoryFragment_to_denunciaExcluirFragment"
+            app:destination="@id/denunciaExcluirFragment" />
+        <action
+            android:id="@+id/action_directoryFragment_to_denunciaCadastroFragment"
+            app:destination="@id/denunciaCadastroFragment" />
     </fragment>
 </navigation>

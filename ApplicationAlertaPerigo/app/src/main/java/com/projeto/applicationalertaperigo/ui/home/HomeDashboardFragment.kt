@@ -122,6 +122,11 @@ class HomeDashboardFragment : Fragment() {
                         Navigation.findNavController(view)
                             .navigate(R.id.action_homeDashboardFragment_to_denunciaListarFragment)
                     }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homeDashboardFragment_to_directoryFragment)
+                    }
                 }
             }
         })

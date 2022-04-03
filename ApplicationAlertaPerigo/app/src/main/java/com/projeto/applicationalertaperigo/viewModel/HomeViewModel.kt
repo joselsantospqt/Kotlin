@@ -47,6 +47,7 @@ class HomeViewModel : ViewModel() {
     // 2 = PERFIL
     // 3 = CADASTRAR DENUNCIA
     // 4 = LISTAR DENUNCIA
+    // 5 = DIRETORIO DE ARQUIVOS
 
     private val _trocaFragment = MutableLiveData<Int>(null)
     var trocaFragment: LiveData<Int> = _trocaFragment

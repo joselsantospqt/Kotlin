@@ -189,6 +189,11 @@ class HomePerfilFragment : Fragment(), DialogInterface.OnClickListener {
                         Navigation.findNavController(view)
                             .navigate(R.id.action_homePerfilFragment_to_denunciaListarFragment)
                     }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_homePerfilFragment_to_directoryFragment)
+                    }
                 }
 
             }

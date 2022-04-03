@@ -6,13 +6,13 @@ import com.google.type.DateTime
 
 @IgnoreExtraProperties
 data class DadosDenuncia (
-    val idUsuario: String? = null,
-    val dateRegistro: String? = null,
+    val titulo: String? = null,
+    val descricao: String? = null,
     val latitude: String? = null,
     val longitude: String? = null,
-    val descricao: String? = null,
-    val titulo: String? = null
-    ) {
+    val dateRegistro: String? = null,
+    val idUsuario: String? = null
+) {
 
         @Exclude
         fun toMap(): Map<String, Any?> {

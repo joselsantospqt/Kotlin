@@ -140,6 +140,11 @@ class DenunciaEditarFragment : Fragment() {
                         Navigation.findNavController(view)
                             .navigate(R.id.action_denunciaEditarFragment_to_denunciaListarFragment)
                     }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaEditarFragment_to_directoryFragment)
+                    }
                 }
 
             }

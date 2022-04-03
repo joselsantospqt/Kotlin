@@ -147,6 +147,11 @@ class DenunciaExcluirFragment : Fragment() {
                         Navigation.findNavController(view)
                             .navigate(R.id.action_denunciaExcluirFragment_to_denunciaListarFragment)
                     }
+                    5 -> {
+                        viewModel.NavegaFragment(0)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_denunciaExcluirFragment_to_directoryFragment)
+                    }
                 }
 
             }
