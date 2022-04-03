@@ -58,14 +58,13 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
-    lateinit var bmp: Bitmap
     private val nomeCollection = "Denuncias"
     private var fotoTirada = false
     private val REQUEST_CODE_PHOTO = 1
-    val camera_permission_code = 100
-    val COARSE_REQUEST = 12345
-    val FINE_REQUEST = 67890
-    val WRITE_REQUEST = 999
+    private val COARSE_REQUEST = 12345
+    private val FINE_REQUEST = 67890
+    private val WRITE_REQUEST = 999
+    lateinit var bmp: Bitmap
     val gson = Gson()
 
 
@@ -140,18 +139,18 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
 
         //PERMISSÃO PARA CAMERA
-        if (requestCode == camera_permission_code && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == REQUEST_CODE_PHOTO && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
-        } else if (requestCode == camera_permission_code && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+        } else if (requestCode == REQUEST_CODE_PHOTO && grantResults[0] != PackageManager.PERMISSION_GRANTED)
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
 
         //PERMISSÃO GRAVAR ARQUIVO EM MEMORIA
         if (requestCode == WRITE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
             this.backupDocumento()
-        } else if (requestCode == camera_permission_code && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+        } else if (requestCode == WRITE_REQUEST && grantResults[0] != PackageManager.PERMISSION_GRANTED)
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
     }
 
@@ -291,7 +290,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                 Manifest.permission.CAMERA
             ) != PackageManager.PERMISSION_GRANTED
         )
-            requestPermissions(arrayOf(Manifest.permission.CAMERA), camera_permission_code)
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), REQUEST_CODE_PHOTO)
         else {
             val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(i, REQUEST_CODE_PHOTO)
