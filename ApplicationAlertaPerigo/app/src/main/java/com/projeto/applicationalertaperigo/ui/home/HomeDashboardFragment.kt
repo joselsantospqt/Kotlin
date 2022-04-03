@@ -67,7 +67,6 @@ class HomeDashboardFragment : Fragment() {
         viewModel.CarregaDadosUsuario(auth.currentUser?.uid.toString())
     }
 
-
     private fun setupButton(view: View) {
         binding.btnPerfil.setOnClickListener {
             Navigation.findNavController(view)
@@ -131,7 +130,6 @@ class HomeDashboardFragment : Fragment() {
             }
         })
     }
-
 
     private fun requestReward() {
         var adRequest = AdRequest.Builder().build()

@@ -113,7 +113,7 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
         }
     }
 
-    fun setupRecyclerView() {
+    private fun setupRecyclerView() {
         val progressDialog = ProgressDialog(this.context)
         progressDialog.setMessage("Carregando Dados...")
         progressDialog.setCancelable(false)
@@ -130,7 +130,7 @@ class DenunciaListarFragment : Fragment(), DialogInterface.OnClickListener {
             ListaDenunciasById(db, listaDenuncias, progressDialog)
     }
 
-    fun ListaDenunciasById(
+    private fun ListaDenunciasById(
         db: FirebaseFirestore,
         listaDenuncias: MutableList<DadosDenunciaComFoto>,
         progressDialog: ProgressDialog

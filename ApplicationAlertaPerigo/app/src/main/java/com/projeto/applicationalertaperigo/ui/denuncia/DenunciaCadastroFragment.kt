@@ -93,13 +93,12 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == REQUEST_CODE_PHOTO && resultCode == RESULT_OK) {
             bmp = data?.extras?.get("data") as Bitmap
             fotoTirada = true
             binding.imageView.setImageBitmap(bmp)
-        } else if(requestCode == REQUEST_CODE_PHOTO && resultCode != RESULT_OK)
-            Toast.makeText(this.context, "Erro ao bater foto", Toast.LENGTH_LONG).show()
-
+        }
 
         if (requestCode == WRITE_REQUEST && resultCode == RESULT_OK) {
             if (verificaDados()) {
@@ -120,9 +119,40 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                 limparCampos()
                 carregaDados()
             }
-        } else if(requestCode == WRITE_REQUEST && resultCode != RESULT_OK)
+        }
+
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        //PERMISSÃO PARA GPS
+        if (requestCode == COARSE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+            this.obterCoordenasRede()
+        } else if (requestCode == FINE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+            this.obterCoordenasGps()
+        } else if (requestCode == FINE_REQUEST || requestCode == COARSE_REQUEST && grantResults[0] != PackageManager.PERMISSION_GRANTED)
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
 
+        //PERMISSÃO PARA CAMERA
+        if (requestCode == camera_permission_code && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
+        } else if (requestCode == camera_permission_code && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
+
+        //PERMISSÃO GRAVAR ARQUIVO EM MEMORIA
+        if (requestCode == WRITE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
+            this.backupDocumento()
+        } else if (requestCode == camera_permission_code && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
     }
 
     override fun onLocationChanged(p0: Location) {
@@ -164,6 +194,19 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         })
     }
 
+    private fun setupButton(view: View) {
+        binding.btnVoltar.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_denunciaCadastroFragment_to_homeDashboardFragment)
+        }
+        binding.btnRegistrar.setOnClickListener {
+            addProduto()
+        }
+        binding.btnFoto.setOnClickListener {
+            tirarFoto()
+        }
+    }
+
     private fun carregaDados() {
         var location: Location? = obterCoordenasRede()
         if (location != null) {
@@ -183,19 +226,6 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                 "Erro, Tente Novamente ou mais tarde.",
                 Toast.LENGTH_LONG
             ).show()
-        }
-    }
-
-    private fun setupButton(view: View) {
-        binding.btnVoltar.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_denunciaCadastroFragment_to_homeDashboardFragment)
-        }
-        binding.btnRegistrar.setOnClickListener {
-            addProduto()
-        }
-        binding.btnFoto.setOnClickListener {
-            tirarFoto()
         }
     }
 
@@ -268,7 +298,7 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
         }
     }
 
-    fun uploadFoto(idUpload: String, caminho: String) {
+    private fun uploadFoto(idUpload: String, caminho: String) {
         val progressDialog = ProgressDialog(this.context)
         progressDialog.setMessage("Cadastrando Dados...")
         progressDialog.setCancelable(false)
@@ -311,15 +341,14 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                     this
                 )
                 location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+            } else {
+                requestPermissions(
+                    arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
+                    COARSE_REQUEST
+                )
             }
-            return location
-        } else {
-            this.requestPermissions(
-                arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
-                COARSE_REQUEST
-            )
-            return location
         }
+        return location
     }
 
     private fun obterCoordenasGps(): Location? {
@@ -328,7 +357,6 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
             context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         if (isGpsEnabled) {
-
             if (ActivityCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -342,36 +370,39 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
                     this
                 )
                 location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            } else {
+                requestPermissions(
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    FINE_REQUEST
+                )
+
             }
-            return location
-        } else {
-            requestPermissions(
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                FINE_REQUEST
-            )
-            return location
         }
+        return location
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        //PERMISSÃO PARA GPS
-        if (requestCode == COARSE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            this.obterCoordenasRede()
-        } else if (requestCode == FINE_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            this.obterCoordenasGps()
+    private fun backupDocumento() {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            == PackageManager.PERMISSION_GRANTED
+        ) {
+            var i = Intent(Intent.ACTION_CREATE_DOCUMENT)
+            i.addCategory(Intent.CATEGORY_OPENABLE)
+            i.setType("text/plain")
+            i.putExtra(
+                Intent.EXTRA_TITLE,
+                "${binding.inputDataHora.text.toString()}.txt"
+            )
+            startActivityForResult(i, WRITE_REQUEST)
+        } else {
+            requestPermissions(
+                arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                WRITE_REQUEST
+            )
+
         }
-        //PERMISSÃO PARA CAMERA
-        if (requestCode == camera_permission_code && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
-            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(cameraIntent, REQUEST_CODE_PHOTO)
-        } else
-            Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
 
     }
 
@@ -383,17 +414,6 @@ class DenunciaCadastroFragment : Fragment(), LocationListener, DialogInterface.O
             "Sim" -> backupDocumento()
             "Não" -> alertDialog.cancel()
         }
-    }
-
-    fun backupDocumento() {
-            var i = Intent(Intent.ACTION_CREATE_DOCUMENT)
-            i.addCategory(Intent.CATEGORY_OPENABLE)
-            i.setType("text/plain")
-            i.putExtra(
-                Intent.EXTRA_TITLE,
-                "${binding.inputDataHora.text.toString()}.txt"
-            )
-            startActivityForResult(i, WRITE_REQUEST)
     }
 
 

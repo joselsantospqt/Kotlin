@@ -56,7 +56,7 @@ class DenunciaExcluirFragment : Fragment() {
     }
 
 
-    fun limparCampos() {
+    private fun limparCampos() {
         binding.inputDataHora.setText("")
         binding.inputLatitude.setText("")
         binding.inputLongitude.setText("")
