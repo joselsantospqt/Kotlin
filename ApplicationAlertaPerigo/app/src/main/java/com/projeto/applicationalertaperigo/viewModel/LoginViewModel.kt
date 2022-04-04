@@ -102,6 +102,10 @@ class LoginViewModel: ViewModel() {
     private val _atualizaEndereco = MutableLiveData<Int>(0)
     var atualizaEndereco: LiveData<Int> = _atualizaEndereco
 
+    fun setAtualizaEndereco(number: Int) {
+        _atualizaEndereco.postValue(number)
+    }
+
     fun setAtualizaEndereco() {
         _atualizaEndereco.value = _atualizaEndereco.value?.plus(1)
     }

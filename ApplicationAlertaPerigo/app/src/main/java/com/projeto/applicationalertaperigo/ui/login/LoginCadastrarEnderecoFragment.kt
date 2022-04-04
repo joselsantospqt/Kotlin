@@ -46,7 +46,7 @@ class LoginCadastrarEnderecoFragment : Fragment() {
         lerViewModel()
         setuptextChange()
         setupButton(view)
-        //setupObservers()
+        setupObservers()
     }
 
     private fun setupButton(view: View) {
@@ -88,6 +88,7 @@ class LoginCadastrarEnderecoFragment : Fragment() {
         binding.textInputCEP.doAfterTextChanged { it ->
             if (!it.isNullOrEmpty() && !it.isBlank() && it?.length == 8) {
                 viewModel.setCEP(it.toString())
+                viewModel.setAtualizaEndereco(0)
             } else {
                 viewModel.setCEP("")
                 Log.i("CEP", "CEP menor que 8 caracteres")
@@ -171,13 +172,14 @@ class LoginCadastrarEnderecoFragment : Fragment() {
     }
 
     private fun setupObservers() {
+        viewModel.cep.observe(viewLifecycleOwner) {
+            if (it.length == 8 && viewModel.atualizaEndereco.value == 0)
+                viewModel.getEndereco()
+        }
         viewModel.atualizaEndereco.observe(viewLifecycleOwner) {
-            if (it == 0) {
-                viewModel.cep.observe(viewLifecycleOwner) {
-                    if (it.length == 8) { viewModel.getEndereco() }
-                }
-            } else {
+            if (it == 1) {
                 lerViewModelSemCep()
+                viewModel.setAtualizaEndereco(2)
             }
         }
     }
