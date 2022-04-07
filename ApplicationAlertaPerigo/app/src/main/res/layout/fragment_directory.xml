@@ -9,31 +9,27 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="277dp"
-        android:layout_marginTop="16dp"
-         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/btnArquivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ver Arquivos Salvos"
-        app:layout_constraintEnd_toStartOf="@+id/btnDescripto"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnDescripto" />
+        app:layout_constraintBottom_toTopOf="@+id/btnDescripto"
+        app:layout_constraintEnd_toEndOf="@+id/btnDescripto"
+        app:layout_constraintStart_toStartOf="@+id/btnDescripto"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/btnDescripto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
         android:text="Descriptografar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnArquivo"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnArquivo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

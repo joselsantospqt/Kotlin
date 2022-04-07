@@ -71,6 +71,7 @@ class DirectoryFragment : Fragment() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == READ_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
             this.abrirDiretorio()
         } else
             Toast.makeText(context, "A permissão foi negada", Toast.LENGTH_LONG).show()
@@ -117,7 +118,17 @@ class DirectoryFragment : Fragment() {
         }
 
         binding.btnDescripto.setOnClickListener {
-            binding.textView3.setText(cripto.decipher(binding.textView3.text.toString()))
+
+            try {
+                if(binding.textView3.text.toString().length != 0)
+                binding.textView3.setText(cripto.decipher(binding.textView3.text.toString()))
+                else
+                    Toast.makeText(context, "Não ha texto para descriptografar", Toast.LENGTH_LONG).show()
+
+            } catch (e: Exception) {
+                Toast.makeText(context, "$e", Toast.LENGTH_LONG).show()
+
+            }
         }
     }
 
@@ -128,7 +139,6 @@ class DirectoryFragment : Fragment() {
             )
             == PackageManager.PERMISSION_GRANTED
         ) {
-            Toast.makeText(context, "A permissão foi concedida", Toast.LENGTH_LONG).show()
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             intent.setType("*/*")
